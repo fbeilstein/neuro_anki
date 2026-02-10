@@ -1,0 +1,22 @@
+<div class="widget">
+    <h3>Forecast (7 Days)</h3>
+    <div class="histo-container">
+        {% for count in histogram %}
+        <div class="bar-wrapper">
+            <span class="bar-number">{% if count > 0 %}{{ count }}{% endif %}</span>
+            
+            {% set height = (count / 20 * 100) %} 
+            <div class="bar" style="height: {{ [height, 100]|min }}%;"></div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="stats-text" style="text-align:center; margin-top:5px;">Next 7 Days</div>
+</div>
+
+<style>
+    .histo-container { display: flex; align-items: flex-end; height: 80px; gap: 6px; padding-top: 15px; }
+    .bar-wrapper { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; position: relative; }
+    .bar { background: var(--accent); opacity: 0.7; min-height: 2px; border-radius: 3px 3px 0 0; transition: height 0.3s; }
+    .bar:hover { opacity: 1; }
+    .bar-number { text-align: center; font-size: 0.75rem; color: #888; margin-bottom: 2px; font-family: monospace; }
+</style>

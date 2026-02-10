@@ -1,6 +1,7 @@
+import os
+import jinja2
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from card_manager import CardManager
-import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'neuro_anki_secret'
@@ -9,56 +10,46 @@ app.config['SECRET_KEY'] = 'neuro_anki_secret'
 CURRENT_COURSE = "japanese"
 COURSE_PATH = os.path.join("courses", CURRENT_COURSE)
 
-# Initialize Manager (Loads DB, LTM, STM)
-manager = CardManager(CURRENT_COURSE)
+# --- CRITICAL: MULTI-FOLDER TEMPLATE LOADING ---
+# This tells Flask: "Look for templates in 'templates/' AND 'courses/'"
+# This allows 'layout.html' (in courses) to find 'base.html' (in templates)
+my_loader = jinja2.ChoiceLoader([
+    jinja2.FileSystemLoader(['templates', 'courses']),
+])
+app.jinja_loader = my_loader
 
-@app.route('/')
-def index():
-    return redirect(url_for('study'))
+manager = CardManager(CURRENT_COURSE)
 
 @app.route('/study')
 def study():
-    # 1. Get Next Card
-    # This returns: {'card': {...}, 'source': 'drum'/'db', 'due_in_drum': True/False}
     context = manager.get_next_card()
-    
     if not context:
         return "<h1>No cards due! Good job.</h1>"
 
     card = context['card']
     
-    # 2. Get UI Stats
-    # A. Drum State (Show 'EN' to avoid spoilers)
-    # We grab the whole drum list to visualize it
-    drum_items = manager.stm.drum # Access raw list for UI
-    
-    # B. Histogram (Next 7 days)
+    # UI Stats calculation (same as before)
+    drum_items = manager.stm.drum 
     histogram = manager.db.get_workload_histogram(7)
-    
-    # C. Progress (LTM vs Total)
-    # We estimate "LTM" as cards that have > 0 reviews
-    # Total cards is len(df)
     total_cards = len(manager.db.df)
     seen_cards = len(manager.db.df[manager.db.df['last_review'] > 0])
     progress_pct = int((seen_cards / total_cards) * 100) if total_cards > 0 else 0
 
-    # 3. Render
-    # We assume the HTML is inside the course folder
+    # RENDER
+    # We ask for the course-specific layout. 
+    # Because of the loader above, we reference it relative to 'courses/'
+    # e.g. "japanese_core/layout.html"
+    template_name = f"{CURRENT_COURSE}/layout.html"
+    
     return render_template(
-        'layout.html', 
-        
-        # Card Data
+        template_name,
         card=card,
         source=context['source'],
-        
-        # UI Stats
         drum_items=drum_items,
         histogram=histogram,
         progress_current=seen_cards,
         progress_total=total_cards,
         progress_pct=progress_pct,
-        
-        # System
         course=CURRENT_COURSE
     )
 

@@ -1,0 +1,18 @@
+<div class="widget">
+    <h3>Short Term Drum ({{ drum_items|length }})</h3>
+    <ul class="drum-list">
+        {% for item in drum_items %}
+        <li class="drum-item {% if item['card']['id'] == card['id'] %}active{% endif %}">
+            <span>{{ item['card']['EN'] }}</span>
+            <span class="drum-index">{{ item['index'] }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<style>
+    .drum-list { list-style: none; padding: 0; margin: 0; }
+    .drum-item { background: #333; padding: 8px 12px; margin-bottom: 6px; border-radius: 4px; font-size: 0.9rem; display: flex; justify-content: space-between; }
+    .drum-item.active { border-left: 3px solid var(--accent); background: #3a3a4a; }
+    .drum-index { color: #666; font-family: monospace; }
+</style>
