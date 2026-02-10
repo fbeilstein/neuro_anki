@@ -20,6 +20,12 @@ app.jinja_loader = my_loader
 
 manager = CardManager(CURRENT_COURSE)
 
+
+@app.route('/engine.js')
+def serve_engine_js():
+    # We serve directly from the 'templates' folder
+    return send_from_directory('templates', 'engine.js')
+
 @app.route('/study')
 def study():
     context = manager.get_next_card()

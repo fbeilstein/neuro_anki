@@ -1,9 +1,9 @@
 <div class="widget">
-    <h3>Short Term Drum ({{ drum_items|length }})</h3>
+    <h3>Short Term Memory ({{ drum_items|length }})</h3>
     <ul class="drum-list">
         {% for item in drum_items %}
         <li class="drum-item {% if item['card']['id'] == card['id'] %}active{% endif %}">
-            <span>{{ item['card']['EN'] }}</span>
+            <span>{{ item['card']['EN'] | safe}}</span>
             <span class="drum-index">{{ item['index'] }}</span>
         </li>
         {% endfor %}

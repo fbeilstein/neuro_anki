@@ -11,12 +11,6 @@ class CardManager:
         self.stm = ShortTermMemory()
         
     def get_next_card(self):
-        """
-        Retrieval Logic:
-        1. Check Drum (Short Term)
-        2. Check DB Overdue (Long Term)
-        3. Check DB New (Long Term)
-        """
         # 1. Check Short Term Memory (The Drum)
         card = self.stm.get_ready_card()
         if card:
@@ -80,12 +74,6 @@ class CardManager:
                 # LTM Failure
                 card = self.db.get_card(card_id)
                 updates = self.ltm.review_card(card, 0, now_ts)
-                
-                # --- YOUR LOGIC FIX ---
-                # Check if the card effectively has NO success record.
-                # This covers:
-                # 1. Fresh cards (History is []) -> sum is 0
-                # 2. Panic cards (History is [0,0,0,0,0]) -> sum is 0
                 try:
                     # Parse the history string back to a list to check it
                     new_history = ast.literal_eval(updates['history_result'])

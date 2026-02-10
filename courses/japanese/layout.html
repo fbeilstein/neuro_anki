@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block custom_css %}
-    /* Japanese Specific Styling */
     .jp-word { color: var(--accent); font-size: 2.5rem; }
     .reading { color: #888; font-size: 1.2rem; margin-bottom: 15px;}
     .sentence { font-style:italic; color:#aaa; line-height: 1.4; }
@@ -11,27 +10,22 @@
 
 {% block question_area %}
     <div class="hint">{{ card['part_of_speech'] }}</div>
-    <h1>{{ card['EN'] }}</h1>
+    <h1>{{ card['EN'] | safe }}</h1>
 {% endblock %}
 
 {% block answer_area %}
     <div class="jp-word">{{ card['JP'] }}</div>
     <div class="reading">{{ card['JP_reading'] }}</div>
-    
     <div class="sentence">{{ card['JP_sentence'] | safe }}</div>
     
     {% if card['JP_media'] %}
         <audio id="audio-player" src="/media/{{ card['JP_media'] }}"></audio>
     {% endif %}
 
-    <script>
-        // We define what counts as a correct answer here
-        window.validAnswers = [
-            "{{ card['JP_reading'] }}", 
-            "{{ card['JP'] }}"
-        ];
-        
-        // We define what to show if the user is wrong
-        window.primaryAnswer = "{{ card['JP_reading'] }}"; 
-    </script>
+    <div id="logic-config" 
+         style="display:none;"
+         data-primary="{{ card['JP_reading'] }}"
+         data-valid='{{ [card["JP_reading"], card["JP"]] | tojson }}'>
+    </div>
+
 {% endblock %}
