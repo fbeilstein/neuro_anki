@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neuro Anki</title>
+    <style>
+        :root { --bg: #1e1e1e; --card: #2d2d2d; --text: #e0e0e0; --accent: #4a90e2; --success: #4cd964; --danger: #ff6b6b; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
+        
+        /* LAYOUT */
+        .main-stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        .sidebar { width: 300px; background: #252525; border-left: 1px solid #333; padding: 20px; display: flex; flex-direction: column; gap: 30px; overflow-y: auto; }
+
+        /* CARD STYLES */
+        .flashcard { background: var(--card); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center; max-width: 600px; width: 100%; }
+        h1 { font-size: 3rem; margin: 0 0 20px 0; }
+        .hint { color: #888; font-size: 1.2rem; margin-bottom: 30px; }
+        input[type="text"] { width: 80%; padding: 15px; font-size: 1.5rem; background: #333; border: 2px solid #444; color: white; border-radius: 8px; outline: none; text-align: center; }
+        input:focus { border-color: var(--accent); }
+        /* When in ReadOnly mode (Answered), look disabled but stay active */
+        input:read-only { opacity: 0.8; cursor: default; }
+
+        /* SIDEBAR COMPONENTS */
+        .widget h3 { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        
+        /* DRUM VISUALIZER */
+        .drum-list { list-style: none; padding: 0; }
+        .drum-item { background: #333; padding: 8px 12px; margin-bottom: 6px; border-radius: 4px; font-size: 0.9rem; display: flex; justify-content: space-between; }
+        .drum-item.active { border-left: 3px solid var(--accent); background: #3a3a4a; }
+        .drum-index { color: #666; font-family: monospace; }
+
+        /* HISTOGRAM */
+        .histo-container { display: flex; align-items: flex-end; height: 60px; gap: 4px; }
+        .bar { flex: 1; background: var(--accent); opacity: 0.6; min-height: 2px; border-radius: 2px 2px 0 0; position: relative; }
+        .bar:hover { opacity: 1; }
+
+        /* PROGRESS */
+        .progress-track { background: #333; height: 10px; border-radius: 5px; overflow: hidden; }
+        .progress-fill { background: var(--success); height: 100%; width: {{ progress_pct }}%; transition: width 0.3s; }
+        .stats-text { font-size: 0.8rem; color: #666; margin-top: 5px; text-align: right; }
+
+        /* HIDDEN ANSWER */
+        .answer-reveal { display: none; margin-top: 20px; border-top: 1px solid #444; padding-top: 20px; }
+        .jp-word { color: var(--accent); font-size: 2.5rem; }
+        .reading { color: #888; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+    <div class="main-stage">
+        <div class="flashcard">
+            <div class="hint">{{ card['part_of_speech'] }}</div>
+            <h1>{{ card['EN'] }}</h1>
+            
+            <form id="ans-form" action="/answer" method="POST">
+                <input type="text" id="user-input" autocomplete="off" placeholder="Type reading or word..." autofocus>
+                
+                <input type="hidden" name="card_id" value="{{ card['id'] }}">
+                <input type="hidden" name="source" value="{{ source }}">
+                <input type="hidden" name="grade" id="hidden-grade" value="0">
+            </form>
+
+            <div id="answer-box" class="answer-reveal" 
+                 data-reading="{{ card['JP_reading'] }}" 
+                 data-kanji="{{ card['JP'] }}">
+                 
+                <div class="jp-word">{{ card['JP'] }}</div>
+                <div class="reading">{{ card['JP_reading'] }}</div>
+                <div style="margin-top:15px; font-style:italic; color:#aaa;">{{ card['JP_sentence'] }}</div>
+                
+                {% if card['JP_media'] %}
+                    <audio id="audio-player" src="/media/{{ card['JP_media'] }}"></audio>
+                {% endif %}
+                
+                <div style="margin-top:30px; color:#555; font-size:0.9rem;">Press ENTER to continue</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="widget">
+            <h3>Long Term Memory</h3>
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="stats-text">{{ progress_current }} / {{ progress_total }} words</div>
+        </div>
+
+        <div class="widget">
+            <h3>Forecast (7 Days)</h3>
+            <div class="histo-container">
+                {% for count in histogram %}
+                <div class="bar" style="height: {{ (count / 50 * 100)|round }}%;"></div>
+                {% endfor %}
+            </div>
+            <div class="stats-text" style="text-align:center;">Next 7 Days</div>
+        </div>
+
+        <div class="widget">
+            <h3>Short Term Drum ({{ drum_items|length }})</h3>
+            <ul class="drum-list">
+                {% for item in drum_items %}
+                <li class="drum-item {% if item['card']['id'] == card['id'] %}active{% endif %}">
+                    <span>{{ item['card']['EN'] }}</span>
+                    <span class="drum-index">{{ item['index'] }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('user-input');
+            const form = document.getElementById('ans-form');
+            const answerBox = document.getElementById('answer-box');
+            const hiddenGrade = document.getElementById('hidden-grade');
+            const audio = document.getElementById('audio-player');
+            
+            // Normalize: remove punctuation/spaces, lowercase
+            function normalize(text) {
+                if(!text) return "";
+                return text.trim().toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()\s]/g,"");
+            }
+
+            // Get Correct Answers (Both are valid)
+            const correctReading = normalize(answerBox.getAttribute('data-reading'));
+            const correctKanji = normalize(answerBox.getAttribute('data-kanji'));
+
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+
+                    // FIX 1: Check readOnly instead of disabled
+                    // If readOnly is true, it means we already answered -> Submit
+                    if (input.readOnly) {
+                        form.submit();
+                        return;
+                    }
+
+                    // CHECK ANSWER
+                    const userVal = normalize(input.value);
+                    
+                    // FIX 2: Accept EITHER Reading OR Kanji
+                    const isCorrect = (userVal === correctReading || userVal === correctKanji);
+                    
+                    // 1. Update UI
+                    input.readOnly = true; // Use readOnly so keyboard events still fire!
+                    answerBox.style.display = 'block';
+                    
+                    if (isCorrect) {
+                        input.style.backgroundColor = '#2d4a33';
+                        input.style.color = '#4cd964';
+                        hiddenGrade.value = "1"; 
+                    } else {
+                        input.style.backgroundColor = '#4a2d2d';
+                        input.style.color = '#ff6b6b';
+                        // Show both correct options if they differ
+                        if (correctReading !== correctKanji) {
+                            input.value += " -> " + correctReading + " / " + correctKanji; 
+                        } else {
+                            input.value += " -> " + correctReading;
+                        }
+                        hiddenGrade.value = "0"; 
+                    }
+
+                    // 2. Play Audio
+                    if(audio) audio.play();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
