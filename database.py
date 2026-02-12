@@ -88,15 +88,37 @@ class Database:
         return [self._process_card(row) for _, row in df_res.iterrows()]
 
     # --- WRITE METHODS ---
-    def update_card(self, cid, updates):
-        idx = self.df.index[self.df['id'] == cid].tolist()
-        if not idx: return
-        idx = idx[0]
+    def update_card(self, card_id, updates):
+        # Find the row index
+        rows = self.df.index[self.df['id'] == card_id].tolist()
+        if not rows:
+            print(f"Card {card_id} not found!")
+            return
+        idx = rows[0]
         
         for key, val in updates.items():
-            self.df.at[idx, key] = val
+            if key in self.df.columns:
+                # --- TYPE SAFETY FIX ---
+                # Check what type of data the column expects
+                col_dtype = self.df[key].dtype
                 
-        self._save()
+                try:
+                    # If column is Integer, try to convert string "1" -> 1
+                    if pd.api.types.is_integer_dtype(col_dtype):
+                        val = int(val)
+                    # If column is Float, try to convert string "1.5" -> 1.5
+                    elif pd.api.types.is_float_dtype(col_dtype):
+                        val = float(val)
+                except ValueError:
+                    # If conversion fails (e.g. user typed "Two" for a number),
+                    # we pass the raw string and let Pandas decide (it might crash, which is good for debugging)
+                    pass
+                
+                # Apply the update
+                self.df.at[idx, key] = val
+        
+        # Save to disk
+        self.df.to_csv(self.filename, index=False)
 
     # --- ANALYTICS ---
     def get_workload_histogram(self, days=7):

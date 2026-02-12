@@ -17,6 +17,7 @@
     <div class="jp-word">{{ card['JP'] }}</div>
     <div class="reading">{{ card['JP_reading'] }}</div>
     <div class="sentence">{{ card['JP_sentence'] | safe }}</div>
+    <div class="sentence">{{ card['EN_sentence'] | safe }}</div>
     
     {% if card['JP_media'] %}
         <audio id="audio-player" src="/media/{{ card['JP_media'] }}"></audio>

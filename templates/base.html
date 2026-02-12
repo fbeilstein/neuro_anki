@@ -5,8 +5,6 @@
     <title>Neuro Anki - {{ course }}</title>
     <script src="{{ url_for('serve_engine_js') }}" defer></script>
     <style>
-        /* ... (Keep your existing CSS exactly as it was) ... */
-        /* I'm omitting the CSS block here for brevity, keep it! */
         :root { --bg: #1e1e1e; --card: #2d2d2d; --text: #e0e0e0; --accent: #4a90e2; --success: #4cd964; --danger: #ff6b6b; }
         body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
         .main-stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
@@ -23,12 +21,28 @@
         .answer-reveal { display: none; margin-top: 30px; border-top: 1px solid #444; padding-top: 20px; }
         
         {% block custom_css %}{% endblock %}
-    </style>
+        
+        /* Edit Button Style */
+        .edit-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: #444;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .edit-btn:hover { color: var(--accent); }
+</style>
 </head>
 <body>
 
     <div class="main-stage">
         <div class="flashcard">
+            <a href="/edit/{{ card['id'] }}" class="edit-btn" title="Edit Card">✎</a>
             
             {% block question_area %}{% endblock %}
             

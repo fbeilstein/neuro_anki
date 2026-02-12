@@ -26,6 +26,11 @@ def serve_engine_js():
     # We serve directly from the 'templates' folder
     return send_from_directory('templates', 'engine.js')
 
+@app.route('/')
+def index():
+    # Automatically jump to the study page
+    return redirect(url_for('study'))
+
 @app.route('/study')
 def study():
     context = manager.get_next_card()
@@ -80,7 +85,43 @@ def serve_media(filename):
     media_dir = os.path.join(COURSE_PATH, "media")
     return send_from_directory(media_dir, filename)
 
+    
+
+# ---- EDIT CARD ---
+@app.route('/edit/<int:card_id>')
+def edit_card(card_id):
+    # 1. Find the card
+    card = manager.db.get_card(card_id)
+    if not card:
+        return "Card not found", 404
+        
+    # 2. Define "Editable" fields (Exclude system stats)
+    # We filter out columns that shouldn't be touched manually
+    system_cols = ['id', 'due', 'last_review', 'history_intervals', 'history_result']
+    editable_fields = {k: v for k, v in card.items() if k not in system_cols}
+    
+    return render_template('edit_card.html', card=card, fields=editable_fields)
+
+@app.route('/save_card', methods=['POST'])
+def save_card():
+    card_id = int(request.form['card_id'])
+    
+    # 1. Collect updates from the form
+    updates = {}
+    for key, value in request.form.items():
+        if key != 'card_id':
+            updates[key] = value
+            
+    # 2. Save to DB
+    # Our existing update_card function is generic enough to handle this!
+    manager.db.update_card(card_id, updates)
+    
+    # 3. Return to study
+    return redirect(url_for('study'))
+    
+    
 if __name__ == '__main__':
     # Add the course folder to template path so Flask finds layout.html
     app.template_folder = COURSE_PATH
     app.run(debug=True, port=5000)
+
