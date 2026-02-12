@@ -11,6 +11,7 @@
 {% block question_area %}
     <div class="hint">{{ card['part_of_speech'] }}</div>
     <h1>{{ card['EN'] | safe }}</h1>
+    <div class="sentence">{{ card['EN_sentence'] | safe }}</div>
 {% endblock %}
 
 {% block answer_area %}
