@@ -1,3 +1,5 @@
+{% set max_val = [histogram|max, 10]|max %}
+
 <div class="widget">
     <h3>Forecast (7 Days)</h3>
     <div class="histo-container">
@@ -5,7 +7,7 @@
         <div class="bar-wrapper">
             <span class="bar-number">{% if count > 0 %}{{ count }}{% endif %}</span>
             
-            {% set height = (count / 20 * 100) %} 
+            {% set height = (count / max_val * 100) %} 
             <div class="bar" style="height: {{ [height, 100]|min }}%;"></div>
         </div>
         {% endfor %}
@@ -20,3 +22,5 @@
     .bar:hover { opacity: 1; }
     .bar-number { text-align: center; font-size: 0.75rem; color: #888; margin-bottom: 2px; font-family: monospace; }
 </style>
+
+
