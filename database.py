@@ -73,17 +73,26 @@ class Database:
         except IndexError:
             return None
 
-    def get_due_cards(self, limit=1):
+    def get_due_cards(self, limit=1, exclude_ids=None):
         now = time.time()
         # Filter: due > 0 AND due <= now
         mask = (self.df['due'] > 0) & (self.df['due'] <= now)
         
+        # These cards are currently in the short-term memory
+        if exclude_ids:
+            mask = mask & (~self.df['id'].isin(exclude_ids))
+        
         df_res = self.df[mask].sort_values(by='due', ascending=True).head(limit)
         return [self._process_card(row) for _, row in df_res.iterrows()]
     
-    def get_new_cards(self, limit=1):
+    def get_new_cards(self, limit=1, exclude_ids=None):
         # Filter: last_review == 0
         mask = (self.df['last_review'] == 0)
+        
+        # These cards are currently in the short-term memory
+        if exclude_ids:
+            mask = mask & (~self.df['id'].isin(exclude_ids))
+        
         df_res = self.df[mask].head(limit)
         return [self._process_card(row) for _, row in df_res.iterrows()]
 
@@ -138,3 +147,37 @@ class Database:
                 histogram[day_offset] += 1
                 
         return histogram
+        
+    def add_new_card(self, form_data):
+        # 1. Generate Auto-ID
+        if self.df.empty:
+            new_id = 1
+        else:
+            new_id = int(self.df['id'].max()) + 1
+            
+        # 2. Prepare the new row
+        new_row = {'id': new_id}
+        
+        # 3. Fill Content Fields from Form
+        # We only take fields that actually exist in the DB columns
+        for col in self.df.columns:
+            if col in form_data:
+                new_row[col] = form_data[col]
+            elif col not in new_row: 
+                # If not in form and not ID, it's a technical field or missing
+                new_row[col] = None
+
+        # 4. Auto-Fill Technical Fields (The Magic)
+        new_row['due'] = 0              # Due immediately (or use time.time())
+        new_row['last_review'] = 0      # Never reviewed
+        new_row['history_intervals'] = "[]" # Empty list as string
+        new_row['history_result'] = "[]"    # Empty list as string
+        
+        # 5. Append to DataFrame
+        # We create a single-row DataFrame and concat it (modern Pandas way)
+        new_df = pd.DataFrame([new_row])
+        self.df = pd.concat([self.df, new_df], ignore_index=True)
+        
+        # 6. Save
+        self.df.to_csv(self.filename, index=False)
+        return new_id

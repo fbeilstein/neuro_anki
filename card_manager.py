@@ -19,9 +19,12 @@ class CardManager:
                 'source': 'short_term',
                 'due_in_drum': True
             }
-            
-        # 2. Check DB for Overdue
-        due_cards = self.db.get_due_cards(limit=1)
+        
+        # All Cards' Indices in Short_Term Memory    
+        drum_ids = [item['card']['id'] for item in self.stm.drum]
+        
+        # 2. Check Long-Term Memory for Overdue
+        due_cards = self.db.get_due_cards(limit=1, exclude_ids=drum_ids)
         if due_cards:
             return {
                 'card': due_cards[0],
@@ -30,7 +33,7 @@ class CardManager:
             }
             
         # 3. Check DB for New
-        new_cards = self.db.get_new_cards(limit=1)
+        new_cards = self.db.get_new_cards(limit=1, exclude_ids=drum_ids)
         if new_cards:
             return {
                 'card': new_cards[0],

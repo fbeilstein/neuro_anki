@@ -119,6 +119,30 @@ def save_card():
     # 3. Return to study
     return redirect(url_for('study'))
     
+@app.route('/add')
+def add_card_page():
+    # 1. Identify "Content" columns (Exclude system fields)
+    system_cols = ['id', 'due', 'last_review', 'history_intervals', 'history_result', 'Unnamed: 0']
+    
+    # Get all columns from the current DB
+    all_cols = manager.db.df.columns.tolist()
+    
+    # Filter down to just the ones the user needs to type
+    content_fields = [c for c in all_cols if c not in system_cols]
+    
+    return render_template('add_card.html', fields=content_fields)
+
+@app.route('/create_card', methods=['POST'])
+def create_card():
+    # 1. Pass the form data directly to our new DB method
+    new_id = manager.db.add_new_card(request.form)
+    
+    print(f"Created new card #{new_id}")
+    
+    # 2. Go back to study (or you could redirect to /add again to add another)
+    return redirect(url_for('study'))
+    
+    
     
 if __name__ == '__main__':
     # Add the course folder to template path so Flask finds layout.html

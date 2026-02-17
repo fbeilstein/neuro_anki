@@ -62,7 +62,7 @@ class ShortTermMemory:
             if item['card']['id'] == card_id:
                 item['max_index'] -= 1
                 
-                # Floor at 0 (or allow negative if you want "hyper-urgent")
+                # Floor at 0
                 if item['max_index'] < 0: 
                     item['max_index'] = 0
                     

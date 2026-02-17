@@ -13,7 +13,15 @@
         .progress-track { background: #333; height: 10px; border-radius: 5px; overflow: hidden; }
         .progress-fill { background: var(--success); height: 100%; transition: width 0.3s; }
         .stats-text { font-size: 0.8rem; color: #666; margin-top: 5px; text-align: right; }
-        .flashcard { background: var(--card); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-align: center; max-width: 600px; width: 100%; }
+        .flashcard { 
+            position: relative;
+            background: var(--card); 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
+            text-align: center; 
+            max-width: 600px; 
+            width: 100%; }
         h1 { font-size: 3rem; margin: 0 0 20px 0; }
         input[type="text"] { width: 80%; padding: 15px; font-size: 1.5rem; background: #333; border: 2px solid #444; color: white; border-radius: 8px; outline: none; text-align: center; margin-top: 20px;}
         input:focus { border-color: var(--accent); }
@@ -36,6 +44,25 @@
             transition: color 0.2s;
         }
         .edit-btn:hover { color: var(--accent); }
+        
+        .add-btn {
+            display: block;
+            background: #333;
+            color: var(--accent);
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px dashed #444;
+            transition: all 0.2s;
+            margin-bottom: 20px;
+        }
+        .add-btn:hover {
+            background: #3a3a3a;
+            border-color: var(--accent);
+            color: white;
+        }
 </style>
 </head>
 <body>
@@ -43,7 +70,6 @@
     <div class="main-stage">
         <div class="flashcard">
             <a href="/edit/{{ card['id'] }}" class="edit-btn" title="Edit Card">✎</a>
-            
             {% block question_area %}{% endblock %}
             
             <form id="ans-form" action="/answer" method="POST">
@@ -61,6 +87,7 @@
     </div>
 
     <div class="sidebar">
+        <a href="/add" class="add-btn">+ Add New Word</a>
         {% include 'includes/progress.html' %}
         {% include 'includes/histogram.html' %}
         {% include 'includes/drum.html' %}
