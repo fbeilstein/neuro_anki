@@ -1,34 +1,73 @@
-from streamlit.runtime import exists
 import sys
 import subprocess
-
-if __name__ == "__main__":
-    if exists():
-        # Streamlit is actively running this script! 
-        # We don't need to do anything; just let the UI render.
-        pass
-    else:
-        # Streamlit is NOT running. You executed this via 'python sync_ui.py'.
-        # Let's hand it over to the Streamlit engine automatically.
-        print("🚀 Booting up the Sync UI...")
-        subprocess.run([sys.executable, "-m", "streamlit", "run", sys.argv[0]])
-
-import streamlit as st
-import pandas as pd
 import os
+import pandas as pd
 import daff
+import streamlit as st
+from streamlit.runtime import exists
 from st_aggrid import AgGrid, GridOptionsBuilder, JsCode, DataReturnMode, GridUpdateMode
 
+# --- The Terminal Course Chooser & Launcher ---
+if __name__ == "__main__":
+    if not exists():
+        # 1. We are in the terminal. Scan the courses directory.
+        courses_dir = "courses"
+        if not os.path.exists(courses_dir):
+            print(f"❌ Error: Could not find the '{courses_dir}' directory.")
+            sys.exit(1)
+            
+        # Get all subdirectories in 'courses/'
+        available_courses = [d for d in os.listdir(courses_dir) if os.path.isdir(os.path.join(courses_dir, d))]
+        
+        if not available_courses:
+            print(f"❌ No course folders found inside '{courses_dir}'.")
+            sys.exit(1)
+            
+        # 2. Render the terminal menu
+        print("\n📚 Available Courses:")
+        for i, course in enumerate(available_courses):
+            print(f"  {i + 1}. {course.capitalize()}")
+            
+        # 3. Wait for user selection
+        while True:
+            try:
+                choice = int(input(f"\nSelect a course to sync (1-{len(available_courses)}): "))
+                if 1 <= choice <= len(available_courses):
+                    selected_course = available_courses[choice - 1]
+                    break
+                else:
+                    print("⚠️ Invalid selection. Try again.")
+            except ValueError:
+                print("⚠️ Please enter a number.")
+                
+        print(f"\n🚀 Booting up the Sync UI for: {selected_course.capitalize()}...")
+        
+        # 4. Inject the selection into the environment and launch Streamlit
+        env = os.environ.copy()
+        env["SYNC_COURSE_NAME"] = selected_course
+        subprocess.run([sys.executable, "-m", "streamlit", "run", sys.argv[0]], env=env)
+        
+        # 5. Exit the terminal script gracefully when you close the browser/server
+        sys.exit(0)
 
-# --- Configuration ---
+# --- Configuration (Streamlit is now running) ---
 st.set_page_config(page_title="Course Data Sync", layout="wide")
 
-GIT_FILE = "courses/japanese/japanese.csv"
-APP_FILE = "courses/japanese/data.csv"
+# Fetch the course name that the terminal injected
+COURSE_NAME = os.environ.get("SYNC_COURSE_NAME")
+
+# Fallback: Just in case you run `streamlit run sync_ui.py` directly bypassing the terminal menu
+if not COURSE_NAME:
+    st.error("⚠️ No course selected. Please start the app by running `python sync_ui.py` in your terminal.")
+    st.stop()
+
+# Dynamically construct the file paths!
+GIT_FILE = f"courses/{COURSE_NAME}/{COURSE_NAME}.csv"
+APP_FILE = f"courses/{COURSE_NAME}/data.csv"
 PRIMARY_KEY = "id"  
 PROG_COLS = ["due", "last_review", "history_result", "history_intervals"]
 
-st.title("🔄 Course Sync (Powered by AG-Grid)")
+st.title(f"🔄 Course Sync: {COURSE_NAME.capitalize()}")
 
 # --- 1. Robust File Loading ---
 @st.cache_data
