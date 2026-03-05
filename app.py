@@ -141,9 +141,16 @@ def create_card():
     
     # 2. Go back to study (or you could redirect to /add again to add another)
     return redirect(url_for('study'))
-    
-    
-    
+
+
+# ---- DELETE CARD ---
+@app.route('/delete_card', methods=['POST'])
+def delete_card():
+    card_id = int(request.form['card_id'])
+    manager.delete_card(card_id)
+    return redirect(url_for('study'))
+
+
 if __name__ == '__main__':
     # Add the course folder to template path so Flask finds layout.html
     app.template_folder = COURSE_PATH

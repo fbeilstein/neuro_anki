@@ -1,35 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Neuro Anki - {{ course }}</title>
     <script src="{{ url_for('serve_engine_js') }}" defer></script>
     <style>
-        :root { --bg: #1e1e1e; --card: #2d2d2d; --text: #e0e0e0; --accent: #4a90e2; --success: #4cd964; --danger: #ff6b6b; }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
-        .main-stage { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
-        .sidebar { width: 300px; background: #252525; border-left: 1px solid #333; padding: 20px; display: flex; flex-direction: column; gap: 30px; overflow-y: auto; }
-        .widget h3 { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; border-bottom: 1px solid #333; padding-bottom: 5px; }
-        .progress-track { background: #333; height: 10px; border-radius: 5px; overflow: hidden; }
-        .progress-fill { background: var(--success); height: 100%; transition: width 0.3s; }
-        .stats-text { font-size: 0.8rem; color: #666; margin-top: 5px; text-align: right; }
-        .flashcard { 
+        :root {
+            --bg: #1e1e1e;
+            --card: #2d2d2d;
+            --text: #e0e0e0;
+            --accent: #4a90e2;
+            --success: #4cd964;
+            --danger: #ff6b6b;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .main-stage {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 300px;
+            background: #252525;
+            border-left: 1px solid #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            overflow-y: auto;
+        }
+
+        .widget h3 {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .progress-track {
+            background: #333;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: var(--success);
+            height: 100%;
+            transition: width 0.3s;
+        }
+
+        .stats-text {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .flashcard {
             position: relative;
-            background: var(--card); 
-            padding: 40px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
-            text-align: center; 
-            max-width: 600px; 
-            width: 100%; }
-        h1 { font-size: 3rem; margin: 0 0 20px 0; }
-        input[type="text"] { width: 80%; padding: 15px; font-size: 1.5rem; background: #333; border: 2px solid #444; color: white; border-radius: 8px; outline: none; text-align: center; margin-top: 20px;}
-        input:focus { border-color: var(--accent); }
-        input:read-only { opacity: 0.8; cursor: default; }
-        .answer-reveal { display: none; margin-top: 30px; border-top: 1px solid #444; padding-top: 20px; }
-        
-        {% block custom_css %}{% endblock %}
-        
+            background: var(--card);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 20px 0;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 1.5rem;
+            background: #333;
+            border: 2px solid #444;
+            color: white;
+            border-radius: 8px;
+            outline: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+        }
+
+        input:read-only {
+            opacity: 0.8;
+            cursor: default;
+        }
+
+        .answer-reveal {
+            display: none;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+            {
+            % block custom_css %
+        }
+
+            {
+            % endblock %
+        }
+
         /* Edit Button Style */
         .edit-btn {
             position: absolute;
@@ -43,8 +141,28 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        .edit-btn:hover { color: var(--accent); }
-        
+
+        .edit-btn:hover {
+            color: var(--accent);
+        }
+
+        .delete-btn {
+            position: absolute;
+            top: 20px;
+            right: 55px;
+            background: transparent;
+            border: none;
+            color: #444;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            padding: 0;
+        }
+
+        .delete-btn:hover {
+            color: var(--danger);
+        }
+
         .add-btn {
             display: block;
             background: #333;
@@ -58,20 +176,27 @@
             transition: all 0.2s;
             margin-bottom: 20px;
         }
+
         .add-btn:hover {
             background: #3a3a3a;
             border-color: var(--accent);
             color: white;
         }
-</style>
+    </style>
 </head>
+
 <body>
 
     <div class="main-stage">
         <div class="flashcard">
             <a href="/edit/{{ card['id'] }}" class="edit-btn" title="Edit Card">✎</a>
+            <form action="/delete_card" method="POST" style="display:inline;"
+                onsubmit="return confirm('Delete this card permanently?');">
+                <input type="hidden" name="card_id" value="{{ card['id'] }}">
+                <button type="submit" class="delete-btn" title="Delete Card">🗑</button>
+            </form>
             {% block question_area %}{% endblock %}
-            
+
             <form id="ans-form" action="/answer" method="POST">
                 <input type="text" id="user-input" autocomplete="off" placeholder="Type answer..." autofocus>
                 <input type="hidden" name="card_id" value="{{ card['id'] }}">
@@ -94,4 +219,5 @@
     </div>
 
 </body>
+
 </html>

@@ -181,3 +181,14 @@ class Database:
         # 6. Save
         self.df.to_csv(self.filename, index=False)
         return new_id
+
+    def delete_card(self, card_id):
+        """Permanently removes a card from the database."""
+        mask = self.df['id'] == card_id
+        if not mask.any():
+            print(f"Card {card_id} not found for deletion.")
+            return False
+        self.df = self.df[~mask]
+        self._save()
+        print(f"Card {card_id} deleted.")
+        return True

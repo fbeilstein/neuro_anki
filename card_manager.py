@@ -90,3 +90,9 @@ class CardManager:
 
                 # Save the "bad" history to DB
                 self.db.update_card(card_id, updates)
+
+    def delete_card(self, card_id):
+        # Remove from STM drum if present
+        self.stm.drum = [item for item in self.stm.drum if item['card']['id'] != card_id]
+        # Remove from DB
+        return self.db.delete_card(card_id)
