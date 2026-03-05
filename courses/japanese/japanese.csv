@@ -78,7 +78,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 77,入れる,いれる,put in,verb,He put the notebook in his bag.,彼[かれ]はかばんに 手帳[てちょう]を<b> 入[い]れた</b>。,77V.opus,77S.opus,0
 78,教える,おしえる,"teach, tell",verb,He teaches mathematics.,彼[かれ]は 数学[すうがく]を<b> 教[おし]えて</b>います。,78V.opus,78S.opus,0
 79,歩く,あるく,"walk, go on foot",verb,Let's walk to the station.,駅[えき]まで<b> 歩[ある]きましょう</b>。,79V.opus,79S.opus,2
-80,会う,あう,meet,verb,Let's meet again.,また<b> 会[あ]いましょう</b>。,80V.opus,80S.opus,1
+80,会う,あう,to meet,verb,Let's meet again.,また<b> 会[あ]いましょう</b>。,80V.opus,80S.opus,1
 81,書く,かく,write,verb,I wrote him a letter.,彼[かれ]に 手紙[てがみ]を<b> 書[か]きました</b>。,81V.opus,81S.opus,1
 82,頭,あたま,head,noun,I've had a headache since this morning.,今朝[けさ]から<b> 頭[あたま]</b>が 痛[いた]い。,82V.opus,82S.opus,3
 83,売る,うる,sell,verb,He sold the house.,彼[かれ]は 家[いえ]を<b> 売[う]った</b>。,83V.opus,83S.opus,0
@@ -89,7 +89,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 88,とても,とても,very,adverb,This book is very interesting.,この 本[ほん]は<b>とても</b>おもしろい。,88V.opus,88S.opus,0
 89,誰,だれ,who (neutral). Casual or general — used in everyday conversation.,interrogative,Who would you like to meet?,<b> 誰[だれ]</b>と 会[あ]ってみたいですか。,89V.opus,89S.opus,1
 90,好き,すき,"favorite, liked",adjectival noun,I like wine.,私[わたし]はワインが<b> 好[す]き</b>です。,90V.opus,90S.opus,2
-91,読む,よむ,read,verb,She's reading a magazine.,彼女[かのじょ]は 雑誌[ざっし]を<b> 読[よ]んで</b>います。,91V.opus,91S.opus,1
+91,読む,よむ,to read,verb,She's reading a magazine.,彼女[かのじょ]は 雑誌[ざっし]を<b> 読[よ]んで</b>います。,91V.opus,91S.opus,1
 92,次,つぎ,next,noun,When shall we meet again?,<b> 次[つぎ]</b>はいつ 会[あ]いましょうか。,92V.opus,92S.opus,2
 93,あなた,あなた,you (neutral/polite). Used carefully—can sound distant or impersonal,pronoun,Is this your bag?,これは<b>あなた</b>のかばんですか。,93V.opus,93S.opus,2
 94,飲む,のむ,drink,verb,I'm drinking sake with my friend.,友達[ともだち]とお 酒[さけ]を<b> 飲[の]んで</b>います。,94V.opus,94S.opus,1
@@ -148,7 +148,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 147,一緒に,いっしょに,"together, at the same time",adverb,Let's go home together.,<b> 一緒[いっしょ]に</b> 帰[かえ]りましょう。,147V.opus,147S.opus,-1
 148,今月,こんげつ,this month,noun,I'm very busy this month.,<b> 今月[こんげつ]</b>はとても 忙[いそが]しい。,148V.opus,148S.opus,0
 149,遊ぶ,あそぶ,play,verb,Kids are playing in the park.,子供[こども]たちが 公園[こうえん]で<b> 遊[あそ]んで</b>いる。,149V.opus,149S.opus,0
-150,遠い,とおい,"Distant (in space/time, normal adjective)",adjective,It's a long way from my house to school.,家[いえ]から 学校[がっこう]までは<b> 遠[とお]い</b>です。,150V.opus,150S.opus,0
+150,遠い,とおい,"distant (in space/time, normal adjective)",adjective,It's a long way from my house to school.,家[いえ]から 学校[がっこう]までは<b> 遠[とお]い</b>です。,150V.opus,150S.opus,0
 151,弱い,よわい,weak,adjective,That child has a somewhat weak constitution.,その 子[こ]は 体[からだ]が 少[すこ]し<b> 弱[よわ]い</b>。,151V.opus,151S.opus,2
 152,耳,みみ,ear,noun,Her hearing isn't very good.,彼女[かのじょ]は<b> 耳[みみ]</b>がよく 聞[き]こえません。,152V.opus,152S.opus,2
 153,座る,すわる,"sit, sit down",verb,I sat in a window seat.,私[わたし]は 窓側[まどがわ]の 席[せき]に<b> 座[すわ]った</b>。,153V.opus,153S.opus,0
@@ -166,8 +166,8 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 165,緑,みどり,"green (general). Basic noun for ""green""; used to describe nature, trees, parks.",noun,There's a lot of greenery in this town.,この 町[まち]には<b> 緑[みどり]</b>がたくさんあります。,165V.opus,165S.opus,1
 166,腕,うで,arm,noun,He has big arms.,彼[かれ]の<b> 腕[うで]</b>は 太[ふと]い。,166V.opus,166S.opus,2
 167,ドア,どあ,"western-style door. Used for swinging/hinged doors, esp in buildings.",noun,Please open the door.,<b>ドア</b>を 開[あ]けてください。,167V.opus,167S.opus,1
-168,女の子,おんなのこ,"girl, child",noun,Do you know that girl?,あの<b> 女[おんな]の 子[こ]</b>を 知[し]っていますか。,168V.opus,168S.opus,3
-169,男の子,おとこのこ,boy,noun,The boys are playing soccer.,<b> 男[おとこ]の 子[こ]</b>たちがサッカーをしている。,169V.opus,169S.opus,3
+168,女の子,おんなのこ,"girl, child (3 symbols)",noun,Do you know that girl?,あの<b> 女[おんな]の 子[こ]</b>を 知[し]っていますか。,168V.opus,168S.opus,3
+169,男の子,おとこのこ,"boy, child (3 symbols)",noun,The boys are playing soccer.,<b> 男[おとこ]の 子[こ]</b>たちがサッカーをしている。,169V.opus,169S.opus,3
 170,私たち,わたしたち,"we (neutral, polite and commonly used in conversation)",pronoun,We will get married next month.,<b> 私[わたし]たち</b>は 来月[らいげつ] 結婚[けっこん]します。,170V.opus,170S.opus,-1
 171,近く,ちかく,"near, close to",noun,I ate near the station.,駅[えき]の<b> 近[ちか]く</b>で 食事[しょくじ]をした。,171V.opus,171S.opus,2
 172,やる,やる,"do, give",verb,Let's do our homework together.,一緒[いっしょ]に 宿題[しゅくだい]を<b>やろう</b>。,172V.opus,172S.opus,0
@@ -220,7 +220,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 219,載せる,のせる,"place, put on",verb,I put the cake on a plate.,皿[さら]にケーキを<b> 載[の]せました</b>。,219V.opus,219S.opus,0
 220,悲しい,かなしい,sad,adjective,It was a very sad movie.,その 映画[えいが]はとても<b> 悲[かな]しかった</b>。,220V.opus,220S.opus,0
 221,しゃべる,しゃべる,"to chat, to talk",verb,She talks a lot.,彼女[かのじょ]はよく<b>しゃべる</b>ね。,221V.opus,221S.opus,2
-222,近く,ちかく,Near / soon (can mean location or vague time like “soon”),adverb,I'm planning to study abroad in the near future.,<b> 近[ちか]く</b>、 留学[りゅうがく]する 予定[よてい]です。,222V.opus,222S.opus,2
+222,近く,ちかく,near / soon (can mean location or vague time like “soon”),adverb,I'm planning to study abroad in the near future.,<b> 近[ちか]く</b>、 留学[りゅうがく]する 予定[よてい]です。,222V.opus,222S.opus,2
 223,甘い,あまい,sweet,adjective,This strawberry is sweet.,このいちごは<b> 甘[あま]い</b>。,223V.opus,223S.opus,0
 224,テーブル,てーぶる,table,noun,I bought a new table.,新[あたら]しい<b>テーブル</b>を 買[か]いました。,224V.opus,224S.opus,0
 225,食べ物,たべもの,food. General term for food in daily conversation.,noun,Japanese food is very delicious.,日本[にっぽん]の<b> 食[た]べ 物[もの]</b>はとても 美味[おい]しいです。,225V.opus,225S.opus,3
@@ -393,7 +393,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 392,以外,いがい,except for,noun,I go to school by bicycle except on rainy days.,私[わたし]は 雨[あめ]の 日[ひ]<b> 以外[いがい]</b>は 自転車[じてんしゃ]で 学校[がっこう]に 行[い]く。,392V.opus,392S.opus,1
 393,男,おとこ,"man, male (1 kanji)",noun,This guy began talking to us.,<b> 男[おとこ]</b>の 人[ひと]が 私[わたし]たちに 話[はな]しかけた。,393V.opus,393S.opus,3
 394,彼,かれ,"he, one's boyfriend",pronoun,He's my boss.,<b> 彼[かれ]</b>は 私[わたし]の 上司[じょうし]です。,394V.opus,394S.opus,1
-395,女,おんな,"woman, female",noun,The salesclerk was a young woman.,店員[てんいん]は 若[わか]い<b> 女[おんな]</b>の 人[ひと]でした。,395V.opus,395S.opus,3
+395,女,おんな,"woman, female (1 symbol)",noun,The salesclerk was a young woman.,店員[てんいん]は 若[わか]い<b> 女[おんな]</b>の 人[ひと]でした。,395V.opus,395S.opus,3
 396,妻,つま,(speaker's) wife,noun,It's my wife's birthday today.,今日[きょう]は<b> 妻[つま]</b>の 誕生[たんじょう] 日[び]だ。,396V.opus,396S.opus,1
 397,百,ひゃく,hundred,noun,My grandmother is 100 years old.,私[わたし]の 祖母[そぼ]は<b> 百[ひゃく]</b> 才[さい]です。,397V.opus,397S.opus,2
 398,辺,へん,vicinity,noun,He lives around here.,彼[かれ]はこの<b> 辺[へん]</b>に 住[す]んでいます。,398V.opus,398S.opus,0
@@ -514,7 +514,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 513,いとこ,いとこ,cousin,noun,My cousin and I are the same age.,<b>いとこ</b>と 私[わたし]は 同[おな]じ 年[とし]です。,513V.opus,513S.opus,2
 514,辞書,じしょ,Dictionary (standard or handheld),noun,She often uses a dictionary.,彼女[かのじょ]は<b> 辞書[じしょ]</b>をよく 使[つか]います。,514V.opus,514S.opus,1
 515,朝ご飯,あさごはん,breakfast,noun,I ate breakfast at seven o'clock.,７ 時[じ]に<b> 朝[あさ]ご 飯[はん]</b>を 食[た]べました。,515V.opus,515S.opus,-1
-516,白,しろ,white,noun,White is the color of snow.,<b> 白[しろ]</b>は 雪[ゆき]の 色[いろ]です。,516V.opus,516S.opus,1
+516,白,しろ,the white,noun,White is the color of snow.,<b> 白[しろ]</b>は 雪[ゆき]の 色[いろ]です。,516V.opus,516S.opus,1
 517,どっち,どっち,which,interrogative,Which color do you like?,<b>どっち</b>の 色[いろ]が 好[す]きですか。,517V.opus,517S.opus,1
 518,そっち,そっち,there (like go there),pronoun,That's my room over there.,<b>そっち</b>が 私[わたし]の 部屋[へや]です。,518V.opus,518S.opus,3
 519,明日,あした,tomorrow (colloquial),noun,See you tomorrow.,では、また<b> 明日[あした]</b>。,519V.opus,519S.opus,3
@@ -574,7 +574,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 573,壊れる,こわれる,"break, break down",verb,The company computer broke down.,会社[かいしゃ]のパソコンが<b> 壊[こわ]れた</b>。,573V.opus,573S.opus,3
 574,復習,ふくしゅう,review,verbal noun,Did you review yesterday's lesson?,昨日[きのう]の<b> 復習[ふくしゅう]</b>をしましたか。,574V.opus,574S.opus,0
 575,眉,まゆ,eyebrow,noun,He has thick eyebrows.,彼[かれ]は<b> 眉[まゆ]</b>が 濃[こ]いね。,575V.opus,575S.opus,1
-576,客,きゃく,"visitor, customer",noun,That shop has a lot of young customers.,その 店[みせ]は 若[わか]い<b> 客[きゃく]</b>が 多[おお]いです。,576V.opus,576S.opus,0
+576,客,きゃく,"visitor, customer (without お)",noun,That shop has a lot of young customers.,その 店[みせ]は 若[わか]い<b> 客[きゃく]</b>が 多[おお]いです。,576V.opus,576S.opus,0
 577,机,つくえ,desk,noun,They bought me a new desk.,新[あたら]しい<b> 机[つくえ]</b>を 買[か]ってもらいました。,577V.opus,577S.opus,0
 578,風呂,ふろ,bath,noun,My father's taking a bath right now.,父[ちち]は 今[いま]お<b> 風呂[ふろ]</b>に 入[はい]っています。,578V.opus,578S.opus,2
 579,湯,ゆ,hot water,noun,The bath is filled with hot water.,お 風呂[ふろ]のお<b> 湯[ゆ]</b>が 一杯[いっぱい]です。,579V.opus,579S.opus,1
@@ -617,7 +617,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 616,話し合う,はなしあう,"discuss, talk over",verb,We often talked to each other.,私[わたし]たちはよく<b> 話[はな]し 合[あ]いました</b>。,616V.opus,616S.opus,4
 617,残す,のこす,"leave, leave undone",verb,She left a message.,彼女[かのじょ]はメッセージを<b> 残[のこ]しました</b>。,617V.opus,617S.opus,2
 618,ごちそうする,ごちそうする,"to treat someone to a meal. Polite and humble way to say ""to treat someone"" (more respectful, neutral).",verb,I'll treat you to dinner tonight.,今日[きょう]の 夕食[ゆうしょく]は 私[わたし]が<b>ご 馳走[ちそう]します</b>。,618V.opus,618S.opus,-1
-619,合う,あう,"fit, match",verb,These shoes fit me.,この 靴[くつ]は 私[わたし]の 足[あし]に<b> 合[あ]って</b>いる。,619V.opus,619S.opus,1
+619,合う,あう,"to fit, to match",verb,These shoes fit me.,この 靴[くつ]は 私[わたし]の 足[あし]に<b> 合[あ]って</b>いる。,619V.opus,619S.opus,1
 620,当たる,あたる,"hit, strike (naturally, by chance), win. A ball hits you, lottery win, ""sunlight hits""",verb,The ball hit him on the head.,ボールが 彼[かれ]の 頭[あたま]に<b> 当[あ]たった</b>。,620V.opus,620S.opus,0
 621,集まる,あつまる,"gather, be collected",verb,There are a lot of people gathering in front of the station.,駅前[えきまえ]に 人[ひと]が<b> 集[あつ]まって</b>います。,621V.opus,621S.opus,3
 622,場所,ばしょ,"place, space, site",noun,Please tell me where the office is.,会社[かいしゃ]の<b> 場所[ばしょ]</b>を 教[おし]えてください。,622V.opus,622S.opus,0
@@ -700,8 +700,8 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 699,教授,きょうじゅ,professor,noun,He's a chemistry professor.,彼[かれ]は 化学[かがく]の<b> 教授[きょうじゅ]</b>です。,699V.opus,699S.opus,0
 700,世紀,せいき,century,noun,It's the start of a new century.,新[あたら]しい<b> 世紀[せいき]</b>の 始[はじ]まりです。,700V.opus,700S.opus,1
 701,あちこち,あちこち,"all over, here and there",adverb,"Since this morning, we've been strolling about here and there.",私[わたし]たちは 朝[あさ]から<b>あちこち</b> 散歩[さんぽ]しました。,701V.opus,701S.opus,2
-702,そちら,そちら,"there, that way",pronoun,I'll get there in the evening.,夕方[ゆうがた]<b>そちら</b>に 着[つ]きます。,702V.opus,702S.opus,0
-703,あちら,あちら,"over there, that way",pronoun,Let's go that way.,<b>あちら</b>に 行[い]ってみよう。,703V.opus,703S.opus,0
+702,そちら,そちら,"there, that way (polite, no っ)",pronoun,I'll get there in the evening.,夕方[ゆうがた]<b>そちら</b>に 着[つ]きます。,702V.opus,702S.opus,0
+703,あちら,あちら,"over there, that way over there (polite, no っ)",pronoun,Let's go that way.,<b>あちら</b>に 行[い]ってみよう。,703V.opus,703S.opus,0
 704,もし,もし,"if, in case of",adverb,I won't go if it rains.,<b>もし</b> 雨[あめ]が 降[ふ]ったら、 行[い]きません。,704V.opus,704S.opus,1
 705,うるさい,うるさい,"noisy, annoying",adjective,Traffic is noisy on this street.,この 通[とお]りは 車[くるま]の 音[おと]が<b>うるさい</b>。,705V.opus,705S.opus,3
 706,固い,かたい,"stiff, tight",adjective,My boss is stubborn.,私[わたし]の 上司[じょうし]は 頭[あたま]が<b> 固[かた]い</b>。,706V.opus,706S.opus,0
@@ -790,7 +790,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 789,また,また,"again, also, or",adverb,I'll come again tomorrow.,明日[あした]、<b>また</b> 来[き]ます。,789V.opus,789S.opus,0
 790,年間,ねんかん,period of one year,noun,"This place gets 50,000 visitors a year.",<b> 年間[ねんかん]</b>５ 万[まん] 人[にん]がここを 訪[おとず]れます。,790V.opus,790S.opus,0
 791,青,あお,"blue, green",noun,My favorite color is blue.,私[わたし]の 好[す]きな 色[いろ]は<b> 青[あお]</b>です。,791V.opus,791S.opus,1
-792,赤,あか,red (as noun),noun,The traffic light changed to red.,信号[しんごう]が<b> 赤[あか]</b>に 変[か]わりました。,792V.opus,792S.opus,1
+792,赤,あか,the red,noun,The traffic light changed to red.,信号[しんごう]が<b> 赤[あか]</b>に 変[か]わりました。,792V.opus,792S.opus,1
 793,信号,しんごう,"signal, traffic light",noun,The traffic light turned green.,<b> 信号[しんごう]</b>が 青[あお]になった。,793V.opus,793S.opus,0
 794,円,えん,circle,noun,Draw a big circle there.,そこに 大[おお]きな<b> 円[えん]</b>を 描[か]いて。,794V.opus,794S.opus,1
 795,非常に,ひじょうに,"very, extremely",adverb,This is very important.,これは<b> 非常[ひじょう]に</b> 重要[じゅうよう]です。,795V.opus,795S.opus,0
@@ -922,7 +922,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 921,値段,ねだん,price,noun,"The price of this belt was 2,500 yen.",このベルトの<b> 値段[ねだん]</b>は２５００ 円[えん]でした。,921V.opus,921S.opus,0
 922,両方,りょうほう,both,noun,"I'll have both the chocolate and cake, please.",チョコレートとケーキを<b> 両方[りょうほう]</b>ください。,922V.opus,922S.opus,3
 923,約束,やくそく,"promise, vow",verbal noun,I keep my promise.,<b> 約束[やくそく]</b>は 守[まも]ります。,923V.opus,923S.opus,0
-924,一部,いちぶ,part,noun,Let's change part of the plan.,計画[けいかく]を<b> 一部[いちぶ]</b> 変更[へんこう]しましょう。,924V.opus,924S.opus,2
+924,一部,いちぶ,"a part, some",noun,Let's change part of the plan.,計画[けいかく]を<b> 一部[いちぶ]</b> 変更[へんこう]しましょう。,924V.opus,924S.opus,2
 925,ラジオ,らじお,radio,noun,I listen to the radio every morning.,私[わたし]は 毎朝[まいあさ]<b>ラジオ</b>を 聴[き]きます。,925V.opus,925S.opus,1
 926,入院,にゅういん,be hospitalized,verbal noun,My mother was hospitalized yesterday.,昨日[きのう]、 母[はは]が<b> 入院[にゅういん]</b>しました。,926V.opus,926S.opus,0
 927,ニュース,にゅーす,news (katakana),noun,Did you see the evening news?,夜[よる]の<b>ニュース</b>を 見[み]ましたか。,927V.opus,927S.opus,1
@@ -1021,7 +1021,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1020,生む,うむ,"give birth, produce",verb,Our cat had kittens.,うちのネコが 子猫[こねこ]を<b> 生[う]みました</b>。,1020V.opus,1020S.opus,0
 1021,育つ,そだつ,"be brought up, grow",verb,The vegetables are growing well.,野菜[やさい]がよく<b> 育[そだ]って</b>いる。,1021V.opus,1021S.opus,2
 1022,是非,ぜひ,"by all means, please",adverb,Please come to my house.,<b> 是非[ぜひ]</b>、うちに 来[き]てください。,1022V.opus,1022S.opus,1
-1023,黒,くろ,black,noun,Do you have a black pen?,<b> 黒[くろ]</b>のボールペンはありますか。,1023V.opus,1023S.opus,1
+1023,黒,くろ,the black,noun,Do you have a black pen?,<b> 黒[くろ]</b>のボールペンはありますか。,1023V.opus,1023S.opus,1
 1024,おもちゃ,おもちゃ,"toy, plaything",noun,The baby's playing with a toy car.,赤[あか]ちゃんが 自動車[じどうしゃ]の<b>おもちゃ</b>で 遊[あそ]んでいる。,1024V.opus,1024S.opus,2
 1025,靴,くつ,shoes (kanji),noun,My shoes got dirty.,<b> 靴[くつ]</b>が 汚[よご]れた。,1025V.opus,1025S.opus,2
 1026,連絡,れんらく,"contact, communication",verbal noun,I'll contact you when I finish my work.,仕事[しごと]が 終[お]わったら<b> 連絡[れんらく]</b>します。,1026V.opus,1026S.opus,0
@@ -1044,7 +1044,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1043,奥,おく,"inner part, the back",noun,The scissors were at the back of the desk.,はさみは 机[つくえ]の<b> 奥[おく]</b>にあった。,1043V.opus,1043S.opus,1
 1044,重さ,おもさ,weight. General word for weight.,noun,Please weigh this luggage.,この 荷物[にもつ]の<b> 重[おも]さ</b>を 計[はか]ってください。,1044V.opus,1044S.opus,0
 1045,親しい,したしい,"intimate, familiar",adjective,I invited a good friend of mine to my house over the weekend.,週末[しゅうまつ]、<b> 親[した]しい</b> 友達[ともだち]を 家[いえ]に 呼[よ]んだ。,1045V.opus,1045S.opus,3
-1046,修理,しゅうり,"repair, mending",verbal noun,I sent my car for repair.,車[くるま]を<b> 修理[しゅうり]</b>に 出[だ]した。,1046V.opus,1046S.opus,1
+1046,修理,しゅうり,"the repair, the mending",verbal noun,I sent my car for repair.,車[くるま]を<b> 修理[しゅうり]</b>に 出[だ]した。,1046V.opus,1046S.opus,1
 1047,カード,かーど,card,noun,Please pay by credit card.,支払[しはら]いは<b>カード</b>でお 願[ねが]いします。,1047V.opus,1047S.opus,1
 1048,挨拶,あいさつ,"greet, greeting",verbal noun,She greeted me with a smile.,彼女[かのじょ]は 笑顔[えがお]で<b> 挨拶[あいさつ]</b>した。,1048V.opus,1048S.opus,1
 1049,階段,かいだん,"steps, flight of stairs",noun,We ran up the station steps.,私[わたし]たちは 駅[えき]の<b> 階段[かいだん]</b>をかけ 上[あ]がった。,1049V.opus,1049S.opus,0
@@ -1064,7 +1064,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1063,金持ち,かねもち,wealthy person,noun,He's rich.,彼[かれ]は<b> 金持[かねも]ち</b>です。,1063V.opus,1063S.opus,3
 1064,尋ねる,たずねる,"inquire, ask",verb,She asked for directions.,彼女[かのじょ]は 道[みち]を<b> 尋[たず]ねた</b>。,1064V.opus,1064S.opus,3
 1065,叩く,たたく,"tap, hit",verb,He slapped his child on his bottom.,彼[かれ]は 子供[こども]のおしりを<b> 叩[たた]いた</b>。,1065V.opus,1065S.opus,2
-1066,帰り,かえり,"return, going home",noun,I had a beer on the way home from work.,仕事[しごと]の<b> 帰[かえ]り</b>にビールを 飲[の]んだ。,1066V.opus,1066S.opus,3
+1066,帰り,かえり,"the return, the going home",noun,I had a beer on the way home from work.,仕事[しごと]の<b> 帰[かえ]り</b>にビールを 飲[の]んだ。,1066V.opus,1066S.opus,3
 1067,卵,たまご,egg,noun,Chickens lay eggs.,ニワトリは<b> 卵[たまご]</b>を 産[う]みます。,1067V.opus,1067S.opus,2
 1068,氷,こおり,ice,noun,Please put some ice in my glass.,グラスに<b> 氷[こおり]</b>を 入[い]れてください。,1068V.opus,1068S.opus,0
 1069,留学生,りゅうがくせい,student studying abroad,noun,He's an international student.,彼[かれ]は<b> 留学生[りゅうがくせい]</b>です。,1069V.opus,1069S.opus,3
@@ -1370,7 +1370,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1369,社長,しゃちょう,president (of a company),noun,My aunt is the president of a small firm.,おばは 小[ちい]さな 会社[かいしゃ]の<b> 社長[しゃちょう]</b>です。,1369V.opus,1369S.opus,0
 1370,ほぼ,ほぼ,"almost, nearly",adverb,My work is almost finished.,仕事[しごと]が<b>ほぼ</b> 終[お]わりました。,1370V.opus,1370S.opus,1
 1371,商品,しょうひん,"goods, commodities",noun,This product is selling well.,この<b> 商品[しょうひん]</b>はよく 売[う]れている。,1371V.opus,1371S.opus,1
-1372,大型,おおがた,"large, large scale",noun,We bought a large television.,<b> 大型[おおがた]</b>のテレビを 買[か]った。,1372V.opus,1372S.opus,0
+1372,大型,おおがた,"the large size, the large scale",noun,We bought a large television.,<b> 大型[おおがた]</b>のテレビを 買[か]った。,1372V.opus,1372S.opus,0
 1373,限る,かぎる,be limited to,verb,This service is offered on weekends only.,このサービスは 週末[しゅうまつ]に<b> 限[かぎ]ります</b>。,1373V.opus,1373S.opus,2
 1374,記録,きろく,"record, documentation",verbal noun,There was a new world record in the marathon.,マラソンで 世界[せかい]<b> 記録[きろく]</b>が 出[で]た。,1374V.opus,1374S.opus,0
 1375,具体的,ぐたいてき,"concrete, specific",adjectival noun,Please show me some specific examples.,<b> 具体[ぐたい] 的[てき]</b>な 例[れい]をいくつか 見[み]せてください。,1375V.opus,1375S.opus,0
@@ -1540,7 +1540,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1539,うどん,うどん,Japanese wheat noodles,noun,I ate udon noodles for lunch.,私[わたし]はお 昼[ひる]に<b>うどん</b>を 食[た]べました。,1539V.opus,1539S.opus,0
 1540,仮名,かな,kana,noun,Please write the pronunciation of your name in kana.,お 名前[なまえ]に<b> 仮名[かな]</b>を 振[ふ]ってください。,1540V.opus,1540S.opus,0
 1541,記念日,きねんび,"memorial day, anniversary",noun,Today's my parents' wedding anniversary.,今日[きょう]は 両親[りょうしん]の 結婚[けっこん]<b> 記念[きねん] 日[び]</b>です。,1541V.opus,1541S.opus,2
-1542,下り,くだり,"downhill, going down",noun,The train out of the city is leaving.,もうすぐ<b> 下[くだ]り</b>の 電車[でんしゃ]が 発車[はっしゃ]します。,1542V.opus,1542S.opus,0
+1542,下り,くだり,"the downhill, the going down",noun,The train out of the city is leaving.,もうすぐ<b> 下[くだ]り</b>の 電車[でんしゃ]が 発車[はっしゃ]します。,1542V.opus,1542S.opus,0
 1543,掲示板,けいじばん,"notice board, bulletin board",noun,Did you see the notice on the bulletin board?,<b> 掲示板[けいじばん]</b>のお 知[し]らせを 見[み]ましたか。,1543V.opus,1543S.opus,0
 1544,凍る,こおる,freeze,verb,The roads freeze on cold mornings.,寒[さむ]い 朝[あさ]は 道路[どうろ]が<b> 凍[こお]ります</b>。,1544V.opus,1544S.opus,0
 1545,ごみ,ごみ,trash (hiragana),noun,Today is the garbage day.,今日[きょう]は<b>ごみ</b>の 日[ひ]だ。,1545V.opus,1545S.opus,2
@@ -1595,7 +1595,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1594,くだらない,くだらない,"worthless, trifling",adjective,Stop chattering.,<b>くだらない</b>おしゃべりはやめなさい。,1594V.opus,1594S.opus,-1
 1595,名簿,めいぼ,name list,noun,This is a list of the participants.,これが 参加[さんか] 者[しゃ]の<b> 名簿[めいぼ]</b>です。,1595V.opus,1595S.opus,0
 1596,通常,つうじょう,"common, usually, typically",noun,We're usually open until eight o'clock at night.,<b> 通常[つうじょう]</b>は 夜[よる]８ 時[じ]まで 営業[えいぎょう]しています。,1596V.opus,1596S.opus,0
-1597,家内,かない,one's wife,noun,My wife is from Kyushu.,<b> 家内[かない]</b>は 九州[きゅうしゅう] 出身[しゅっしん]です。,1597V.opus,1597S.opus,1
+1597,家内,かない,one's wife (2 kanji),noun,My wife is from Kyushu.,<b> 家内[かない]</b>は 九州[きゅうしゅう] 出身[しゅっしん]です。,1597V.opus,1597S.opus,1
 1598,消防署,しょうぼうしょ,fire station,noun,There's only one fire station in this town.,この 町[まち]には<b> 消防署[しょうぼうしょ]</b>が１つしかありません。,1598V.opus,1598S.opus,5
 1599,再び,ふたたび,"again, a second time",adverb,He came back here once again.,彼[かれ]は<b> 再[ふたた]び</b>ここに 戻[もど]ってきた。,1599V.opus,1599S.opus,0
 1600,大統領,だいとうりょう,president (of a country),noun,Who's the president of France?,フランスの<b> 大統領[だいとうりょう]</b>は 誰[だれ]ですか。,1600V.opus,1600S.opus,3
@@ -1676,7 +1676,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1675,アクセサリー,あくせさりー,"accessories, jewelry",noun,This jewelry is lovely.,この<b>アクセサリー</b>は 素敵[すてき]ね。,1675V.opus,1675S.opus,0
 1676,あくび,あくび,yawn,verbal noun,My father yawned.,父[ちち]が<b>あくび</b>をした。,1676V.opus,1676S.opus,0
 1677,あめ,あめ,candy,noun,There's some candy in the can.,缶[かん]に<b>あめ</b>が 入[はい]っています。,1677V.opus,1677S.opus,1
-1678,上り,のぼり,"going up, ascent",noun,This is the train heading toward Tokyo.,これは<b> 上[のぼ]り</b> 電車[でんしゃ]です。,1678V.opus,1678S.opus,0
+1678,上り,のぼり,"the going up, the ascent",noun,This is the train heading toward Tokyo.,これは<b> 上[のぼ]り</b> 電車[でんしゃ]です。,1678V.opus,1678S.opus,0
 1679,なるべく,なるべく,"as...as possible, if possible",adverb,Please finish your work as quickly as possible.,<b>なるべく</b> 早[はや]く 仕事[しごと]を 終[お]わらせてください。,1679V.opus,1679S.opus,0
 1680,じっと,じっと,"without moving, still",adverb,The pupil was listening attentively to the teacher.,あの 生徒[せいと]は<b>じっと</b> 先生[せんせい]の 話[はなし]を 聞[き]いていたね。,1680V.opus,1680S.opus,0
 1681,食器,しょっき,tableware,noun,I bought new tableware and replaced the old one.,<b> 食器[しょっき]</b>を 全部[ぜんぶ] 新[あたら]しくしました。,1681V.opus,1681S.opus,0
@@ -1748,7 +1748,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1747,発表,はっぴょう,announcement,verbal noun,They announced the names of those who passed (the test).,合格[ごうかく] 者[しゃ]が<b> 発表[はっぴょう]</b>された。,1747V.opus,1747S.opus,0
 1748,研究,けんきゅう,"research, study",verbal noun,He's been researching earthquakes for many years.,彼[かれ]は 何[なん] 年[ねん]も 地震[じしん]の<b> 研究[けんきゅう]</b>をしている。,1748V.opus,1748S.opus,0
 1749,一方,いっぽう,"one way, one side, one direction. Abstract sense: contrast, one of two sides, logical argument, or directional flow.",adverb,This is a one-way street.,ここは<b> 一方[いっぽう]</b> 通行[つうこう]です。,1749V.opus,1749S.opus,3
-1750,国内,こくない,"domestic, internal",noun,You can only make domestic calls on this cell-phone.,この 携帯[けいたい] 電話[でんわ]が 使[つか]えるのは<b> 国内[こくない]</b>だけです。,1750V.opus,1750S.opus,2
+1750,国内,こくない,"domestic, internal (to the country)",noun,You can only make domestic calls on this cell-phone.,この 携帯[けいたい] 電話[でんわ]が 使[つか]えるのは<b> 国内[こくない]</b>だけです。,1750V.opus,1750S.opus,2
 1751,全体,ぜんたい,"whole, total",noun,80 percent of the total has been completed.,<b> 全体[ぜんたい]</b>の８０パーセントが 完成[かんせい]しました。,1751V.opus,1751S.opus,0
 1752,後,のち,"after, afterward",noun,He would later become Prime Minister.,<b> 後[のち]</b>に 彼[かれ]は 総理[そうり] 大臣[だいじん]になりました。,1752V.opus,1752S.opus,2
 1753,人間,にんげん,human being,noun,The human mind is complex.,<b> 人間[にんげん]</b>の 心[こころ]は 複雑[ふくざつ]です。,1753V.opus,1753S.opus,0
@@ -1765,7 +1765,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1764,決して,けっして,"never, by no means",adverb,Don't you ever forget this.,このことを<b> 決[けっ]して</b> 忘[わす]れないでください。,1764V.opus,1764S.opus,0
 1765,失敗,しっぱい,"failure, mistake",verbal noun,You shouldn't give up just because you've failed once.,一[いち] 度[ど]の<b> 失敗[しっぱい]</b>であきらめてはいけないよ。,1765V.opus,1765S.opus,0
 1766,番,ばん,"one's turn, watch",noun,It's my turn to do the dishes today.,今日[きょう]は 私[わたし]が 皿[さら]を 洗[あら]う<b> 番[ばん]</b>ですね。,1766V.opus,1766S.opus,1
-1767,出会う,であう,"meet, encounter",verb,I met her in the United States.,アメリカで 彼女[かのじょ]と<b> 出会[であ]いました</b>。,1767V.opus,1767S.opus,2
+1767,出会う,であう,"meet, encounter (accidental, fateful)",verb,I met her in the United States.,アメリカで 彼女[かのじょ]と<b> 出会[であ]いました</b>。,1767V.opus,1767S.opus,2
 1768,悩む,なやむ,"be troubled, suffer",verb,He's worried about entrance examinations.,彼[かれ]は 受験[じゅけん]のことで<b> 悩[なや]んで</b>います。,1768V.opus,1768S.opus,2
 1769,汗,あせ,sweat,noun,He was sweating from his forehead.,彼[かれ]は 額[ひたい]に<b> 汗[あせ]</b>をかいていたの。,1769V.opus,1769S.opus,1
 1770,すっかり,すっかり,"all, completely",adverb,I completely forgot about the shopping.,買[か]い 物[もの]を<b>すっかり</b> 忘[わす]れていた。,1770V.opus,1770S.opus,3
@@ -1821,7 +1821,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1820,泊める,とめる,let (someone) stay over,verb,I let my friend stay over at my house.,友達[ともだち]をうちに<b> 泊[と]めて</b>あげました。,1820V.opus,1820S.opus,0
 1821,叱る,しかる,"scold, reprimand",verb,The father is scolding his child.,父親[ちちおや]が 子供[こども]を<b> 叱[しか]って</b>いる。,1821V.opus,1821S.opus,0
 1822,騒ぐ,さわぐ,"make a noise, make a racket",verb,Please don't make a racket in the train.,電車[でんしゃ]の 中[なか]で<b> 騒[さわ]がないで</b>ください。,1822V.opus,1822S.opus,2
-1823,車道,しゃどう,"road, roadway",noun,The road construction has started.,<b> 車道[しゃどう]</b>の 工事[こうじ]が 始[はじ]まりました。,1823V.opus,1823S.opus,0
+1823,車道,しゃどう,"road, roadway (for cars)",noun,The road construction has started.,<b> 車道[しゃどう]</b>の 工事[こうじ]が 始[はじ]まりました。,1823V.opus,1823S.opus,0
 1824,掃除機,そうじき,vacuum cleaner,noun,The vacuum cleaner broke.,<b> 掃除[そうじ] 機[き]</b>が 壊[こわ]れた。,1824V.opus,1824S.opus,3
 1825,剃る,そる,shave,verb,My father shaves every day.,父[ちち]は 毎日[まいにち] 髭[ひげ]を<b> 剃[そ]ります</b>。,1825V.opus,1825S.opus,1
 1826,貼る,はる,"stick, paste, put",verb,I put a sticker on the desk.,机[つくえ]にシールを<b> 貼[は]った</b>。,1826V.opus,1826S.opus,0
@@ -1990,7 +1990,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 1989,年中,ねんじゅう,all year,adverb,My aunt travels all year round.,叔母[おば]は<b> 年中[ねんじゅう]</b> 旅行[りょこう]しています。,1989V.opus,1989S.opus,1
 1990,機嫌,きげん,"mood, health",noun,She is in a very good mood.,彼女[かのじょ]は 大変[たいへん]<b> 機嫌[きげん]</b>がいいね。,1990V.opus,1990S.opus,0
 1991,居間,いま,living room (neutral architectural term),noun,My father is watching TV in the living room.,父[ちち]は<b> 居間[いま]</b>でテレビを 見[み]ている。,1991V.opus,1991S.opus,2
-1992,度々,たびたび,often,adverb,I often get emails from him.,彼[かれ]から<b> 度々[たびたび]</b>メールがきます。,1992V.opus,1992S.opus,0
+1992,度々,たびたび,"again and again, repeatedly, frequently, often",adverb,I often get emails from him.,彼[かれ]から<b> 度々[たびたび]</b>メールがきます。,1992V.opus,1992S.opus,0
 1993,例文,れいぶん,example sentence,noun,Please write three example sentences.,<b> 例文[れいぶん]</b>を３つ 作[つく]ってください。,1993V.opus,1993S.opus,0
 1994,怠ける,なまける,"be lazy, slack off",verb,Stop slacking and help me!,<b> 怠[なま]けて</b>いないで、 手伝[てつだ]って。,1994V.opus,1994S.opus,3
 1995,転勤,てんきん,"transfer, relocation. Transfer of work location within the same company.",verbal noun,He was transferred to Osaka.,彼[かれ]は 大阪[おおさか]に<b> 転勤[てんきん]</b>しました。,1995V.opus,1995S.opus,0
