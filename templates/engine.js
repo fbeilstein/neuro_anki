@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     input.style.backgroundColor = '#4a2d2d';
                     input.style.color = '#ff6b6b';
-                    input.value += " -> " + primaryAnswer;
+                    input.value += " → " + primaryAnswer;
                     hiddenGrade.value = "0"; 
                 }
 
