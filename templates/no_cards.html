@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Neuro Anki - {{ course }}</title>
+    <style>
+        :root {
+            --bg: #1e1e1e;
+            --card: #2d2d2d;
+            --text: #e0e0e0;
+            --accent: #4a90e2;
+            --success: #4cd964;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .links a {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5da0f2;
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid #444;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎉</h1>
+        <p class="subtitle">No cards due in <b style="text-transform:capitalize">{{ course }}</b>. Good job!</p>
+        <div class="links">
+            <a href="/add" class="btn-primary">+ Add Cards</a>
+            <a href="/courses" class="btn-secondary">Switch Course</a>
+        </div>
+    </div>
+</body>
+
+</html>

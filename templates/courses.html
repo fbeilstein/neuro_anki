@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Neuro Anki - Choose Course</title>
+    <style>
+        :root {
+            --bg: #1e1e1e;
+            --card: #2d2d2d;
+            --text: #e0e0e0;
+            --accent: #4a90e2;
+            --success: #4cd964;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .course-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .course-btn {
+            display: block;
+            background: var(--card);
+            color: var(--text);
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: capitalize;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .course-btn:hover {
+            border-color: var(--accent);
+            background: #353535;
+        }
+
+        .course-btn.active {
+            border-color: var(--success);
+        }
+
+        .course-btn.active::after {
+            content: " ✓";
+            color: var(--success);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📚 Neuro Anki</h1>
+        <p class="subtitle">Choose a course to study</p>
+        <div class="course-list">
+            {% for course in courses %}
+            <a href="/switch/{{ course }}" class="course-btn {{ 'active' if course == active else '' }}">
+                {{ course }}
+            </a>
+            {% endfor %}
+            {% if not courses %}
+            <p style="color: #666;">No courses found. Add a course folder with <code>data.csv</code> and
+                <code>layout.html</code>.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

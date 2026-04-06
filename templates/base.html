@@ -50,6 +50,7 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: -20px;
             margin-bottom: 15px;
             border-bottom: 1px solid #333;
             padding-bottom: 5px;
@@ -157,24 +158,51 @@
             color: var(--danger);
         }
 
-        .add-btn {
+        .sidebar-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
             display: block;
             background: #333;
-            color: var(--accent);
             text-align: center;
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             border: 2px dashed #444;
             transition: all 0.2s;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .add-btn {
+            color: var(--accent);
         }
 
         .add-btn:hover {
             background: #3a3a3a;
             border-color: var(--accent);
             color: white;
+        }
+
+        .course-switcher select {
+            width: 100%;
+            background: #333;
+            color: var(--text);
+            border: 1px solid #444;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            text-transform: capitalize;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .course-switcher select:hover {
+            border-color: var(--accent);
         }
     </style>
 </head>
@@ -206,7 +234,21 @@
     </div>
 
     <div class="sidebar">
-        <a href="/add" class="add-btn">+ Add New Word</a>
+        <div class="sidebar-actions">
+            <a href="/add" class="action-btn add-btn">+ Add</a>
+        </div>
+
+        <div class="widget">
+            <h3>Course</h3>
+            <div class="course-switcher">
+                <select id="course-select" onchange="if(this.value) window.location.href='/switch/'+this.value">
+                    {% for c in courses %}
+                    <option value="{{ c }}" {{ 'selected' if c==course else '' }}>{{ c | capitalize }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
         {% include 'includes/progress.html' %}
         {% include 'includes/histogram.html' %}
         {% include 'includes/drum.html' %}
