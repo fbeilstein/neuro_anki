@@ -3,40 +3,63 @@ import time
 import os
 import ast
 
+# Columns that belong to progress.csv (SRS state), not the dictionary
+PROGRESS_COLS = ['due', 'last_review', 'history_result', 'history_intervals']
+
 class Database:
     def __init__(self, course_name):
         self.course_name = course_name
-        self.filename = os.path.join("courses", course_name, "data.csv")
+        self.course_dir = os.path.join("courses", course_name)
+        self.dict_file = os.path.join(self.course_dir, "data.csv")
+        self.progress_file = os.path.join(self.course_dir, "progress.csv")
         self.df = self._load_db()
 
     def _load_db(self):
-        if not os.path.exists(self.filename):
-            raise FileNotFoundError(f"Course {self.course_name} not found.")
-        
-        # 1. Read CSV
-        df = pd.read_csv(self.filename)
-        
-        # 2. Ensure columns exist
-        if 'due' not in df.columns: df['due'] = 0
-        if 'last_review' not in df.columns: df['last_review'] = 0
-        if 'history_result' not in df.columns: df['history_result'] = "[]"
-        if 'history_intervals' not in df.columns: df['history_intervals'] = "[]"
+        if not os.path.exists(self.dict_file):
+            raise FileNotFoundError(f"Course {self.course_name} not found at {self.dict_file}")
 
-        # 3. CRITICAL FIX: Force History Columns to be Text (Object)
-        # This prevents the "Invalid value for dtype float64" crash
-        df['history_result'] = df['history_result'].astype(object)
-        df['history_intervals'] = df['history_intervals'].astype(object)
+        # 1. Read Dictionary
+        df_dict = pd.read_csv(self.dict_file)
 
-        # 4. Fill Empty Cells (NaN) with defaults
+        # 2. Load or create progress file
+        if os.path.exists(self.progress_file):
+            df_prog = pd.read_csv(self.progress_file)
+        else:
+            # Brand new course — create empty progress
+            df_prog = pd.DataFrame({'id': df_dict['id']})
+
+        # 3. Ensure progress columns exist with defaults
+        for col in PROGRESS_COLS:
+            if col not in df_prog.columns:
+                default = "[]" if 'history' in col else 0
+                df_prog[col] = default
+
+        # 4. Fix types and fill NaN
+        df_prog['history_result'] = df_prog['history_result'].astype(object).fillna("[]")
+        df_prog['history_intervals'] = df_prog['history_intervals'].astype(object).fillna("[]")
+        df_prog['due'] = df_prog['due'].fillna(0)
+        df_prog['last_review'] = df_prog['last_review'].fillna(0)
+
+        # 5. Merge dictionary + progress on 'id'
+        df = pd.merge(df_dict, df_prog, on='id', how='left')
+
+        # Fill any cards missing from progress (e.g. newly added to dict)
         df['due'] = df['due'].fillna(0)
         df['last_review'] = df['last_review'].fillna(0)
-        df['history_result'] = df['history_result'].fillna("[]")
-        df['history_intervals'] = df['history_intervals'].fillna("[]")
-        
+        df['history_result'] = df['history_result'].fillna("[]").astype(object)
+        df['history_intervals'] = df['history_intervals'].fillna("[]").astype(object)
+
         return df
 
     def _save(self):
-        self.df.to_csv(self.filename, index=False)
+        """Split self.df back into dictionary + progress and save both."""
+        # Dictionary: everything except progress columns
+        dict_cols = [c for c in self.df.columns if c not in PROGRESS_COLS]
+        self.df[dict_cols].to_csv(self.dict_file, index=False)
+
+        # Progress: id + progress columns only
+        prog_cols = ['id'] + [c for c in PROGRESS_COLS if c in self.df.columns]
+        self.df[prog_cols].to_csv(self.progress_file, index=False)
 
     def _parse_list(self, val):
         """Safely parses string '[1, 2]' into list [1, 2]"""
@@ -126,8 +149,8 @@ class Database:
                 # Apply the update
                 self.df.at[idx, key] = val
         
-        # Save to disk
-        self.df.to_csv(self.filename, index=False)
+        # Save to disk (split into two files)
+        self._save()
 
     # --- ANALYTICS ---
     def get_workload_histogram(self, days=7):
@@ -178,8 +201,8 @@ class Database:
         new_df = pd.DataFrame([new_row])
         self.df = pd.concat([self.df, new_df], ignore_index=True)
         
-        # 6. Save
-        self.df.to_csv(self.filename, index=False)
+        # 6. Save (split into two files)
+        self._save()
         return new_id
 
     def delete_card(self, card_id):
