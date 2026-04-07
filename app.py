@@ -3,6 +3,7 @@ import jinja2
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session
 
 from card_manager import CardManager
+from database import PROGRESS_COLS
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'neuro_anki_secret'
@@ -155,7 +156,6 @@ def save_card():
     
 @app.route('/add')
 def add_card_page():
-    from database import PROGRESS_COLS
     system_cols = ['id', 'Unnamed: 0'] + PROGRESS_COLS
     
     all_cols = manager.db.df.columns.tolist()
@@ -176,6 +176,23 @@ def delete_card():
     card_id = int(request.form['card_id'])
     manager.delete_card(card_id)
     return redirect(url_for('study'))
+
+
+# ---- SEARCH ---
+@app.route('/search')
+def search():
+    if not ensure_manager():
+        return redirect(url_for('courses'))
+    query = request.args.get('q', '').strip()
+    results = manager.db.search_cards(query) if query else []
+    display_cols = [c for c in manager.db.df.columns
+                    if c not in ['id'] + PROGRESS_COLS]
+    return render_template('search.html',
+                           query=query,
+                           results=results,
+                           display_cols=display_cols,
+                           course=get_active_course(),
+                           courses=get_available_courses())
 
 
 if __name__ == '__main__':

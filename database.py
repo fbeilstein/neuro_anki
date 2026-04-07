@@ -215,3 +215,16 @@ class Database:
         self._save()
         print(f"Card {card_id} deleted.")
         return True
+
+    def search_cards(self, query, limit=50):
+        """Case-insensitive substring search across all content columns."""
+        if not query or not query.strip():
+            return []
+        q = query.strip().lower()
+        text_cols = [c for c in self.df.columns
+                     if c not in ['id'] + PROGRESS_COLS]
+        mask = pd.Series(False, index=self.df.index)
+        for col in text_cols:
+            mask = mask | self.df[col].astype(str).str.lower().str.contains(q, na=False)
+        results = self.df[mask].head(limit)
+        return [self._process_card(row) for _, row in results.iterrows()]
