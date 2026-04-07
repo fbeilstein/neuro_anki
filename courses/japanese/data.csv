@@ -175,7 +175,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 174,国,くに,country,noun,Let me tell you a bit about my country.,私[わたし]の<b> 国[くに]</b>について 少[すこ]しお 話[はなし]しましょう。,174V.opus,174S.opus,0
 175,起こる,おこる,happen,verb,There was a major incident in town.,町[まち]で 大[だい] 事件[じけん]が<b> 起[お]こりました</b>。,175V.opus,175S.opus,2
 176,秋,あき,"autumn, fall",noun,She'll get married this fall.,彼女[かのじょ]は<b> 秋[あき]</b>に 結婚[けっこん]します。,176V.opus,176S.opus,1
-177,送る,おくる,send,verb,I sent a package to his house.,彼[かれ]の 家[いえ]に 荷物[にもつ]を<b> 送[おく]りました</b>。,177V.opus,177S.opus,0
+177,送る,おくる,to send,verb,I sent a package to his house.,彼[かれ]の 家[いえ]に 荷物[にもつ]を<b> 送[おく]りました</b>。,177V.opus,177S.opus,0
 178,死ぬ,しぬ,die,verb,Our dog died of disease.,犬[いぬ]が 病気[びょうき]で<b> 死[し]にました</b>。,178V.opus,178S.opus,0
 179,気持ち,きもち,"feeling, sensation",noun,I don't know how he feels about me.,彼[かれ]の<b> 気持[きも]ち</b>が 分[わ]からない。,179V.opus,179S.opus,0
 180,乗る,のる,"to ride, to take a ride, to board (on a bus)",verb,Please take a taxi from the station.,駅[えき]からはタクシーに<b> 乗[の]って</b>ください。,180V.opus,180S.opus,0
@@ -361,7 +361,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 360,一人,ひとり,one person,noun,I was the only one there.,そこには 私[わたし]<b> 一人[ひとり]</b>しかいなかった。,360V.opus,360S.opus,2
 361,一日,ついたち,first of the month,noun,Are you available on the first of next month?,来月[らいげつ]の<b> 一日[ついたち]</b>は 空[あ]いていますか。,361V.opus,361S.opus,4
 362,九日,ここのか,"nine days, ninth of the month",noun,The package will arrive on the ninth.,<b> 九日[ここのか]</b>に 荷物[にもつ]が 届[とど]きます。,362V.opus,362S.opus,4
-363,方,ほう,"direction, side",noun,He looked at me.,彼[かれ]は 私[わたし]の<b> 方[ほう]</b>を 見[み]ました。,363V.opus,363S.opus,1
+363,方,ほう,"the direction, the side (1 symbol)",noun,He looked at me.,彼[かれ]は 私[わたし]の<b> 方[ほう]</b>を 見[み]ました。,363V.opus,363S.opus,1
 364,他,ほか,other (Japanese origin),noun,There's no other way.,<b> 他[ほか]</b>に 方法[ほうほう]がありません。,364V.opus,364S.opus,0
 365,僕,ぼく,"I, me (usually used by young males)",noun,I'm a student.,<b> 僕[ぼく]</b>は 学生[がくせい]です。,365V.opus,365S.opus,1
 366,欲しい,ほしい,"want, desire (adjective)",adjective,I want new shoes.,僕[ぼく]は 新[あたら]しい 靴[くつ]が<b> 欲[ほ]しい</b>です。,366V.opus,366S.opus,2
@@ -918,7 +918,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 917,どんどん,どんどん,"knock, bang",adverb,I banged on the door.,ドアを<b>どんどん</b>とたたいた。,917V.opus,917S.opus,1
 918,並べる,ならべる,"line up, arrange",verb,I arranged the food on the table.,私[わたし]は 料理[りょうり]をテーブルに<b> 並[なら]べた</b>。,918V.opus,918S.opus,0
 919,逃げる,にげる,"escape, run away",verb,The bird flew out of the window.,鳥[とり]が 窓[まど]から<b> 逃[に]げた</b>よ。,919V.opus,919S.opus,2
-920,渡す,わたす,"hand over, give",verb,I handed him the letter.,彼[かれ]に 手紙[てがみ]を<b> 渡[わた]しました</b>。,920V.opus,920S.opus,0
+920,渡す,わたす,"to hand over, to give",verb,I handed him the letter.,彼[かれ]に 手紙[てがみ]を<b> 渡[わた]しました</b>。,920V.opus,920S.opus,0
 921,値段,ねだん,price,noun,"The price of this belt was 2,500 yen.",このベルトの<b> 値段[ねだん]</b>は２５００ 円[えん]でした。,921V.opus,921S.opus,0
 922,両方,りょうほう,both,noun,"I'll have both the chocolate and cake, please.",チョコレートとケーキを<b> 両方[りょうほう]</b>ください。,922V.opus,922S.opus,3
 923,約束,やくそく,"promise, vow",verbal noun,I keep my promise.,<b> 約束[やくそく]</b>は 守[まも]ります。,923V.opus,923S.opus,0
