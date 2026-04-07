@@ -41,12 +41,16 @@ def format_duration(seconds):
     return " ".join(result[:2]) # Only show top 2 units (e.g., "5d 2h")
 
 def print_debug_report():
-    if not os.path.exists(DB_PATH):
-        print(f"Error: Database not found at {DB_PATH}")
+    from database import Database
+    
+    print(f"--- LOADING DATABASE: {COURSE_NAME} ---")
+    try:
+        db = Database(COURSE_NAME)
+    except Exception as e:
+        print(f"Error loading database: {e}")
         return
 
-    print(f"--- LOADING DATABASE: {COURSE_NAME} ---")
-    df = pd.read_csv(DB_PATH)
+    df = db.df
     
     # Filter: Only show cards that have been reviewed (last_review > 0)
     # or have a due date set.
