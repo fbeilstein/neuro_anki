@@ -140,7 +140,9 @@ def edit_card(card_id):
     system_cols = ['id', 'due', 'last_review', 'history_intervals', 'history_result', 'current_interval']
     editable_fields = {k: v for k, v in card.items() if k not in system_cols}
     
-    return render_template('edit_card.html', card=card, fields=editable_fields)
+    next_url = request.args.get('next', url_for('study'))
+    
+    return render_template('edit_card.html', card=card, fields=editable_fields, next_url=next_url)
 
 @app.route('/save_card', methods=['POST'])
 def save_card():
@@ -152,7 +154,8 @@ def save_card():
             updates[key] = value
             
     manager.db.update_card(card_id, updates)
-    return redirect(url_for('study'))
+    next_url = request.form.get('next_url', url_for('study'))
+    return redirect(next_url)
     
 @app.route('/add')
 def add_card_page():

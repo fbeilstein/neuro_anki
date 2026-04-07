@@ -177,7 +177,8 @@
                         {% for col in display_cols %}
                         <td title="{{ card.get(col, '') }}">{{ card.get(col, '') }}</td>
                         {% endfor %}
-                        <td><a href="/edit/{{ card['id'] }}" class="edit-link">Edit</a></td>
+                        <td><a href="{{ url_for('edit_card', card_id=card['id'], next=url_for('search', q=query)) }}"
+                                class="edit-link">Edit</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
