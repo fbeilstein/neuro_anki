@@ -45,7 +45,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 44,顔,かお,a face (noun),noun,He wiped his face with a towel.,彼[かれ]はタオルで<b> 顔[かお]</b>を 拭[ふ]きました。,44V.opus,44S.opus,0
 45,終わる,おわる,"finish, end",verb,The conference ends at four o'clock.,会議[かいぎ]は４ 時[じ]に<b> 終[お]わります</b>。,45V.opus,45S.opus,0
 46,一つ,ひとつ,one (thing),noun,Please give me one of those.,それを<b> 一[ひと]つ</b>ください。,46V.opus,46S.opus,2
-47,あげる,あげる,"to give (hiragana; general). Neutral way to say ""to give"" (to someone else).",verb,I'll give you this book.,この 本[ほん]、あなたに<b>あげます</b>。,47V.opus,47S.opus,0
+47,あげる,あげる,"to give (hiragana; general). neutral way to say ""to give"" (to someone else).",verb,I'll give you this book.,この 本[ほん]、あなたに<b>あげます</b>。,47V.opus,47S.opus,0
 48,こう,こう,"like this, such",adverb,I can't read such small letters.,<b>こう</b> 小[ちい]さい 字[じ]は 読[よ]めない。,48V.opus,48S.opus,1
 49,学校,がっこう,"school (general native term for institutions like elementary, high school)",noun,School starts at 8:30.,<b> 学校[がっこう]</b>は８ 時半[じはん]に 始[はじ]まります。,49V.opus,49S.opus,0
 50,くれる,くれる,be given,verb,My friend gave me a birthday present.,友達[ともだち]が 誕生[たんじょう] 日[び]プレゼントを<b>くれた</b>。,50V.opus,50S.opus,0
@@ -190,7 +190,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 189,待つ,まつ,"wait, wait for",verb,I am waiting for you to come.,あなたが 来[く]るのを<b> 待[ま]って</b>います。,189V.opus,189S.opus,1
 190,低い,ひくい,"low, short",adjective,He's short.,彼[かれ]は 背[せ]が<b> 低[ひく]い</b>。,190V.opus,190S.opus,2
 191,もらう,もらう,receive,verb,I got a present from her.,彼女[かのじょ]からプレゼントを<b>もらいました</b>。,191V.opus,191S.opus,0
-192,食べる,たべる,to eat,verb,I had Thai curry yesterday.,昨日[きのう]タイカレーを<b> 食[た]べました</b>。,192V.opus,192S.opus,2
+192,食べる,たべる,to eat,verb,I had Thai curry yesterday.,昨日[きのう]タイカレーを<b>食[た]べました</b>。,192V.opus,192S.opus,2
 193,兄,あに,older brother,noun,My big brother is good at swimming.,<b> 兄[あに]</b>は 水泳[すいえい]が 得意[とくい]です。,193V.opus,193S.opus,1
 194,名前,なまえ,name. Everyday word for someone's or something’s name.,noun,Please tell me your name.,あなたの<b> 名前[なまえ]</b>を 教[おし]えてください。,194V.opus,194S.opus,0
 195,夫,おっと,husband,noun,My husband is a company employee.,私[わたし]の<b> 夫[おっと]</b>はサラリーマンです。,195V.opus,195S.opus,0
@@ -396,7 +396,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 395,女,おんな,"woman, female (1 symbol)",noun,The salesclerk was a young woman.,店員[てんいん]は 若[わか]い<b> 女[おんな]</b>の 人[ひと]でした。,395V.opus,395S.opus,3
 396,妻,つま,(speaker's) wife,noun,It's my wife's birthday today.,今日[きょう]は<b> 妻[つま]</b>の 誕生[たんじょう] 日[び]だ。,396V.opus,396S.opus,1
 397,百,ひゃく,hundred,noun,My grandmother is 100 years old.,私[わたし]の 祖母[そぼ]は<b> 百[ひゃく]</b> 才[さい]です。,397V.opus,397S.opus,2
-398,辺,へん,vicinity,noun,He lives around here.,彼[かれ]はこの<b> 辺[へん]</b>に 住[す]んでいます。,398V.opus,398S.opus,0
+398,辺,へん,the vicinity,noun,He lives around here.,彼[かれ]はこの<b> 辺[へん]</b>に 住[す]んでいます。,398V.opus,398S.opus,0
 399,店,みせ,"the shop, the store. general term for a shop or store.",noun,I come to this store quite often.,私[わたし]はこの<b> 店[みせ]</b>によく 来[き]ます。,399V.opus,399S.opus,2
 400,閉まる,しまる,"be shut, be closed",verb,The store was already closed.,お 店[みせ]はもう<b> 閉[し]まって</b>いました。,400V.opus,400S.opus,2
 401,問題,もんだい,"problem, issue, question (on an exam/test)",noun,There's one problem.,<b> 問題[もんだい]</b>が 一[ひと]つあります。,401V.opus,401S.opus,0
@@ -499,7 +499,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 498,下りる,おりる,"go down, come down, to get off a vehicle (the act of descending a path)",verb,Please go down those stairs.,そこの 階段[かいだん]を<b> 下[お]りて</b>ください。,498V.opus,498S.opus,2
 499,洗う,あらう,wash,verb,Hurry and wash your face.,早[はや]く 顔[かお]を<b> 洗[あら]いなさい</b>。,499V.opus,499S.opus,0
 500,パート,ぱーと,part-time,noun,She is working part time.,彼女[かのじょ]は<b>パート</b>で 働[はたら]いています。,500V.opus,500S.opus,1
-501,氏名,しめい,name (of a person),noun,Please write your name and address here.,ここに 住所[じゅうしょ]と<b> 氏名[しめい]</b>を 書[か]いてください。,501V.opus,501S.opus,1
+501,氏名,しめい,full name (of a person in documents),noun,Please write your name and address here.,ここに 住所[じゅうしょ]と<b> 氏名[しめい]</b>を 書[か]いてください。,501V.opus,501S.opus,1
 502,今夜,こんや,"tonight, this evening",noun,The moon is very beautiful tonight.,<b> 今夜[こんや]</b>は 月[つき]がとてもきれいです。,502V.opus,502S.opus,1
 503,夜中,よなか,midnight,noun,I got a phone call in the middle of the night.,<b> 夜中[よなか]</b>に 電話[でんわ]がありました。,503V.opus,503S.opus,3
 504,来週,らいしゅう,next week,noun,We'll continue this next week.,続[つづ]きは<b> 来週[らいしゅう]</b>やりましょう。,504V.opus,504S.opus,0
