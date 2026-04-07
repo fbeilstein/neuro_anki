@@ -217,14 +217,46 @@ class Database:
         return True
 
     def search_cards(self, query, limit=50):
-        """Case-insensitive substring search across all content columns."""
+        """Case-insensitive search with fuzzy relevance scoring."""
+        from thefuzz import fuzz
+        
         if not query or not query.strip():
             return []
+        
         q = query.strip().lower()
-        text_cols = [c for c in self.df.columns
-                     if c not in ['id'] + PROGRESS_COLS]
-        mask = pd.Series(False, index=self.df.index)
-        for col in text_cols:
-            mask = mask | self.df[col].astype(str).str.lower().str.contains(q, na=False)
-        results = self.df[mask].head(limit)
-        return [self._process_card(row) for _, row in results.iterrows()]
+        text_cols = [c for c in self.df.columns if c not in ['id'] + PROGRESS_COLS]
+        
+        results_with_scores = []
+        for idx, row in self.df.iterrows():
+            # Initialize max score for the row
+            max_row_score = 0
+            
+            for col in text_cols:
+                val = str(row[col]).lower()
+                
+                # 1. fuzz.ratio: Standard Levenshtein (100 only if identical)
+                # 2. fuzz.partial_ratio: Best substring match (100 if query is inside string)
+                
+                # We combine them: 
+                # A perfect string match gets 100.
+                # A perfect substring match gets a base high score, 
+                # but is penalized by the 'full' ratio to prefer shorter strings.
+                
+                full_match = fuzz.ratio(q, val)
+                partial_match = fuzz.partial_ratio(q, val)
+                
+                # Weighted Score: 
+                # This ensures '鳥' (100) > '小鳥' (~80) > '鳥は飛ぶ' (~60)
+                # while still allowing 'tori' to match 'torii' very highly.
+                current_cell_score = (partial_match * 0.7) + (full_match * 0.3)
+                
+                if current_cell_score > max_row_score:
+                    max_row_score = current_cell_score
+            
+            if max_row_score > 45:  # Threshold to filter out garbage noise
+                results_with_scores.append((max_row_score, row))
+        
+        # Sort by the best cell score found in each row
+        results_with_scores.sort(key=lambda x: x[0], reverse=True)
+        
+        return [self._process_card(row) for score, row in results_with_scores[:limit]]

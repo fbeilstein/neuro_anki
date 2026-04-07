@@ -1,104 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Search — Neuro Anki</title>
     <style>
-        body { background: #1e1e1e; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 30px; }
-        .search-container { max-width: 900px; margin: 0 auto; }
-        h1 { color: #4a90e2; margin-top: 0; }
+        body {
+            background: #1e1e1e;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-        .search-bar { display: flex; gap: 10px; margin-bottom: 25px; }
+        .search-container {
+            width: 95vw;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #4a90e2;
+            margin-top: 0;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
         .search-bar input {
-            flex: 1; padding: 12px 16px; font-size: 1.1rem;
-            background: #333; border: 2px solid #444; color: white;
-            border-radius: 8px; outline: none;
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 1.1rem;
+            background: #333;
+            border: 2px solid #444;
+            color: white;
+            border-radius: 8px;
+            outline: none;
         }
-        .search-bar input:focus { border-color: #4a90e2; }
-        .search-bar button {
-            padding: 12px 24px; background: #4a90e2; color: white;
-            border: none; border-radius: 8px; font-size: 1rem;
-            cursor: pointer; font-weight: bold;
-        }
-        .search-bar button:hover { background: #357abd; }
 
-        .results-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .search-bar input:focus {
+            border-color: #4a90e2;
+        }
+
+        .search-bar button {
+            padding: 12px 24px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-bar button:hover {
+            background: #357abd;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            table-layout: auto;
+        }
+
         .results-table th {
-            text-align: left; padding: 10px 12px; background: #2a2a2a;
-            color: #888; font-size: 0.85rem; text-transform: uppercase;
-            letter-spacing: 0.5px; border-bottom: 2px solid #444;
-            position: sticky; top: 0;
+            text-align: left;
+            padding: 12px 15px;
+            background: #2a2a2a;
+            color: #888;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #444;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
+
         .results-table td {
-            padding: 10px 12px; border-bottom: 1px solid #333;
-            max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            padding: 12px 15px;
+            border-bottom: 1px solid #333;
+            vertical-align: top;
+            min-width: 120px;
         }
-        .results-table tr:hover td { background: #2d2d2d; }
+
+        .results-table tr:hover td {
+            background: #2d2d2d;
+        }
 
         .edit-link {
-            color: #4a90e2; text-decoration: none; font-weight: bold;
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
         }
-        .edit-link:hover { text-decoration: underline; }
 
-        .nav-links { margin-bottom: 20px; display: flex; gap: 15px; }
+        .edit-link:hover {
+            text-decoration: underline;
+        }
+
+        .nav-links {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
         .nav-links a {
-            color: #888; text-decoration: none; font-size: 0.95rem;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.95rem;
         }
-        .nav-links a:hover { color: #4a90e2; }
 
-        .result-count { color: #666; font-size: 0.9rem; margin-bottom: 10px; }
-        .no-results { color: #666; font-style: italic; margin-top: 20px; }
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
 
-        .table-wrap { overflow-x: auto; }
+        .result-count {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .no-results {
+            color: #666;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            background: #252525;
+            border-radius: 8px;
+            border: 1px solid #333;
+            max-height: 70vh;
+        }
     </style>
 </head>
+
 <body>
 
-<div class="search-container">
-    <div class="nav-links">
-        <a href="/study">← Back to Study</a>
-        <a href="/courses">Courses</a>
+    <div class="search-container">
+        <div class="nav-links">
+            <a href="/study">← Back to Study</a>
+            <a href="/courses">Courses</a>
+        </div>
+
+        <h1>🔍 Search Cards</h1>
+
+        <form action="/search" method="GET" class="search-bar">
+            <input type="text" name="q" value="{{ query }}" placeholder="Search cards…" autofocus>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if query %}
+        {% if results %}
+        <div class="result-count">{{ results|length }} result{{ 's' if results|length != 1 else '' }} for "{{ query }}"
+        </div>
+        <div class="table-wrap">
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        {% for col in display_cols %}
+                        <th>{{ col }}</th>
+                        {% endfor %}
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for card in results %}
+                    <tr>
+                        <td>{{ card['id'] }}</td>
+                        {% for col in display_cols %}
+                        <td title="{{ card.get(col, '') }}">{{ card.get(col, '') }}</td>
+                        {% endfor %}
+                        <td><a href="/edit/{{ card['id'] }}" class="edit-link">Edit</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="no-results">No cards found for "{{ query }}"</div>
+        {% endif %}
+        {% endif %}
     </div>
 
-    <h1>🔍 Search Cards</h1>
-
-    <form action="/search" method="GET" class="search-bar">
-        <input type="text" name="q" value="{{ query }}" placeholder="Search cards…" autofocus>
-        <button type="submit">Search</button>
-    </form>
-
-    {% if query %}
-        {% if results %}
-            <div class="result-count">{{ results|length }} result{{ 's' if results|length != 1 else '' }} for "{{ query }}"</div>
-            <div class="table-wrap">
-                <table class="results-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            {% for col in display_cols %}
-                            <th>{{ col }}</th>
-                            {% endfor %}
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for card in results %}
-                        <tr>
-                            <td>{{ card['id'] }}</td>
-                            {% for col in display_cols %}
-                            <td title="{{ card.get(col, '') }}">{{ card.get(col, '') }}</td>
-                            {% endfor %}
-                            <td><a href="/edit/{{ card['id'] }}" class="edit-link">Edit</a></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        {% else %}
-            <div class="no-results">No cards found for "{{ query }}"</div>
-        {% endif %}
-    {% endif %}
-</div>
-
 </body>
+
 </html>
