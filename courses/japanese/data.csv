@@ -7373,7 +7373,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 17399,味覚,みかく,sense of taste,,He has sensitive taste buds.,彼[かれ]はするどい<b> 味覚[みかく]</b>の 持ち主[もちぬし]だ,jw08859a.opus,js08859a.opus,0
 17400,政局,せいきょく,political situation,,The political situation of the country is unstable.,その 国[くに]の<b> 政局[せいきょく]</b>は 不安定[ふあんてい]だ,jw04682a.opus,js04682a.opus,0
 17401,警視庁,けいしちょう,Metropolitan Police Office,,He is working for the Tokyo Metropolitan Police Department.,彼[かれ]は<b> 警視庁[けいしちょう]</b>に 勤務[きんむ]している,jw02621a.opus,js02621a.opus,3
-17402,来客,らいきゃく,guest; visitor,,I have a visitor at 2pm today.,今日[きょう] 午後[ごご] 2 時[じ]に<b> 来客[らいきゃく]</b>があります,jw09764a.opus,js09764a.opus,0
+17402,来客,らいきゃく,guest; visitor,noun,I have a visitor at 2pm today.,今日[きょう] 午後[ごご] 2 時[じ]に<b> 来客[らいきゃく]</b>があります,jw09764a.opus,js09764a.opus,0
 17403,念頭,ねんとう,mind; thoughts,,I made the investment bearing in mind the various risks.,色々[いろいろ]なリスクを<b> 念頭[ねんとう]</b>に 置[お]いて 投資[とうし]をした,jw07039a.opus,js07039a.opus,0
 17404,念願,ねんがん,one's heart's desire,,I went on the trip of a lifetime to Paris.,<b>念願[ねんがん]</b>のパリ 旅行[りょこう]に 行[い]ってきました,jw07025a.opus,js07025a.opus,0
 17405,ビジネスマン,びじのすまん,business man,,He succeeded as a businessman.,彼[かれ]は<b>ビジネスマン</b>として 成功[せいこう]した,jw07688a.opus,js07688a.opus,4
