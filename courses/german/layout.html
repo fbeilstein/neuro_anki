@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+/* --- German Course Overrides --- */
+
+.main-stage { position: relative; }
+
+/* Rule panels — always visible, anchored to sides of viewport */
+.rule-panel {
+position: fixed;
+top: 50%;
+transform: translateY(-50%);
+width: 200px;
+background: #252525;
+border-radius: 10px;
+padding: 14px;
+font-size: 0.72rem;
+line-height: 1.5;
+color: #888;
+border: 1px solid #333;
+z-index: 10;
+max-height: 85vh;
+overflow-y: auto;
+}
+.rule-panel-left { left: 12px; }
+.rule-panel-right { right: 324px; } /* 300px sidebar + 24px gap */
+
+/* Make room for the panels */
+.main-stage { padding-left: 230px !important; padding-right: 10px !important; }
+
+.rule-panel h4 {
+color: #aaa;
+font-size: 0.75rem;
+margin: 0 0 8px 0;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+border-bottom: 1px solid #444;
+padding-bottom: 4px;
+}
+.rule-panel .r { color: #ff6b6b; } /* irregular / notable */
+.rule-panel .g { color: #4cd964; } /* regular / template */
+.rule-panel .a { color: #4a90e2; } /* accent / key info */
+.rule-panel .m { color: #666; } /* muted */
+.rule-panel .w { color: #e0e0e0; } /* white / emphasis */
+
+.rule-panel code {
+background: #333;
+padding: 1px 4px;
+border-radius: 3px;
+font-family: 'Consolas', monospace;
+font-size: 0.7rem;
+}
+.rule-panel .ex {
+background: #1e1e1e;
+border-radius: 5px;
+padding: 6px 8px;
+margin: 6px 0;
+font-size: 0.68rem;
+line-height: 1.7;
+}
+.rule-panel .sep {
+border-top: 1px solid #333;
+margin: 10px 0;
+}
+.rule-panel .arr { color: #555; }
+
+/* Card content */
+.de-full { color: var(--success); font-size: 2rem; font-weight: bold; margin-bottom: 4px; }
+.de-short { color: #888; font-size: 1.1rem; margin-bottom: 15px; }
+.de-label { color: #555; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+.sentence { font-style: italic; color: #aaa; line-height: 1.4; }
+.sentence b { color: var(--success); font-weight: bold; }
+.pos-tag {
+display: inline-block;
+background: #333;
+padding: 2px 10px;
+border-radius: 4px;
+font-size: 0.8rem;
+color: #4a90e2;
+margin-bottom: 15px;
+}
+{% endblock %}
+
+{% block question_area %}
+<div class="pos-tag">{{ card['POS'] }}</div>
+<h1>{{ card['English_Translation'] | safe }}</h1>
+<div class="sentence">{{ card['English_Sentence'] | safe }}</div>
+{% endblock %}
+
+{% block answer_area %}
+<div class="de-full">{{ card['DE_full'] }}</div>
+<div class="de-label">compressed</div>
+<div class="de-short">{{ card['DE'] }}</div>
+<div class="sentence" style="margin-top:15px;">{{ card['German_Sentence'] | safe }}</div>
+<div class="sentence" style="margin-top:5px;">{{ card['English_Sentence'] | safe }}</div>
+
+<div id="logic-config" style="display:none;" data-primary="{{ card['DE'] }}"
+    data-valid='{{ [card["DE"], card["DE_full"]] | tojson }}'>
+</div>
+{% endblock %}
+
+{% block extra_body %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- LEFT PANEL: Full Grammar → Compressed ---
+        const leftHTML = `
+    <div class="rule-panel rule-panel-left">
+
+        <h4>🔤 Noun Rules</h4>
+        <div class="ex">
+            <span class="w">Full:</span> <span class="a">der</span> Tisch, <span class="g">des Tisches</span>, <span class="g">die Tische</span><br>
+            <span class="arr">→</span> <span class="w">Short:</span> <span class="a">der</span> Tisch, <span class="g">e</span><br>
+            <span class="m">(standard <span class="g">-s/-es</span> genitive hidden)</span>
+        </div>
+        <div class="ex">
+            <span class="w">Full:</span> <span class="a">der</span> Mensch, <span class="r">des Menschen</span>, <span class="g">die Menschen</span><br>
+            <span class="arr">→</span> <span class="w">Short:</span> <span class="a">der</span> Mensch, <span class="r">en</span>, <span class="g">en</span><br>
+            <span class="m">(weak <span class="r">-en</span> genitive shown!)</span>
+        </div>
+
+        <div class="sep"></div>
+        <h4>📗 Verb Rules</h4>
+        <div class="ex">
+            <span class="w">Template:</span> X<span class="g">t</span>, X<span class="g">te</span>, <span class="g">hat</span> <span class="g">ge</span>X<span class="g">t</span><br>
+            <span class="m">(regular = show lemma only)</span>
+        </div>
+        <div class="ex">
+            <span class="w">Full:</span> machen, mach<span class="g">t</span>, mach<span class="g">te</span>, <span class="g">hat gemacht</span><br>
+            <span class="arr">→</span> <span class="w">Short:</span> machen<br>
+            <span class="m">(100% regular → just lemma)</span>
+        </div>
+        <div class="ex">
+            <span class="w">Full:</span> reisen, reis<span class="g">t</span>, reis<span class="g">te</span>, <span class="r">ist</span> <span class="g">gereist</span><br>
+            <span class="arr">→</span> <span class="w">Short:</span> reisen, <span class="r">ist</span><br>
+            <span class="m">(only <span class="r">ist</span> differs → shown)</span>
+        </div>
+        <div class="ex">
+            <span class="w">Full:</span> geben, <span class="r">gibt</span>, <span class="r">gab</span>, hat <span class="r">gegeben</span><br>
+            <span class="arr">→</span> <span class="w">Short:</span> geben, <span class="r">gibt, gab, gegeben</span><br>
+            <span class="m">(all irregular parts shown)</span>
+        </div>
+
+    </div>`;
+
+        // --- RIGHT PANEL: DSL Legend + ADJ/PREP/ADV ---
+        const rightHTML = `
+    <div class="rule-panel rule-panel-right">
+
+        <h4>📘 Plural DSL</h4>
+        <div class="ex">
+            <code>-</code> = no change (Lehrer → Lehrer)<br>
+            <code>e</code> = +e (Tisch → Tisch<span class="g">e</span>)<br>
+            <code>n</code> = +n (Blume → Blume<span class="g">n</span>)<br>
+            <code>s</code> = +s (Auto → Auto<span class="g">s</span>)<br>
+            <code>"</code> = umlaut (Vater → V<span class="r">ä</span>ter)<br>
+            <code>"er</code> = umlaut+er (Haus → H<span class="r">ä</span>us<span class="g">er</span>)<br>
+            <code>"e</code> = umlaut+e (Stadt → St<span class="r">ä</span>dt<span class="g">e</span>)
+        </div>
+
+        <div class="sep"></div>
+        <h4>📙 Adjective Rules</h4>
+        <div class="ex">
+            <span class="w">Regular:</span> klein → klein<span class="g">er</span>, am klein<span class="g">sten</span><br>
+            <span class="arr">→</span> Short: <span class="w">klein</span><br><br>
+            <span class="w">Umlaut:</span> alt → <span class="r">ä</span>lt<span class="g">er</span>, am <span class="r">ä</span>lt<span class="g">esten</span><br>
+            <span class="arr">→</span> Short: alt, <code>"</code>
+        </div>
+
+        <div class="sep"></div>
+        <h4>📕 Preposition Cases</h4>
+        <div class="ex">
+            <code>D</code> = Dativ &nbsp; <code>A</code> = Akkusativ<br>
+            <code>G</code> = Genitiv<br>
+            <span class="m">mit + D → </span><span class="w">mit, D</span><br>
+            <span class="m">in + D/A → </span><span class="w">in, DA</span>
+        </div>
+
+        <div class="sep"></div>
+        <h4>📒 Verb Position</h4>
+        <div class="ex">
+            <code>2</code> = verb 2nd <span class="m">(main clause)</span><br>
+            <span class="m">Er <span class="g">spielt</span> Klavier <span class="a">und</span> sie <span class="g">singt</span>.</span><br><br>
+            <code>-1</code> = verb last <span class="m">(sub clause)</span><br>
+            <span class="m">..., <span class="a">weil</span> es <span class="r">regnet</span>.</span>
+        </div>
+
+    </div>`;
+
+        // Inject panels into <body>
+        document.body.insertAdjacentHTML('afterbegin', leftHTML + rightHTML);
+    });
+</script>
+{% endblock %}

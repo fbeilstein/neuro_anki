@@ -121,7 +121,8 @@
             padding-top: 20px;
         }
 
-            {% block custom_css %} {% endblock %}
+        {% block custom_css %}{% endblock %}
+
 
         /* Edit Button Style */
         .edit-btn {
@@ -264,6 +265,8 @@
         {% include 'includes/histogram.html' %}
         {% include 'includes/drum.html' %}
     </div>
+
+    {% block extra_body %}{% endblock %}
 
 </body>
 
