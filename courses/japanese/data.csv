@@ -176,7 +176,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 175,起こる,おこる,happen,verb,There was a major incident in town.,町[まち]で 大[だい] 事件[じけん]が<b> 起[お]こりました</b>。,175V.opus,175S.opus,2
 176,秋,あき,"autumn, fall",noun,She'll get married this fall.,彼女[かのじょ]は<b> 秋[あき]</b>に 結婚[けっこん]します。,176V.opus,176S.opus,1
 177,送る,おくる,to send,verb,I sent a package to his house.,彼[かれ]の 家[いえ]に 荷物[にもつ]を<b> 送[おく]りました</b>。,177V.opus,177S.opus,0
-178,死ぬ,しぬ,die,verb,Our dog died of disease.,犬[いぬ]が 病気[びょうき]で<b> 死[し]にました</b>。,178V.opus,178S.opus,0
+178,死ぬ,しぬ,to die,verb,Our dog died of disease.,犬[いぬ]が 病気[びょうき]で<b> 死[し]にました</b>。,178V.opus,178S.opus,0
 179,気持ち,きもち,"feeling, sensation",noun,I don't know how he feels about me.,彼[かれ]の<b> 気持[きも]ち</b>が 分[わ]からない。,179V.opus,179S.opus,0
 180,乗る,のる,"to ride, to take a ride, to board (on a bus)",verb,Please take a taxi from the station.,駅[えき]からはタクシーに<b> 乗[の]って</b>ください。,180V.opus,180S.opus,0
 181,いる,いる,"be present, stay",verb,I was at home all day today.,今日[きょう]は 一日中[いちにちじゅう] 家[うち]に<b>いました</b>。,181V.opus,181S.opus,0
@@ -490,14 +490,14 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 489,負ける,まける,lose,verb,Our team lost the game.,私[わたし]たちのチームはその 試合[しあい]で<b> 負[ま]けた</b>。,489V.opus,489S.opus,0
 490,建てる,たてる,"build, erect",verb,We'll build a house next year.,私[わたし]たちは 来年[らいねん]、 家[いえ]を<b> 建[た]てます</b>。,490V.opus,490S.opus,2
 491,日記,にっき,diary (personal daily journal),noun,I keep a diary every day.,私[わたし]は 毎日[まいにち]、<b> 日記[にっき]</b>をつけています。,491V.opus,491S.opus,0
-492,売り切れ,うりきれ,sell out,noun,The tickets have sold out already.,チケットはもう<b> 売[う]り 切[き]れ</b>だって。,492V.opus,492S.opus,0
+492,売り切れ,うりきれ,the sell out,noun,The tickets have sold out already.,チケットはもう<b> 売[う]り 切[き]れ</b>だって。,492V.opus,492S.opus,0
 493,お巡りさん,おまわりさん,"police officer (friendly term, often used with children)",noun,Let's ask that police officer for directions.,あの<b>お 巡[まわ]りさん</b>に 道[みち]を 聞[き]きましょう。,493V.opus,493S.opus,2
 494,目覚まし時計,めざましどけい,alarm clock,noun,The alarm clock went off at seven o'clock.,７ 時[じ]に<b> 目覚[めざ]まし 時計[どけい]</b>が 鳴[な]りました。,494V.opus,494S.opus,5
 495,レシート,れしーと,receipt (katakana).&nbsp;Standard receipt from a store or machine. Doesn’t contain full business information.,noun,I put the receipt in my wallet.,<b>レシート</b>を 財布[さいふ]に 入[い]れました。,495V.opus,495S.opus,2
 496,ティッシュ,てぃっしゅ,tissue,noun,Please pass me the tissues.,<b>ティッシュ</b>を 取[と]ってください。,496V.opus,496S.opus,1
 497,歯ブラシ,はぶらし,toothbrush,noun,I need a new toothbrush.,新[あたら]しい<b> 歯[は]ブラシ</b>が 必要[ひつよう]だ。,497V.opus,497S.opus,2
 498,下りる,おりる,"go down, come down, to get off a vehicle (the act of descending a path)",verb,Please go down those stairs.,そこの 階段[かいだん]を<b> 下[お]りて</b>ください。,498V.opus,498S.opus,2
-499,洗う,あらう,wash,verb,Hurry and wash your face.,早[はや]く 顔[かお]を<b> 洗[あら]いなさい</b>。,499V.opus,499S.opus,0
+499,洗う,あらう,to wash,verb,Hurry and wash your face.,早[はや]く顔[かお]を<b>洗[あら]いなさい</b>。,499V.opus,499S.opus,0
 500,パート,ぱーと,part-time,noun,She is working part time.,彼女[かのじょ]は<b>パート</b>で 働[はたら]いています。,500V.opus,500S.opus,1
 501,氏名,しめい,full name (of a person in documents),noun,Please write your name and address here.,ここに 住所[じゅうしょ]と<b> 氏名[しめい]</b>を 書[か]いてください。,501V.opus,501S.opus,1
 502,今夜,こんや,"tonight, this evening",noun,The moon is very beautiful tonight.,<b> 今夜[こんや]</b>は 月[つき]がとてもきれいです。,502V.opus,502S.opus,1
@@ -512,7 +512,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 511,おばさん,おばさん,aunt,noun,My aunt and her family came to visit me.,<b>おばさん</b> 一家[いっか]が 遊[あそ]びに 来[き]ました。,511V.opus,511S.opus,0
 512,お祖母さん,おばあさん,grandmother (honorific),noun,She lives with her grandmother.,彼女[かのじょ]は<b>お 祖母[ばあ]さん</b>と 住[す]んでいる。,512V.opus,512S.opus,2
 513,いとこ,いとこ,cousin,noun,My cousin and I are the same age.,<b>いとこ</b>と 私[わたし]は 同[おな]じ 年[とし]です。,513V.opus,513S.opus,2
-514,辞書,じしょ,Dictionary (standard or handheld),noun,She often uses a dictionary.,彼女[かのじょ]は<b> 辞書[じしょ]</b>をよく 使[つか]います。,514V.opus,514S.opus,1
+514,辞書,じしょ,dictionary (standard or handheld),noun,She often uses a dictionary.,彼女[かのじょ]は<b> 辞書[じしょ]</b>をよく 使[つか]います。,514V.opus,514S.opus,1
 515,朝ご飯,あさごはん,"breakfast (casual, 3 symbols)",noun,I ate breakfast at seven o'clock.,７ 時[じ]に<b> 朝[あさ]ご 飯[はん]</b>を 食[た]べました。,515V.opus,515S.opus,-1
 516,白,しろ,the white,noun,White is the color of snow.,<b> 白[しろ]</b>は 雪[ゆき]の 色[いろ]です。,516V.opus,516S.opus,1
 517,どっち,どっち,"which (exactly two options, casual)",interrogative,Which color do you like?,<b>どっち</b>の色[いろ]が 好[す]きですか。,517V.opus,517S.opus,1
@@ -539,12 +539,12 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 538,外,そと,"outside, open air",noun,It's hot outside.,<b> 外[そと]</b>は 暑[あつ]いよ。,538V.opus,538S.opus,1
 539,大切,たいせつ,"important, valuable",adjectival noun,This is a ring that meant a lot to my mother.,これは 母[はは]が<b> 大切[たいせつ]</b>にしていた 指輪[ゆびわ]です。,539V.opus,539S.opus,0
 540,ちょうど,ちょうど,"just, exactly",adverb,"The price is exactly 30,000 yen.",値段[ねだん]は<b>ちょうど</b>３ 万[まん] 円[えん]です。,540V.opus,540S.opus,0
-541,助ける,たすける,"help, save",verb,She saved a sick dog.,彼女[かのじょ]は 病気[びょうき]の 犬[いぬ]を<b> 助[たす]けた</b>。,541V.opus,541S.opus,3
+541,助ける,たすける,"to help, to save",verb,She saved a sick dog.,彼女[かのじょ]は 病気[びょうき]の 犬[いぬ]を<b> 助[たす]けた</b>。,541V.opus,541S.opus,3
 542,勤める,つとめる,"serve, hold a job",verb,I work at a bank.,私[わたし]は 銀行[ぎんこう]に<b> 勤[つと]めて</b>います。,542V.opus,542S.opus,3
 543,連れて行く,つれていく,"take along, bring along (a person)",verb,Please take me along.,私[わたし]も<b> 連[つ]れて 行[い]って</b>ください。,543V.opus,543S.opus,-1
 544,丈夫,じょうぶ,"healthy, sturdy",adjectival noun,My grandmother is physically strong.,祖母[そぼ]は 体[からだ]が<b> 丈夫[じょうぶ]</b>だ。,544V.opus,544S.opus,0
 545,賑やか,にぎやか,"lively, exciting",adjectival noun,Asakusa is a lively district.,浅草[あさくさ]は<b> 賑[にぎ]やか</b>な 街[まち]です。,545V.opus,545S.opus,2
-546,眠い,ねむい,"Sleepy (common, used when you feel like sleeping)",adjective,I'm very sleepy today.,今日[きょう]はとても<b> 眠[ねむ]い</b>です。,546V.opus,546S.opus,0
+546,眠い,ねむい,"sleepy (common, used when you feel like sleeping)",adjective,I'm very sleepy today.,今日[きょう]はとても<b> 眠[ねむ]い</b>です。,546V.opus,546S.opus,0
 547,山,やま,mountain,noun,The mountain air is clean.,<b> 山[やま]</b>の 空気[くうき]はきれいだ。,547V.opus,547S.opus,2
 548,橋,はし,bridge,noun,That bridge is the longest in Japan.,あの<b> 橋[はし]</b>は 日本[にほん]で 一番[いちばん] 長[なが]い。,548V.opus,548S.opus,2
 549,止まる,とまる,"come to a stop, cease",verb,The train stopped this morning due to an accident.,今朝[けさ]、 事故[じこ]で 電車[でんしゃ]が<b> 止[と]まりました</b>。,549V.opus,549S.opus,0
@@ -948,7 +948,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_
 947,特別,とくべつ,"special (formal, general-purpose)",adjectival noun,You're special to me.,あなたは 私[わたし]にとって<b> 特別[とくべつ]</b>な 人[ひと]です。,947V.opus,947S.opus,0
 948,理由,りゆう,"reason, cause (objective/factual). General word for a reason, neutral or formal.",noun,Please tell me why you were late.,遅[おく]れた<b> 理由[りゆう]</b>を 教[おし]えてください。,948V.opus,948S.opus,0
 949,自由,じゆう,freedom,adjectival noun,I have a lot of free time today.,今日[きょう]は<b> 自由[じゆう]</b>な 時間[じかん]が 多[おお]い。,949V.opus,949S.opus,2
-950,方向,ほうこう,"direction, course",noun,Those people are all looking at the same direction.,あの 人[ひと]たちは 皆[みな]、 同[おな]じ<b> 方向[ほうこう]</b>を 見[み]ている。,950V.opus,950S.opus,0
+950,方向,ほうこう,"the direction, the course (2 symbols)",noun,Those people are all looking at the same direction.,あの 人[ひと]たちは 皆[みな]、 同[おな]じ<b> 方向[ほうこう]</b>を 見[み]ている。,950V.opus,950S.opus,0
 951,残る,のこる,"remain, be left over",verb,A lot of food was left over.,料理[りょうり]がたくさん<b> 残[のこ]りました</b>。,951V.opus,951S.opus,2
 952,ビル,びる,building,noun,My company's on the eighth floor of that building.,私[わたし]の 会社[かいしゃ]はあの<b>ビル</b>の８ 階[かい]です。,952V.opus,952S.opus,1
 953,まとめる,まとめる,"gather together, put in order",verb,She packed her luggage and left.,彼女[かのじょ]は 荷物[にもつ]を<b>まとめて</b> 出[で]て 行[い]った。,953V.opus,953S.opus,0
