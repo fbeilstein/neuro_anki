@@ -257,63 +257,68 @@ def generate_compressed_de(row):
 
 def detect_noun_compounds(df):
     """
-    For each NOUN, find if a shorter NOUN in the dataset is its base component.
-    Returns a dict: {compound_lemma: base_lemma} for topological sorting.
-    Only NOUNs with len >= 4 can serve as base components.
-    Uses hash-based prefix lookup for O(n) performance.
+    Detects true compound nouns by ensuring BOTH the prefix and suffix are valid nouns.
     """
-    nouns = df[df['POS'] == 'NOUN']['Lemma'].str.strip().unique()
+    nouns_list = df[df['POS'] == 'NOUN']['Lemma'].str.strip().tolist()
+    nouns_lower = set(n.lower() for n in nouns_list)
+    
+    fugen_elements = ["", "s", "es", "n", "en", "er", "e"]
+    compounds = set()
 
-    # Build a prefix lookup: for each base noun, generate all possible
-    # prefix strings (base + each Fugen-element) and map them to the base
-    # Key: lowercase prefix string -> Value: (original_base, base_len)
-    prefix_to_base = {}
-    for noun in nouns:
-        if len(noun) < 4:
-            continue
-        noun_lower = noun.lower()
-        for f in FUGEN_ELEMENTS:
-            key = noun_lower + f
-            # Keep the longest base for each prefix (greedy matching)
-            if key not in prefix_to_base or len(noun) > prefix_to_base[key][1]:
-                prefix_to_base[key] = (noun, len(noun))
-
-    # For each word, try progressively shorter prefixes to find the longest base
-    compounds = {}
-    for word in nouns:
+    for word in nouns_list:
         word_lower = word.lower()
-        best_base = None
-        best_len = 0
-        # Try all possible split points (from longest prefix to shortest)
-        for split_pos in range(len(word_lower) - 2, 3, -1):  # min base len 4
-            candidate_prefix = word_lower[:split_pos]
-            if candidate_prefix in prefix_to_base:
-                base, base_len = prefix_to_base[candidate_prefix]
-                if base != word and base_len > best_len:
-                    best_base = base
-                    best_len = base_len
-                    break  # Longest prefix found — stop
-        if best_base:
-            compounds[word] = best_base
+        if len(word_lower) < 6:
+            continue
+
+        found_compound = False
+        
+        # FIX: len(word_lower) - 2 allows it to catch 3-letter suffixes (like 'tür' or 'weg')
+        for i in range(3, len(word_lower) - 2):
+            prefix = word_lower[:i]
+            suffix = word_lower[i:]
+
+            if suffix in nouns_lower:
+                for f in fugen_elements:
+                    if f == "":
+                        candidate_base = prefix
+                    elif prefix.endswith(f):
+                        candidate_base = prefix[:-len(f)]
+                    else:
+                        continue
+
+                    if candidate_base in nouns_lower:
+                        compounds.add(word)
+                        found_compound = True
+                        break
+            if found_compound:
+                break
+
+    # --- SANITY CHECK PRINTS ---
+    print(f"   -> Found {len(compounds)} true compounds.")
+    if compounds:
+        sample = list(compounds)[:5]
+        print(f"   -> Pushing to bottom, examples: {sample}")
 
     return compounds
 
 
 def compound_aware_sort_key(row, compounds, freq_map):
     """
-    Sort key: (base_freq_rank, is_compound, own_freq_rank)
-    - Simple words sort by their own frequency rank
-    - Compounds sort right after their base word, then by own frequency
+    Sort key: (is_compound_group, cluster_rank, own_freq_rank)
+    - Group 0: Simple words (sorted by their own frequency)
+    - Group 1: Compound words (clustered by base word frequency, then sorted by own frequency)
     """
-    lemma = row['Lemma'].strip()
+    lemma = str(row['Lemma']).strip()
     own_rank = freq_map.get(lemma, 99999)
 
     if lemma in compounds:
         base = compounds[lemma]
         base_rank = freq_map.get(base, 99999)
-        return (base_rank, 1, own_rank)  # After base word
+        # '1' pushes to bottom. 'base_rank' groups siblings. 'own_rank' sorts within the group.
+        return (1, base_rank, own_rank) 
     else:
-        return (own_rank, 0, own_rank)  # Simple word
+        # '0' keeps at top. 'own_rank' sorts by frequency. The final '0' is a dummy value for shape matching.
+        return (0, own_rank, 0)
 
 
 # --- 4. Execution Logic ---
@@ -334,30 +339,24 @@ df['POS'] = df['POS'].map(lambda p: POS_NORMALIZE.get(p.strip(), p.strip()))
 print("⚙️  Generating compressed grammar (DE column)...")
 df['DE'] = df.apply(generate_compressed_de, axis=1)
 
-# 5. Detect compound words and sort
-print("🔗 Detecting compound words...")
-compounds = detect_noun_compounds(df)
-print(f"   Found {len(compounds)} compound word relationships.")
+# ==========================================
+# 4. THE EXECUTION BLOCK (Clean, No Compound Sorting)
+# ==========================================
 
-# Build freq_rank lookup by lemma (use first occurrence for duplicates)
-freq_map = {}
-for _, row in df.iterrows():
-    lemma = row['Lemma'].strip()
-    if lemma not in freq_map:
-        freq_map[lemma] = row['freq_rank']
+# 5. Bypass compound detection
+print("🧹 Bypassing compound sorting. Sorting strictly by original frequency rank...")
 
-# Compute sort keys and sort
-df['_sort_key'] = df.apply(lambda r: compound_aware_sort_key(r, compounds, freq_map), axis=1)
-df = df.sort_values('_sort_key').reset_index(drop=True)
+# 6. Sort the DataFrame simply by the original frequency
+df = df.sort_values(by='freq_rank').reset_index(drop=True)
 
-# 6. Assign final IDs (1-based, in sorted order)
+# 7. Assign final IDs and arrange columns
 df['id'] = range(1, len(df) + 1)
-
-# 7. Rename Grammar_Info -> DE_full and arrange columns
 df = df.rename(columns={'Grammar_Info': 'DE_full'})
 
 final_cols = ['id', 'Lemma', 'POS', 'DE_full', 'DE', 'English_Translation',
               'German_Sentence', 'English_Sentence']
+
+# Filter to only the final columns (this automatically drops 'freq_rank')
 df = df[final_cols]
 
 # 8. Save to output
@@ -366,6 +365,12 @@ df.to_csv(OUTPUT_FILE, index=False)
 
 # 9. Print Summary
 review_count = df['DE'].str.contains(r'\[REVIEW\]', regex=True).sum()
+print(f"\n✅ Successfully created {OUTPUT_FILE} with {len(df)} records.")
+print(f"   Columns: {', '.join(final_cols)}")
+if review_count > 0:
+    print(f"⚠️  {review_count} entries flagged with [REVIEW] in the DE column.")
+else:
+    print("🎉 No [REVIEW] flags — all entries compressed successfully!")
 print(f"\n✅ Successfully created {OUTPUT_FILE} with {len(df)} records.")
 print(f"   Columns: {', '.join(final_cols)}")
 if review_count > 0:
