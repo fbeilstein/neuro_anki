@@ -5,12 +5,12 @@
 
 .main-stage { position: relative; }
 
-/* Rule panels — always visible, anchored to sides of viewport */
+/* Rule panels — always visible, fixed to sides, vertically centered */
 .rule-panel {
 position: fixed;
 top: 50%;
 transform: translateY(-50%);
-width: 200px;
+width: 290px;
 background: #252525;
 border-radius: 10px;
 padding: 14px;
@@ -19,14 +19,14 @@ line-height: 1.5;
 color: #888;
 border: 1px solid #333;
 z-index: 10;
-max-height: 85vh;
+max-height: 90vh;
 overflow-y: auto;
 }
-.rule-panel-left { left: 12px; }
-.rule-panel-right { right: 324px; } /* 300px sidebar + 24px gap */
+.rule-panel-left { left: 72px; }
+.rule-panel-right { right: 410px; }
 
-/* Make room for the panels */
-.main-stage { padding-left: 230px !important; padding-right: 10px !important; }
+/* Symmetric spacing for flashcard */
+.main-stage { padding-left: 240px !important; padding-right: 240px !important; }
 
 .rule-panel h4 {
 color: #aaa;
@@ -37,11 +37,11 @@ letter-spacing: 0.5px;
 border-bottom: 1px solid #444;
 padding-bottom: 4px;
 }
-.rule-panel .r { color: #ff6b6b; } /* irregular / notable */
-.rule-panel .g { color: #4cd964; } /* regular / template */
-.rule-panel .a { color: #4a90e2; } /* accent / key info */
-.rule-panel .m { color: #666; } /* muted */
-.rule-panel .w { color: #e0e0e0; } /* white / emphasis */
+.rule-panel .r { color: #ff6b6b; }
+.rule-panel .g { color: #4cd964; }
+.rule-panel .a { color: #4a90e2; }
+.rule-panel .m { color: #666; }
+.rule-panel .w { color: #e0e0e0; }
 
 .rule-panel code {
 background: #333;
@@ -63,6 +63,18 @@ border-top: 1px solid #333;
 margin: 10px 0;
 }
 .rule-panel .arr { color: #555; }
+
+/* Numbered words: small subscript numbers */
+.rule-panel .wn { position: relative; display: inline-block; }
+.rule-panel .wn sub {
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+font-size: 0.5rem;
+color: #4a90e2;
+font-weight: bold;
+}
 
 /* Card content */
 .de-full { color: var(--success); font-size: 2rem; font-weight: bold; margin-bottom: 4px; }
@@ -101,8 +113,46 @@ margin-bottom: 15px;
 
 {% block extra_body %}
 <script>
+    // --- GERMAN-SPECIFIC: Expand valid answers with case-letter permutations ---
+    // For PREP answers like "in, DA", also accept "in, AD", "in, D A", etc.
+    // Runs before engine.js because engine.js uses defer.
     document.addEventListener('DOMContentLoaded', function () {
-        // --- LEFT PANEL: Full Grammar → Compressed ---
+        const config = document.getElementById('logic-config');
+        if (!config) return;
+        const validAnswers = JSON.parse(config.dataset.valid);
+        const expanded = new Set(validAnswers);
+
+        // Generate permutations of case letters D/A/G at the end of each answer
+        const caseLetterRe = /([, ]+)([DAG]{2,})$/i;
+        validAnswers.forEach(answer => {
+            const m = answer.match(caseLetterRe);
+            if (!m) return;
+            const prefix = answer.slice(0, m.index) + m[1]; // "in, "
+            const letters = m[2].toUpperCase().split('');      // ["D","A"]
+            // All permutations of these letters
+            permute(letters).forEach(perm => {
+                expanded.add(prefix + perm.join(''));
+                expanded.add(prefix + perm.join(' '));  // with spaces: "D A"
+            });
+        });
+
+        config.dataset.valid = JSON.stringify([...expanded]);
+
+        function permute(arr) {
+            if (arr.length <= 1) return [arr];
+            const result = [];
+            for (let i = 0; i < arr.length; i++) {
+                const rest = arr.slice(0, i).concat(arr.slice(i + 1));
+                permute(rest).forEach(p => result.push([arr[i], ...p]));
+            }
+            return result;
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // --- LEFT PANEL: Noun Rules + Plural DSL + Adjective Rules ---
         const leftHTML = `
     <div class="rule-panel rule-panel-left">
 
@@ -119,6 +169,32 @@ margin-bottom: 15px;
         </div>
 
         <div class="sep"></div>
+        <h4>📘 Plural DSL</h4>
+        <div class="ex">
+            <code>-</code> = no change (Lehrer → Lehrer)<br>
+            <code>e</code> = +e (Tisch → Tisch<span class="g">e</span>)<br>
+            <code>n</code> = +n (Blume → Blume<span class="g">n</span>)<br>
+            <code>s</code> = +s (Auto → Auto<span class="g">s</span>)<br>
+            <code>"</code> = umlaut (Vater → V<span class="r">ä</span>ter)<br>
+            <code>"er</code> = umlaut+er (Haus → H<span class="r">ä</span>us<span class="g">er</span>)<br>
+            <code>"e</code> = umlaut+e (Stadt → St<span class="r">ä</span>dt<span class="g">e</span>)
+        </div>
+
+        <div class="sep"></div>
+        <h4>📙 Adjective Rules</h4>
+        <div class="ex">
+            <span class="w">Regular:</span> klein → klein<span class="g">er</span>, am klein<span class="g">sten</span><br>
+            <span class="arr">→</span> Short: <span class="w">klein</span><br><br>
+            <span class="w">Umlaut:</span> alt → <span class="r">ä</span>lt<span class="g">er</span>, am <span class="r">ä</span>lt<span class="g">esten</span><br>
+            <span class="arr">→</span> Short: alt, <code>"</code>
+        </div>
+
+    </div>`;
+
+        // --- RIGHT PANEL: Verb Rules + Preposition Cases + Verb Position ---
+        const rightHTML = `
+    <div class="rule-panel rule-panel-right">
+
         <h4>📗 Verb Rules</h4>
         <div class="ex">
             <span class="w">Template:</span> X<span class="g">t</span>, X<span class="g">te</span>, <span class="g">hat</span> <span class="g">ge</span>X<span class="g">t</span><br>
@@ -140,32 +216,6 @@ margin-bottom: 15px;
             <span class="m">(all irregular parts shown)</span>
         </div>
 
-    </div>`;
-
-        // --- RIGHT PANEL: DSL Legend + ADJ/PREP/ADV ---
-        const rightHTML = `
-    <div class="rule-panel rule-panel-right">
-
-        <h4>📘 Plural DSL</h4>
-        <div class="ex">
-            <code>-</code> = no change (Lehrer → Lehrer)<br>
-            <code>e</code> = +e (Tisch → Tisch<span class="g">e</span>)<br>
-            <code>n</code> = +n (Blume → Blume<span class="g">n</span>)<br>
-            <code>s</code> = +s (Auto → Auto<span class="g">s</span>)<br>
-            <code>"</code> = umlaut (Vater → V<span class="r">ä</span>ter)<br>
-            <code>"er</code> = umlaut+er (Haus → H<span class="r">ä</span>us<span class="g">er</span>)<br>
-            <code>"e</code> = umlaut+e (Stadt → St<span class="r">ä</span>dt<span class="g">e</span>)
-        </div>
-
-        <div class="sep"></div>
-        <h4>📙 Adjective Rules</h4>
-        <div class="ex">
-            <span class="w">Regular:</span> klein → klein<span class="g">er</span>, am klein<span class="g">sten</span><br>
-            <span class="arr">→</span> Short: <span class="w">klein</span><br><br>
-            <span class="w">Umlaut:</span> alt → <span class="r">ä</span>lt<span class="g">er</span>, am <span class="r">ä</span>lt<span class="g">esten</span><br>
-            <span class="arr">→</span> Short: alt, <code>"</code>
-        </div>
-
         <div class="sep"></div>
         <h4>📕 Preposition Cases</h4>
         <div class="ex">
@@ -176,17 +226,45 @@ margin-bottom: 15px;
         </div>
 
         <div class="sep"></div>
-        <h4>📒 Verb Position</h4>
+        <h4>📒 (CONJ/ADV) Verb Position</h4>
         <div class="ex">
+            <code>1</code> = verb 1st <span class="m">(adverb slot)</span><br>
+            <span class="m" style="line-height:2.2">
+                <span class="wn"><span class="a">Erst</span><sub>0</sub></span>
+                <span class="wn"><span class="g">feiern</span><sub>1</sub></span>
+                <span class="wn">wir<sub>2</sub></span>
+                <span class="wn">den<sub>3</sub></span>
+                <span class="wn">Geburtstag.<sub>4</sub></span>
+            </span><br><br>
+
             <code>2</code> = verb 2nd <span class="m">(main clause)</span><br>
-            <span class="m">Er <span class="g">spielt</span> Klavier <span class="a">und</span> sie <span class="g">singt</span>.</span><br><br>
+            <span class="m" style="line-height:2.2">
+                <span class="wn">Er</span>
+                <span class="wn"><span class="g">spielt</span></span>
+                <span class="wn">Klavier</span>
+                <span class="wn"><span class="a">und</span><sub>0</sub></span>
+                <span class="wn">sie<sub>1</sub></span>
+                <span class="wn"><span class="g">singt</span><sub>2</sub></span>
+                <span class="wn">dazu.<sub>3</sub></span>
+            </span><br><br>
+
             <code>-1</code> = verb last <span class="m">(sub clause)</span><br>
-            <span class="m">..., <span class="a">weil</span> es <span class="r">regnet</span>.</span>
+            <span class="m" style="line-height:2.2">
+                <span class="wn">Ich</span>
+                <span class="wn"><span class="g">bleibe</span></span>
+                <span class="wn">zu</span>
+                <span class="wn">Hause,</span>
+                <span class="wn"><span class="a">weil</span><sub>0</sub></span>
+                <span class="wn">es<sub>1</sub></span>
+                <span class="wn">draußen</span>
+                <span class="wn">sehr</span>
+                <span class="wn">stark<sub>-2</sub></span>
+                <span class="wn"><span class="r">regnet</span><sub>-1</sub></span>.
+            </span>
         </div>
 
     </div>`;
 
-        // Inject panels into <body>
         document.body.insertAdjacentHTML('afterbegin', leftHTML + rightHTML);
     });
 </script>

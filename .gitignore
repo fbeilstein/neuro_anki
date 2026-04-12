@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+venv/
+*.pyc
+
+# SRS Progress (personal study data, not committable)
+courses/*/progress.csv
+
+# Media files (too large for git)
+courses/*/media/

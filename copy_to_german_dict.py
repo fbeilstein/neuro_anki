@@ -340,39 +340,41 @@ print("⚙️  Generating compressed grammar (DE column)...")
 df['DE'] = df.apply(generate_compressed_de, axis=1)
 
 # ==========================================
-# 4. THE EXECUTION BLOCK (Clean, No Compound Sorting)
+# 5. COMPOUND DETECTION & SORTING
 # ==========================================
 
-# 5. Bypass compound detection
-print("🧹 Bypassing compound sorting. Sorting strictly by original frequency rank...")
+print("🔗 Detecting compound words...")
+compounds = detect_noun_compounds(df)
+print(f"   Found {len(compounds)} compound word relationships.")
 
-# 6. Sort the DataFrame simply by the original frequency
-df = df.sort_values(by='freq_rank').reset_index(drop=True)
+# id = original TSV line number (frequency rank), assigned BEFORE sorting
+df['id'] = df['freq_rank']
 
-# 7. Assign final IDs and arrange columns
-df['id'] = range(1, len(df) + 1)
+# Sort: non-compounds first (by freq_rank), then compounds (by freq_rank)
+df['_is_compound'] = df['Lemma'].str.strip().map(lambda l: 1 if l in compounds else 0)
+df = df.sort_values(by=['_is_compound', 'freq_rank']).reset_index(drop=True)
+
+# ==========================================
+# 6. FINALIZE & SAVE
+# ==========================================
+
 df = df.rename(columns={'Grammar_Info': 'DE_full'})
 
 final_cols = ['id', 'Lemma', 'POS', 'DE_full', 'DE', 'English_Translation',
               'German_Sentence', 'English_Sentence']
 
-# Filter to only the final columns (this automatically drops 'freq_rank')
 df = df[final_cols]
 
-# 8. Save to output
+# Save to output
 os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 df.to_csv(OUTPUT_FILE, index=False)
 
-# 9. Print Summary
+# Print Summary
 review_count = df['DE'].str.contains(r'\[REVIEW\]', regex=True).sum()
+non_compound = len(df[df['id'].astype(int) == df.index + 1])  # approximate
 print(f"\n✅ Successfully created {OUTPUT_FILE} with {len(df)} records.")
 print(f"   Columns: {', '.join(final_cols)}")
-if review_count > 0:
-    print(f"⚠️  {review_count} entries flagged with [REVIEW] in the DE column.")
-else:
-    print("🎉 No [REVIEW] flags — all entries compressed successfully!")
-print(f"\n✅ Successfully created {OUTPUT_FILE} with {len(df)} records.")
-print(f"   Columns: {', '.join(final_cols)}")
+print(f"   Compounds pushed to bottom: {len(compounds)} words")
 if review_count > 0:
     print(f"⚠️  {review_count} entries flagged with [REVIEW] in the DE column.")
 else:
