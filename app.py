@@ -1,4 +1,5 @@
 import os
+import json
 import jinja2
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session, jsonify
 
@@ -46,6 +47,26 @@ def ensure_manager():
     if manager is None or manager.db.course_name != course:
         manager = CardManager(course)
     return True
+
+def load_course_config(course_name):
+    """Load course.json for the given course, if it exists."""
+    config_path = os.path.join('courses', course_name, 'course.json')
+    if os.path.exists(config_path):
+        with open(config_path) as f:
+            return json.load(f)
+    return {}
+
+@app.context_processor
+def inject_forvo_config():
+    """Make forvo_lang and forvo_search_field available in ALL templates."""
+    course = get_active_course()
+    if not course:
+        return {'forvo_lang': '', 'forvo_search_field': ''}
+    cfg = load_course_config(course)
+    return {
+        'forvo_lang': cfg.get('forvo_lang', ''),
+        'forvo_search_field': cfg.get('forvo_search_field', ''),
+    }
 
 
 # --- ROUTES ---
@@ -98,7 +119,6 @@ def study():
     progress_pct = int((seen_cards / total_cards) * 100) if total_cards > 0 else 0
 
     template_name = f"{course}/layout.html"
-    forvo_search_field = FORVO_CONFIG.get(course, {}).get('search_field', 'EN')
     
     return render_template(
         template_name,
@@ -111,7 +131,6 @@ def study():
         progress_pct=progress_pct,
         course=course,
         courses=get_available_courses(),
-        forvo_search_field=forvo_search_field
     )
 
 @app.route('/answer', methods=['POST'])
@@ -126,25 +145,18 @@ def answer():
     return redirect(url_for('study'))
 
 # --- FORVO INTEGRATION ---
-FORVO_CONFIG = {
-    'german': {'lang': 'de', 'search_field': 'Lemma'},
-    'japanese': {'lang': 'ja', 'search_field': 'JP'},
-    'polish': {'lang': 'pl', 'search_field': 'Lemma'}
-}
 
 @app.route('/forvo/search')
 def forvo_search():
-    course = get_active_course()
-    course_cfg = FORVO_CONFIG.get(course)
-    if not course_cfg:
-        return jsonify({'error': f"Course '{course}' not configured for Forvo."}), 400
-        
     word = request.args.get('word', '').strip()
+    lang = request.args.get('lang', '').strip()
     if not word:
         return jsonify({'error': "No word provided."}), 400
+    if not lang:
+        return jsonify({'error': "No language provided."}), 400
         
     try:
-        results = forvo.search_forvo(word, course_cfg['lang'])
+        results = forvo.search_forvo(word, lang)
         # Convert dataclasses to dicts for JSON
         dicts = [{k: getattr(p, k) for k in p.__dataclass_fields__} for p in results]
         return jsonify({'results': dicts})
@@ -154,21 +166,21 @@ def forvo_search():
 @app.route('/forvo/download', methods=['POST'])
 def forvo_download():
     course = get_active_course()
-    course_cfg = FORVO_CONFIG.get(course)
-    if not course_cfg:
-        return jsonify({'error': f"Course '{course}' not configured for Forvo."}), 400
+    if not course:
+        return jsonify({'error': 'No active course.'}), 400
         
     card_id_str = request.form.get('card_id', '')
     url = request.form['url']
     is_ogg = request.form.get('is_ogg') == 'true'
     word = request.form['word']
+    lang = request.form.get('lang', '').strip()
     
     try:
         dest_dir = os.path.join("courses", course, "media")
         
         # Recreate a Pronunciation object to pass to the download function
         pron = forvo.ForvoPronunciation(
-            word=word, language=course_cfg['lang'], user='', origin='', votes=0,
+            word=word, language=lang, user='', origin='', votes=0,
             download_url=url, is_ogg=is_ogg, forvo_id=0
         )
         filename = forvo.download_pronunciation(pron, dest_dir)
@@ -201,9 +213,8 @@ def edit_card(card_id):
     editable_fields = {k: v for k, v in card.items() if k not in system_cols}
     
     next_url = request.args.get('next', url_for('study'))
-    forvo_search_field = FORVO_CONFIG.get(manager.db.course_name, {}).get('search_field', 'EN')
     
-    return render_template('edit_card.html', card=card, fields=editable_fields, next_url=next_url, forvo_search_field=forvo_search_field)
+    return render_template('edit_card.html', card=card, fields=editable_fields, next_url=next_url)
 
 @app.route('/save_card', methods=['POST'])
 def save_card():
@@ -225,9 +236,7 @@ def add_card_page():
     all_cols = manager.db.df.columns.tolist()
     content_fields = [c for c in all_cols if c not in system_cols]
     
-    forvo_search_field = FORVO_CONFIG.get(manager.db.course_name, {}).get('search_field', 'EN')
-    
-    return render_template('add_card.html', fields=content_fields, forvo_search_field=forvo_search_field)
+    return render_template('add_card.html', fields=content_fields)
 
 @app.route('/create_card', methods=['POST'])
 def create_card():

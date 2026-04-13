@@ -218,7 +218,7 @@
         status.innerHTML = '<span class="forvo-spinner"></span> Searching Forvo for <strong>' + escHtml(word) + '</strong>...';
         results.innerHTML = '';
 
-        fetch(`/forvo/search?word=${encodeURIComponent(word)}`)
+        fetch(`/forvo/search?word=${encodeURIComponent(word)}&lang=${encodeURIComponent(document.body.dataset.forvoLang || '')}`)
             .then(r => r.json())
             .then(data => {
                 if (data.error) {
@@ -273,7 +273,7 @@
         fetch('/forvo/download', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `card_id=${cardId}&url=${encodeURIComponent(p.download_url)}&is_ogg=${p.is_ogg}&word=${encodeURIComponent(p.word)}`
+            body: `card_id=${cardId}&url=${encodeURIComponent(p.download_url)}&is_ogg=${p.is_ogg}&word=${encodeURIComponent(p.word)}&lang=${encodeURIComponent(document.body.dataset.forvoLang || '')}`
         })
             .then(r => r.json())
             .then(data => {
