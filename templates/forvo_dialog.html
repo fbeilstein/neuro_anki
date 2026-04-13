@@ -6,6 +6,13 @@
             <h2>🔊 Forvo Pronunciations</h2>
             <button class="forvo-close" onclick="closeForvoDialog()">✕</button>
         </div>
+        <div style="display:flex; gap:10px; margin-bottom:15px;">
+            <input type="text" id="forvo-search-input"
+                style="flex:1; padding:8px; background:#333; color:white; border:1px solid #555; border-radius:4px;"
+                placeholder="Search word..." autocomplete="off">
+            <button type="button" onclick="performForvoSearch(document.getElementById('forvo-search-input').value)"
+                style="padding:8px 15px; background:#4a90e2; color:white; border:none; border-radius:4px; cursor:pointer;">Search</button>
+        </div>
         <div id="forvo-status" class="forvo-status">Searching...</div>
         <div id="forvo-results" class="forvo-results"></div>
     </div>
@@ -178,23 +185,44 @@
 <script>
     let forvoAudio = null;
 
-    function openForvoDialog() {
+    function openForvoDialog(wordOverride, cardIdOverride) {
         const modal = document.getElementById('forvo-modal');
+        modal.style.display = 'flex';
+
+        // Check arguments first (edit/add logic), fallback to hidden fields (card study logic)
+        let word = typeof wordOverride === 'string' ? wordOverride : document.getElementById('forvo-word').value;
+        let cardId = cardIdOverride !== undefined ? cardIdOverride : document.getElementById('forvo-card-id').value;
+
+        // Populate the physical input search box
+        document.getElementById('forvo-search-input').value = word || '';
+        document.getElementById('forvo-word').value = word || '';
+        window._forvoCardId = cardId;
+
+        if (word) {
+            performForvoSearch(word);
+        } else {
+            const status = document.getElementById('forvo-status');
+            const results = document.getElementById('forvo-results');
+            status.innerHTML = '<span style="color:#ff6b6b">❌ No word provided. Type above to search.</span>';
+            results.innerHTML = '';
+        }
+    }
+
+    function performForvoSearch(word) {
+        if (!word) return;
+        document.getElementById('forvo-word').value = word; // Update hidden tracking input
+
         const status = document.getElementById('forvo-status');
         const results = document.getElementById('forvo-results');
 
-        modal.style.display = 'flex';
-        status.innerHTML = '<span class="forvo-spinner"></span> Searching Forvo...';
+        status.innerHTML = '<span class="forvo-spinner"></span> Searching Forvo for <strong>' + escHtml(word) + '</strong>...';
         results.innerHTML = '';
-
-        const word = document.getElementById('forvo-word').value;
-        const cardId = document.getElementById('forvo-card-id').value;
 
         fetch(`/forvo/search?word=${encodeURIComponent(word)}`)
             .then(r => r.json())
             .then(data => {
                 if (data.error) {
-                    status.textContent = '❌ ' + data.error;
+                    status.innerHTML = '<span style="color:#ff6b6b">❌ ' + escHtml(data.error) + '</span>';
                     return;
                 }
                 if (data.results.length === 0) {
@@ -217,12 +245,10 @@
                     </div>
                 `).join('');
 
-                // Store results globally for play/select
                 window._forvoResults = data.results;
-                window._forvoCardId = cardId;
             })
             .catch(err => {
-                status.textContent = '❌ Network error: ' + err.message;
+                status.innerHTML = '<span style="color:#ff6b6b">❌ Network error: ' + escHtml(err.message) + '</span>';
             });
     }
 

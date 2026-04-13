@@ -552,7 +552,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 551,本当,ほんとう,"truth, reality. Common word for truth or correctness in daily use.",noun,Is the story true?,その 話[はなし]は<b> 本当[ほんとう]</b>ですか。,551V.opus,551S.opus,0
 552,町,まち,"town, city",noun,This is a small town.,ここは 小[ちい]さな<b> 町[まち]</b>です。,552V.opus,552S.opus,2
 553,お菓子,おかし,"sweets, snacks",noun,I made sweets with my mother.,お 母[かあ]さんと 一緒[いっしょ]に<b>お 菓子[かし]</b>を 作[つく]りました。,553V.opus,553S.opus,2
-554,緩い,ゆるい,"slack, loose",adjective,These trousers are loose.,このズボンは<b> 緩[ゆる]い</b>です。,pronunciation_de_sein.mp3,554S.opus,2
+554,緩い,ゆるい,"slack, loose",adjective,These trousers are loose.,このズボンは<b> 緩[ゆる]い</b>です。,554V.opus,554S.opus,2
 555,良い,よい,good (formal/written form),adjective,He's a good person.,彼[かれ]は<b> 良[よ]い</b> 人[ひと]です。,555V.opus,555S.opus,1
 556,ようこそ,ようこそ,welcome (expression). Set phrase. (hiragana),adverb,Welcome to Japan.,日本[にっぽん]へ<b>ようこそ</b>。,556V.opus,556S.opus,1
 557,お土産,おみやげ,souvenir (honorific),noun,My father bought some sweets as a souvenir.,父[ちち]は<b>お 土産[みやげ]</b>にお 菓子[かし]を 買[か]ってきた。,557V.opus,557S.opus,0
