@@ -358,10 +358,11 @@ df = df.sort_values(by=['_is_compound', 'freq_rank']).reset_index(drop=True)
 # 6. FINALIZE & SAVE
 # ==========================================
 
+df['media'] = ''
 df = df.rename(columns={'Grammar_Info': 'DE_full'})
 
 final_cols = ['id', 'Lemma', 'POS', 'DE_full', 'DE', 'English_Translation',
-              'German_Sentence', 'English_Sentence']
+              'German_Sentence', 'English_Sentence', 'media']
 
 df = df[final_cols]
 

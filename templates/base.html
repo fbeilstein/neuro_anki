@@ -121,7 +121,7 @@
             padding-top: 20px;
         }
 
-        {% block custom_css %}{% endblock %}
+            {% block custom_css %} {% endblock %}
 
 
         /* Edit Button Style */
@@ -228,6 +228,13 @@
                 <input type="hidden" name="card_id" value="{{ card['id'] }}">
                 <button type="submit" class="delete-btn" title="Delete Card">🗑</button>
             </form>
+            {% if not card.get('media') %}
+            <button type="button" class="action-btn" title="Forvo Audio"
+                onclick="openForvoDialog('{{ card.get('JP', card.get('Lemma', card.get('EN', ''))) }}', {{ card['id'] }})"
+                style="background:none; border:none; color:#bbb; font-size:1.2rem; cursor:pointer;">
+                🔊 Forvo
+            </button>
+            {% endif %}
             {% block question_area %}{% endblock %}
 
             <form id="ans-form" action="/answer" method="POST">
@@ -268,6 +275,61 @@
 
     {% block extra_body %}{% endblock %}
 
+    <!-- Hidden inputs for Forvo dialog to read -->
+    <input type="hidden" id="forvo-word" value="">
+    <input type="hidden" id="forvo-card-id" value="">
+
+    {% include 'forvo_dialog.html' %}
+
+    <script>
+        // Adjust open function slightly to populate the hidden fields
+        function openForvoDialog(word, cardId) {
+            document.getElementById('forvo-word').value = word;
+            document.getElementById('forvo-card-id').value = cardId;
+            const modal = document.getElementById('forvo-modal');
+            const status = document.getElementById('forvo-status');
+            const results = document.getElementById('forvo-results');
+
+            modal.style.display = 'flex';
+            status.innerHTML = '<span class="forvo-spinner"></span> Searching Forvo...';
+            results.innerHTML = '';
+
+            fetch(`/forvo/search?word=${encodeURIComponent(word)}`)
+                .then(r => r.json())
+                .then(data => {
+                    // ... the rest is handled by forvo_dialog.html scripts ...
+                    if (data.error) {
+                        status.textContent = '❌ ' + data.error;
+                        return;
+                    }
+                    if (data.results.length === 0) {
+                        status.textContent = 'No pronunciations found.';
+                        return;
+                    }
+                    status.textContent = `${data.results.length} pronunciation(s) found:`;
+                    results.innerHTML = data.results.map((p, i) => `
+                        <div class="forvo-item">
+                            <button class="forvo-play" onclick="playForvo(${i})" title="Preview">▶️</button>
+                            <div class="forvo-info">
+                                <div class="forvo-user">${escHtml(p.user)}</div>
+                                <div class="forvo-meta">
+                                    ${escHtml(p.origin)} •
+                                    <span class="forvo-votes ${p.votes < 0 ? 'negative' : ''}">${p.votes > 0 ? '+' : ''}${p.votes}</span> votes
+                                    • ${p.is_ogg ? 'ogg' : 'mp3'}
+                                </div>
+                            </div>
+                            <button class="forvo-select" onclick="selectForvo(${i}, this)" title="Download & use">✅</button>
+                        </div>
+                    `).join('');
+
+                    window._forvoResults = data.results;
+                    window._forvoCardId = cardId;
+                })
+                .catch(err => {
+                    status.textContent = '❌ Network error: ' + err.message;
+                });
+        }
+    </script>
 </body>
 
 </html>

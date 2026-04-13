@@ -106,6 +106,10 @@ margin-bottom: 15px;
 <div class="sentence" style="margin-top:15px;">{{ card['German_Sentence'] | safe }}</div>
 <div class="sentence" style="margin-top:5px;">{{ card['English_Sentence'] | safe }}</div>
 
+{% if card['media'] %}
+<audio id="audio-player" src="/media/{{ card['media'] }}"></audio>
+{% endif %}
+
 <div id="logic-config" style="display:none;" data-primary="{{ card['DE'] }}"
     data-valid='{{ [card["DE"], card["DE_full"]] | tojson }}'>
 </div>

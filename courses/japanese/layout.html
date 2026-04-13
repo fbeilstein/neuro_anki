@@ -1,33 +1,31 @@
 {% extends "base.html" %}
 
 {% block custom_css %}
-    .jp-word { color: var(--accent); font-size: 2.5rem; }
-    .reading { color: #888; font-size: 1.2rem; margin-bottom: 15px;}
-    .sentence { font-style:italic; color:#aaa; line-height: 1.4; }
-    .sentence b { color: var(--success); font-weight: bold; } 
-    .hint { color: #888; font-size: 1.2rem; margin-bottom: 30px; }
+.jp-word { color: var(--accent); font-size: 2.5rem; }
+.reading { color: #888; font-size: 1.2rem; margin-bottom: 15px;}
+.sentence { font-style:italic; color:#aaa; line-height: 1.4; }
+.sentence b { color: var(--success); font-weight: bold; }
+.hint { color: #888; font-size: 1.2rem; margin-bottom: 30px; }
 {% endblock %}
 
 {% block question_area %}
-    <div class="hint">{{ card['part_of_speech'] }}</div>
-    <h1>{{ card['EN'] | safe }}</h1>
-    <div class="sentence">{{ card['EN_sentence'] | safe }}</div>
+<div class="hint">{{ card['part_of_speech'] }}</div>
+<h1>{{ card['EN'] | safe }}</h1>
+<div class="sentence">{{ card['EN_sentence'] | safe }}</div>
 {% endblock %}
 
 {% block answer_area %}
-    <div class="jp-word">{{ card['JP'] }}</div>
-    <div class="reading">{{ card['JP_reading'] }}</div>
-    <div class="sentence">{{ card['JP_sentence'] | safe }}</div>
-    <div class="sentence">{{ card['EN_sentence'] | safe }}</div>
-    
-    {% if card['JP_media'] %}
-        <audio id="audio-player" src="/media/{{ card['JP_media'] }}"></audio>
-    {% endif %}
+<div class="jp-word">{{ card['JP'] }}</div>
+<div class="reading">{{ card['JP_reading'] }}</div>
+<div class="sentence">{{ card['JP_sentence'] | safe }}</div>
+<div class="sentence">{{ card['EN_sentence'] | safe }}</div>
 
-    <div id="logic-config" 
-         style="display:none;"
-         data-primary="{{ card['JP_reading'] }}"
-         data-valid='{{ [card["JP_reading"], card["JP"]] | tojson }}'>
-    </div>
+{% if card['media'] %}
+<audio id="audio-player" src="/media/{{ card['media'] }}"></audio>
+{% endif %}
+
+<div id="logic-config" style="display:none;" data-primary="{{ card['JP_reading'] }}"
+    data-valid='{{ [card["JP_reading"], card["JP"]] | tojson }}'>
+</div>
 
 {% endblock %}

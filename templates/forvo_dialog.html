@@ -1,0 +1,273 @@
+<!-- Forvo Pronunciation Chooser Modal -->
+<div id="forvo-modal" class="forvo-modal" style="display:none;">
+    <div class="forvo-overlay" onclick="closeForvoDialog()"></div>
+    <div class="forvo-dialog">
+        <div class="forvo-header">
+            <h2>🔊 Forvo Pronunciations</h2>
+            <button class="forvo-close" onclick="closeForvoDialog()">✕</button>
+        </div>
+        <div id="forvo-status" class="forvo-status">Searching...</div>
+        <div id="forvo-results" class="forvo-results"></div>
+    </div>
+</div>
+
+<style>
+    .forvo-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .forvo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .forvo-dialog {
+        position: relative;
+        background: #1e1e1e;
+        border: 1px solid #444;
+        border-radius: 12px;
+        padding: 24px;
+        min-width: 420px;
+        max-width: 520px;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .forvo-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .forvo-header h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: #e0e0e0;
+    }
+
+    .forvo-close {
+        background: none;
+        border: none;
+        color: #888;
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    .forvo-close:hover {
+        background: #333;
+        color: #fff;
+    }
+
+    .forvo-status {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .forvo-results {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .forvo-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #252525;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 12px 16px;
+        transition: border-color 0.2s;
+    }
+
+    .forvo-item:hover {
+        border-color: #4a90e2;
+    }
+
+    .forvo-play,
+    .forvo-select {
+        background: none;
+        border: 1px solid #555;
+        border-radius: 6px;
+        color: #ccc;
+        cursor: pointer;
+        padding: 6px 10px;
+        font-size: 1.1rem;
+        transition: all 0.2s;
+        flex-shrink: 0;
+    }
+
+    .forvo-play:hover {
+        background: #333;
+        border-color: #4a90e2;
+        color: #4a90e2;
+    }
+
+    .forvo-select:hover {
+        background: #2d4a33;
+        border-color: #4cd964;
+        color: #4cd964;
+    }
+
+    .forvo-select.downloading {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .forvo-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .forvo-user {
+        color: #e0e0e0;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    .forvo-meta {
+        color: #666;
+        font-size: 0.78rem;
+        margin-top: 2px;
+    }
+
+    .forvo-votes {
+        color: #4cd964;
+        font-weight: bold;
+    }
+
+    .forvo-votes.negative {
+        color: #ff6b6b;
+    }
+
+    .forvo-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #444;
+        border-top-color: #4a90e2;
+        border-radius: 50%;
+        animation: forvo-spin 0.6s linear infinite;
+    }
+
+    @keyframes forvo-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<script>
+    let forvoAudio = null;
+
+    function openForvoDialog() {
+        const modal = document.getElementById('forvo-modal');
+        const status = document.getElementById('forvo-status');
+        const results = document.getElementById('forvo-results');
+
+        modal.style.display = 'flex';
+        status.innerHTML = '<span class="forvo-spinner"></span> Searching Forvo...';
+        results.innerHTML = '';
+
+        const word = document.getElementById('forvo-word').value;
+        const cardId = document.getElementById('forvo-card-id').value;
+
+        fetch(`/forvo/search?word=${encodeURIComponent(word)}`)
+            .then(r => r.json())
+            .then(data => {
+                if (data.error) {
+                    status.textContent = '❌ ' + data.error;
+                    return;
+                }
+                if (data.results.length === 0) {
+                    status.textContent = 'No pronunciations found.';
+                    return;
+                }
+                status.textContent = `${data.results.length} pronunciation(s) found:`;
+                results.innerHTML = data.results.map((p, i) => `
+                    <div class="forvo-item">
+                        <button class="forvo-play" onclick="playForvo(${i})" title="Preview">▶️</button>
+                        <div class="forvo-info">
+                            <div class="forvo-user">${escHtml(p.user)}</div>
+                            <div class="forvo-meta">
+                                ${escHtml(p.origin)} •
+                                <span class="forvo-votes ${p.votes < 0 ? 'negative' : ''}">${p.votes > 0 ? '+' : ''}${p.votes}</span> votes
+                                • ${p.is_ogg ? 'ogg' : 'mp3'}
+                            </div>
+                        </div>
+                        <button class="forvo-select" onclick="selectForvo(${i}, this)" title="Download & use">✅</button>
+                    </div>
+                `).join('');
+
+                // Store results globally for play/select
+                window._forvoResults = data.results;
+                window._forvoCardId = cardId;
+            })
+            .catch(err => {
+                status.textContent = '❌ Network error: ' + err.message;
+            });
+    }
+
+    function closeForvoDialog() {
+        document.getElementById('forvo-modal').style.display = 'none';
+        if (forvoAudio) { forvoAudio.pause(); forvoAudio = null; }
+    }
+
+    function playForvo(index) {
+        const p = window._forvoResults[index];
+        if (forvoAudio) forvoAudio.pause();
+        forvoAudio = new Audio(p.download_url);
+        forvoAudio.play();
+    }
+
+    function selectForvo(index, btn) {
+        btn.classList.add('downloading');
+        btn.textContent = '⏳';
+        const p = window._forvoResults[index];
+        const cardId = window._forvoCardId;
+
+        fetch('/forvo/download', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `card_id=${cardId}&url=${encodeURIComponent(p.download_url)}&is_ogg=${p.is_ogg}&word=${encodeURIComponent(p.word)}`
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.error) {
+                    btn.textContent = '❌';
+                    alert('Error: ' + data.error);
+                    return;
+                }
+                // Success — reload the page to show audio
+                window.location.reload();
+            })
+            .catch(err => {
+                btn.textContent = '❌';
+                alert('Download failed: ' + err.message);
+            });
+    }
+
+    function escHtml(s) {
+        const d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+    }
+</script>

@@ -1,4 +1,4 @@
-id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,JP_media,JP_sentence_media,JP_pitch_accent
+id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_media,JP_pitch_accent
 1,行く,いく,to go,verb,I go to the library on Sundays.,日曜日[にちようび]は 図書館[としょかん]に<b> 行[い]きます</b>。,1V.opus,1S.opus,0
 2,見る,みる,"see, look at",verb,I like looking at pictures.,私[わたし]は 絵[え]を<b> 見[み]る</b>のが 好[す]きです。,2V.opus,2S.opus,1
 3,多い,おおい,"a lot of, many",adjective,There are a lot of temples in Kyoto.,京都[きょうと]にはお 寺[てら]が<b> 多[おお]い</b>。,3V.opus,3S.opus,1

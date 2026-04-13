@@ -1,9 +1,10 @@
 import os
 import jinja2
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session, jsonify
 
 from card_manager import CardManager
 from database import PROGRESS_COLS
+import forvo
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'neuro_anki_secret'
@@ -121,6 +122,57 @@ def answer():
     manager.submit_answer(card_id, grade, was_in_drum)
     
     return redirect(url_for('study'))
+
+# --- FORVO INTEGRATION ---
+FORVO_LANG_MAP = {'german': 'de', 'japanese': 'ja', 'polish': 'pl'}
+
+@app.route('/forvo/search')
+def forvo_search():
+    course = get_active_course()
+    lang = FORVO_LANG_MAP.get(course)
+    if not lang:
+        return jsonify({'error': f"Course '{course}' not configured for Forvo."}), 400
+        
+    word = request.args.get('word', '').strip()
+    if not word:
+        return jsonify({'error': "No word provided."}), 400
+        
+    try:
+        results = forvo.search_forvo(word, lang)
+        # Convert dataclasses to dicts for JSON
+        dicts = [{k: getattr(p, k) for k in p.__dataclass_fields__} for p in results]
+        return jsonify({'results': dicts})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/forvo/download', methods=['POST'])
+def forvo_download():
+    course = get_active_course()
+    lang = FORVO_LANG_MAP.get(course)
+    if not lang:
+        return jsonify({'error': f"Course '{course}' not configured for Forvo."}), 400
+        
+    card_id = int(request.form['card_id'])
+    url = request.form['url']
+    is_ogg = request.form.get('is_ogg') == 'true'
+    word = request.form['word']
+    
+    try:
+        dest_dir = os.path.join("courses", course, "media")
+        
+        # Recreate a Pronunciation object to pass to the download function
+        pron = forvo.ForvoPronunciation(
+            word=word, language=lang, user='', origin='', votes=0,
+            download_url=url, is_ogg=is_ogg, forvo_id=0
+        )
+        filename = forvo.download_pronunciation(pron, dest_dir)
+        
+        # Update the card using the generic 'media' column
+        ensure_manager()
+        manager.db.update_card(card_id, {'media': filename})
+        return jsonify({'success': True, 'filename': filename})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # --- MEDIA SERVER ---
 @app.route('/media/<path:filename>')
