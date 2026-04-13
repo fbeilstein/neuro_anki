@@ -230,7 +230,7 @@
             </form>
             {% if not card.get('media') %}
             <button type="button" class="action-btn" title="Forvo Audio"
-                onclick="openForvoDialog('{{ card.get('JP', card.get('Lemma', card.get('EN', ''))) }}', {{ card['id'] }})"
+                onclick="openForvoDialog('{{ card.get(forvo_search_field, '') }}', {{ card['id'] }})"
                 style="background:none; border:none; color:#bbb; font-size:1.2rem; cursor:pointer;">
                 🔊 Forvo
             </button>

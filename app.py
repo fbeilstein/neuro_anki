@@ -98,6 +98,7 @@ def study():
     progress_pct = int((seen_cards / total_cards) * 100) if total_cards > 0 else 0
 
     template_name = f"{course}/layout.html"
+    forvo_search_field = FORVO_SEARCH_FIELD_MAP.get(course, 'EN')
     
     return render_template(
         template_name,
@@ -109,7 +110,8 @@ def study():
         progress_total=total_cards,
         progress_pct=progress_pct,
         course=course,
-        courses=get_available_courses()
+        courses=get_available_courses(),
+        forvo_search_field=forvo_search_field
     )
 
 @app.route('/answer', methods=['POST'])
