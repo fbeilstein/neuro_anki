@@ -118,7 +118,14 @@
             {% for key, value in fields.items() %}
             <div class="form-group">
                 <label>{{ key }}</label>
-                {% if value|string|length > 60 %}
+                {% if key == 'media' %}
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <input type="text" name="{{ key }}" value="{{ value }}" id="media-input">
+                    <button type="button" class="btn-save" style="background:#555; color:#ccc;" onclick="
+                            let wordEl = document.querySelector('input[name=\'{{ forvo_search_field }}\']');
+                            openForvoDialog(wordEl ? wordEl.value : '', {{ card['id'] }})">🔊 Forvo</button>
+                </div>
+                {% elif value|string|length > 60 %}
                 <textarea name="{{ key }}" rows="3">{{ value }}</textarea>
                 {% else %}
                 <input type="text" name="{{ key }}" value="{{ value }}">
@@ -133,6 +140,10 @@
         </form>
     </div>
 
+    <!-- Hidden inputs for Forvo dialog -->
+    <input type="hidden" id="forvo-word" value="">
+    <input type="hidden" id="forvo-card-id" value="">
+    {% include 'forvo_dialog.html' %}
 </body>
 
 </html>

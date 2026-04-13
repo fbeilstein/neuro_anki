@@ -125,6 +125,7 @@ def answer():
 
 # --- FORVO INTEGRATION ---
 FORVO_LANG_MAP = {'german': 'de', 'japanese': 'ja', 'polish': 'pl'}
+FORVO_SEARCH_FIELD_MAP = {'german': 'Lemma', 'japanese': 'JP', 'polish': 'Lemma'}
 
 @app.route('/forvo/search')
 def forvo_search():
@@ -152,7 +153,7 @@ def forvo_download():
     if not lang:
         return jsonify({'error': f"Course '{course}' not configured for Forvo."}), 400
         
-    card_id = int(request.form['card_id'])
+    card_id_str = request.form.get('card_id', '')
     url = request.form['url']
     is_ogg = request.form.get('is_ogg') == 'true'
     word = request.form['word']
@@ -167,9 +168,11 @@ def forvo_download():
         )
         filename = forvo.download_pronunciation(pron, dest_dir)
         
-        # Update the card using the generic 'media' column
-        ensure_manager()
-        manager.db.update_card(card_id, {'media': filename})
+        # Update the card directly only if valid card_id specified
+        if card_id_str and str(card_id_str) != 'undefined' and str(card_id_str) != 'null':
+            ensure_manager()
+            manager.db.update_card(int(card_id_str), {'media': filename})
+            
         return jsonify({'success': True, 'filename': filename})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -193,8 +196,9 @@ def edit_card(card_id):
     editable_fields = {k: v for k, v in card.items() if k not in system_cols}
     
     next_url = request.args.get('next', url_for('study'))
+    forvo_search_field = FORVO_SEARCH_FIELD_MAP.get(manager.db.course_name, 'EN')
     
-    return render_template('edit_card.html', card=card, fields=editable_fields, next_url=next_url)
+    return render_template('edit_card.html', card=card, fields=editable_fields, next_url=next_url, forvo_search_field=forvo_search_field)
 
 @app.route('/save_card', methods=['POST'])
 def save_card():
@@ -216,7 +220,9 @@ def add_card_page():
     all_cols = manager.db.df.columns.tolist()
     content_fields = [c for c in all_cols if c not in system_cols]
     
-    return render_template('add_card.html', fields=content_fields)
+    forvo_search_field = FORVO_SEARCH_FIELD_MAP.get(manager.db.course_name, 'EN')
+    
+    return render_template('add_card.html', fields=content_fields, forvo_search_field=forvo_search_field)
 
 @app.route('/create_card', methods=['POST'])
 def create_card():

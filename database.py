@@ -20,6 +20,8 @@ class Database:
 
         # 1. Read Dictionary
         df_dict = pd.read_csv(self.dict_file)
+        if 'media' in df_dict.columns:
+            df_dict['media'] = df_dict['media'].fillna("")
 
         # 2. Load or create progress file
         if os.path.exists(self.progress_file):

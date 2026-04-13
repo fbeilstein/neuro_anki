@@ -256,8 +256,16 @@
                     alert('Error: ' + data.error);
                     return;
                 }
-                // Success — reload the page to show audio
-                window.location.reload();
+
+                // Check if there is an input with name='media' (edit/add screens)
+                const mediaInput = document.querySelector('input[name="media"]');
+                if (mediaInput) {
+                    mediaInput.value = data.filename;
+                    closeForvoDialog();
+                } else {
+                    // Study screen — reload the page to show audio
+                    window.location.reload();
+                }
             })
             .catch(err => {
                 btn.textContent = '❌';

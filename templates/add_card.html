@@ -1,53 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Add New Card</title>
     <style>
-        body { background: #1e1e1e; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding-top: 50px; }
-        .editor-container { background: #2d2d2d; padding: 40px; border-radius: 12px; width: 600px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        h1 { margin-top: 0; color: #4cd964; } /* Green title for "New" */
-        
-        .form-group { margin-bottom: 20px; }
-        label { display: block; color: #888; margin-bottom: 5px; font-weight: bold; }
-        input[type="text"], textarea {
-             width: 100%; background: #333; border: 1px solid #444; color: white; 
-            padding: 10px; border-radius: 4px; font-size: 1rem; box-sizing: border-box;
+        body {
+            background: #1e1e1e;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
         }
-        
-        .btn-row { margin-top: 30px; display: flex; gap: 10px; justify-content: flex-end; }
-        button, .btn-cancel { 
-            padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;
-            text-decoration: none; display: inline-block; text-align: center; font-family: inherit;
+
+        .editor-container {
+            background: #2d2d2d;
+            padding: 40px;
+            border-radius: 12px;
+            width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
-        .btn-save { background: #4cd964; color: #0a3a12; font-weight: bold; }
-        .btn-cancel { background: #555; color: #ccc; }
-        .btn-cancel:hover { background: #666; }
+
+        h1 {
+            margin-top: 0;
+            color: #4cd964;
+        }
+
+        /* Green title for "New" */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #888;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            background: #333;
+            border: 1px solid #444;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .btn-row {
+            margin-top: 30px;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        button,
+        .btn-cancel {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        .btn-save {
+            background: #4cd964;
+            color: #0a3a12;
+            font-weight: bold;
+        }
+
+        .btn-cancel {
+            background: #555;
+            color: #ccc;
+        }
+
+        .btn-cancel:hover {
+            background: #666;
+        }
     </style>
 </head>
+
 <body>
 
-<div class="editor-container">
-    <h1>Add New Card</h1>
-    
-    <form action="/create_card" method="POST">
-        {% for field in fields %}
-        <div class="form-group">
-            <label>{{ field }}</label>
-            {% if 'sentence' in field or 'meaning' in field %}
-                <textarea name="{{ field }}" rows="3"></textarea>
-            {% else %}
-                <input type="text" name="{{ field }}" autocomplete="off">
-            {% endif %}
-        </div>
-        {% endfor %}
-        
-        <div class="btn-row">
-            <a href="/study" class="btn-cancel">Cancel</a>
-            <button type="submit" class="btn-save">Create Card</button>
-        </div>
-    </form>
-</div>
+    <div class="editor-container">
+        <h1>Add New Card</h1>
 
+        <form action="/create_card" method="POST">
+            {% for field in fields %}
+            <div class="form-group">
+                <label>{{ field }}</label>
+                {% if field == 'media' %}
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <input type="text" name="{{ field }}" autocomplete="off" id="media-input">
+                    <button type="button" class="btn-save" style="background:#555; color:#ccc;" onclick="
+                        let wordEl = document.querySelector('input[name=\'{{ forvo_search_field }}\']');
+                        openForvoDialog(wordEl ? wordEl.value : '', '')">🔊 Forvo</button>
+                </div>
+                {% elif 'sentence' in field or 'meaning' in field %}
+                <textarea name="{{ field }}" rows="3"></textarea>
+                {% else %}
+                <input type="text" name="{{ field }}" autocomplete="off">
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <div class="btn-row">
+                <a href="/study" class="btn-cancel">Cancel</a>
+                <button type="submit" class="btn-save">Create Card</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Hidden inputs for Forvo dialog -->
+    <input type="hidden" id="forvo-word" value="">
+    <input type="hidden" id="forvo-card-id" value="">
+    {% include 'forvo_dialog.html' %}
 </body>
+
 </html>
