@@ -51,6 +51,11 @@ class Database:
         df['history_result'] = df['history_result'].fillna("[]").astype(object)
         df['history_intervals'] = df['history_intervals'].fillna("[]").astype(object)
 
+        # Ensure all core dictionary fields (like POS, media) resolve NaN to empty strings
+        dict_cols = [c for c in df.columns if c not in PROGRESS_COLS and c != 'id']
+        for col in dict_cols:
+            df[col] = df[col].fillna("")
+
         return df
 
     def _save(self):
