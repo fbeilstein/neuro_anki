@@ -98,7 +98,7 @@ def study():
     progress_pct = int((seen_cards / total_cards) * 100) if total_cards > 0 else 0
 
     template_name = f"{course}/layout.html"
-    forvo_search_field = FORVO_SEARCH_FIELD_MAP.get(course, 'EN')
+    forvo_search_field = FORVO_CONFIG.get(course, {}).get('search_field', 'EN')
     
     return render_template(
         template_name,
@@ -126,14 +126,17 @@ def answer():
     return redirect(url_for('study'))
 
 # --- FORVO INTEGRATION ---
-FORVO_LANG_MAP = {'german': 'de', 'japanese': 'ja', 'polish': 'pl'}
-FORVO_SEARCH_FIELD_MAP = {'german': 'Lemma', 'japanese': 'JP', 'polish': 'Lemma'}
+FORVO_CONFIG = {
+    'german': {'lang': 'de', 'search_field': 'Lemma'},
+    'japanese': {'lang': 'ja', 'search_field': 'JP'},
+    'polish': {'lang': 'pl', 'search_field': 'Lemma'}
+}
 
 @app.route('/forvo/search')
 def forvo_search():
     course = get_active_course()
-    lang = FORVO_LANG_MAP.get(course)
-    if not lang:
+    course_cfg = FORVO_CONFIG.get(course)
+    if not course_cfg:
         return jsonify({'error': f"Course '{course}' not configured for Forvo."}), 400
         
     word = request.args.get('word', '').strip()
@@ -141,7 +144,7 @@ def forvo_search():
         return jsonify({'error': "No word provided."}), 400
         
     try:
-        results = forvo.search_forvo(word, lang)
+        results = forvo.search_forvo(word, course_cfg['lang'])
         # Convert dataclasses to dicts for JSON
         dicts = [{k: getattr(p, k) for k in p.__dataclass_fields__} for p in results]
         return jsonify({'results': dicts})
@@ -151,8 +154,8 @@ def forvo_search():
 @app.route('/forvo/download', methods=['POST'])
 def forvo_download():
     course = get_active_course()
-    lang = FORVO_LANG_MAP.get(course)
-    if not lang:
+    course_cfg = FORVO_CONFIG.get(course)
+    if not course_cfg:
         return jsonify({'error': f"Course '{course}' not configured for Forvo."}), 400
         
     card_id_str = request.form.get('card_id', '')
@@ -165,7 +168,7 @@ def forvo_download():
         
         # Recreate a Pronunciation object to pass to the download function
         pron = forvo.ForvoPronunciation(
-            word=word, language=lang, user='', origin='', votes=0,
+            word=word, language=course_cfg['lang'], user='', origin='', votes=0,
             download_url=url, is_ogg=is_ogg, forvo_id=0
         )
         filename = forvo.download_pronunciation(pron, dest_dir)
@@ -198,7 +201,7 @@ def edit_card(card_id):
     editable_fields = {k: v for k, v in card.items() if k not in system_cols}
     
     next_url = request.args.get('next', url_for('study'))
-    forvo_search_field = FORVO_SEARCH_FIELD_MAP.get(manager.db.course_name, 'EN')
+    forvo_search_field = FORVO_CONFIG.get(manager.db.course_name, {}).get('search_field', 'EN')
     
     return render_template('edit_card.html', card=card, fields=editable_fields, next_url=next_url, forvo_search_field=forvo_search_field)
 
@@ -222,7 +225,7 @@ def add_card_page():
     all_cols = manager.db.df.columns.tolist()
     content_fields = [c for c in all_cols if c not in system_cols]
     
-    forvo_search_field = FORVO_SEARCH_FIELD_MAP.get(manager.db.course_name, 'EN')
+    forvo_search_field = FORVO_CONFIG.get(manager.db.course_name, {}).get('search_field', 'EN')
     
     return render_template('add_card.html', fields=content_fields, forvo_search_field=forvo_search_field)
 
