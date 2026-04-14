@@ -66,6 +66,7 @@ def inject_forvo_config():
     return {
         'forvo_lang': cfg.get('forvo_lang', ''),
         'forvo_search_field': cfg.get('forvo_search_field', ''),
+        'drum_label': cfg.get('drum_label', 'EN'),
     }
 
 

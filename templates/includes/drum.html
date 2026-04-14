@@ -3,7 +3,7 @@
     <ul class="drum-list">
         {% for item in drum_items %}
         <li class="drum-item {% if item['card']['id'] == card['id'] %}active{% endif %}">
-            <span>{{ item['card']['EN'] | safe}}</span>
+            <span>{{ item['card'][drum_label] | safe}}</span>
             <span class="drum-index">{{ item['index'] }}</span>
         </li>
         {% endfor %}
