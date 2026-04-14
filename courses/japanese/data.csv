@@ -37,7 +37,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 36,午後,ごご,"afternoon, p.m.",noun,A guest is coming to visit tomorrow afternoon.,明日[あす]の<b> 午後[ごご]</b>、お 客様[きゃくさま]が 来[く]る。,36V.opus,36S.opus,1
 37,長い,ながい,long,adjective,Her hair is very long.,彼女[かのじょ]の 髪[かみ]はとても<b> 長[なが]い</b>。,37V.opus,37S.opus,2
 38,本,ほん,"book, volume",noun,I bought one book.,<b> 本[ほん]</b>を１ 冊[さつ] 買[か]いました。,38V.opus,38S.opus,1
-39,今年,ことし,this year (casual). Common in daily conversation.,noun,I want to travel to Italy this year.,<b> 今年[ことし]</b>はイタリアに 旅行[りょこう]したい。,39V.opus,39S.opus,0
+39,今年,ことし,this year (casual). common in daily conversation.,noun,I want to travel to Italy this year.,<b> 今年[ことし]</b>はイタリアに 旅行[りょこう]したい。,39V.opus,39S.opus,0
 40,よく,よく,"often (frequently); well (like in <i>""I sleep well""</i>)",adverb,She often goes on holiday.,彼女[かのじょ]は<b>よく</b> 旅行[りょこう]に 行[い]きます。,40V.opus,40S.opus,1
 41,彼女,かのじょ,"she, one's girlfriend",pronoun,She's an office worker.,<b> 彼女[かのじょ]</b>は ＯＬ[おーえる]です。,41V.opus,41S.opus,1
 42,どう,どう,"how, what (hiragana, 2 symbols)",interrogative,What do you think?,あなたは<b>どう</b> 思[おも]いますか。,42V.opus,42S.opus,1
@@ -173,7 +173,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 172,やる,やる,"do, give",verb,Let's do our homework together.,一緒[いっしょ]に 宿題[しゅくだい]を<b>やろう</b>。,172V.opus,172S.opus,0
 173,かなり,かなり,"fairly, rather",adverb,His English is pretty good.,彼[かれ]は<b>かなり</b> 英語[えいご]が 上手[じょうず]です。,173V.opus,173S.opus,1
 174,国,くに,country,noun,Let me tell you a bit about my country.,私[わたし]の<b> 国[くに]</b>について 少[すこ]しお 話[はなし]しましょう。,174V.opus,174S.opus,0
-175,起こる,おこる,happen,verb,There was a major incident in town.,町[まち]で 大[だい] 事件[じけん]が<b> 起[お]こりました</b>。,175V.opus,175S.opus,2
+175,起こる,おこる,"to occur, to happen (phenomena, changes, or natural occurrences)",verb,There was a major incident in town.,町[まち]で 大[だい] 事件[じけん]が<b> 起[お]こりました</b>。,175V.opus,175S.opus,2
 176,秋,あき,"autumn, fall",noun,She'll get married this fall.,彼女[かのじょ]は<b> 秋[あき]</b>に 結婚[けっこん]します。,176V.opus,176S.opus,1
 177,送る,おくる,to send,verb,I sent a package to his house.,彼[かれ]の 家[いえ]に 荷物[にもつ]を<b> 送[おく]りました</b>。,177V.opus,177S.opus,0
 178,死ぬ,しぬ,to die,verb,Our dog died of disease.,犬[いぬ]が 病気[びょうき]で<b> 死[し]にました</b>。,178V.opus,178S.opus,0
@@ -216,7 +216,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 215,背,せ,"height, stature",noun,She's tall.,彼女[かのじょ]は<b> 背[せ]</b>が 高[たか]い。,215V.opus,215S.opus,1
 216,手伝う,てつだう,"to help, to assist",verb,I can help you.,私[わたし]が<b> 手伝[てつだ]いましょう</b>。,216V.opus,216S.opus,3
 217,鼻,はな,nose,noun,My nose is itchy.,<b> 鼻[はな]</b>がかゆいです。,217V.opus,217S.opus,0
-218,起きる,おきる,"occur, happen",verb,A burglary occurred in my neighborhood.,近所[きんじょ]で 盗難[とうなん] 事件[じけん]が<b> 起[お]きました</b>。,218V.opus,218S.opus,2
+218,起きる,おきる,"to occur, to happen (unexpected, sudden events)",verb,A burglary occurred in my neighborhood.,近所[きんじょ]で 盗難[とうなん] 事件[じけん]が<b> 起[お]きました</b>。,218V.opus,218S.opus,2
 219,載せる,のせる,"to place, to put on",verb,I put the cake on a plate.,皿[さら]にケーキを<b> 載[の]せました</b>。,219V.opus,219S.opus,0
 220,悲しい,かなしい,sad,adjective,It was a very sad movie.,その 映画[えいが]はとても<b> 悲[かな]しかった</b>。,220V.opus,220S.opus,0
 221,しゃべる,しゃべる,"to chat, to talk",verb,She talks a lot.,彼女[かのじょ]はよく<b>しゃべる</b>ね。,221V.opus,221S.opus,2
@@ -568,7 +568,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 567,醤油,しょうゆ,soy sauce,noun,Please add a little more soy sauce.,もう 少[すこ]し<b> 醤油[しょうゆ]</b>を 足[た]してください。,567V.opus,567S.opus,0
 568,茶碗,ちゃわん,rice bowl,noun,I put some rice into the rice bowl.,<b> 茶碗[ちゃわん]</b>にご 飯[はん]をよそいました。,568V.opus,568S.opus,0
 569,決める,きめる,"decide, agree upon",verb,I've decided to go back to my country.,帰国[きこく]することに<b> 決[き]めました</b>。,569V.opus,569S.opus,0
-570,感じる,かんじる,"feel, sense",verb,I feel a pain in my knee.,膝[ひざ]に 痛[いた]みを<b> 感[かん]じます</b>。,570V.opus,570S.opus,0
+570,感じる,かんじる,"to feel, to sense",verb,I feel a pain in my knee.,膝[ひざ]に 痛[いた]みを<b>感[かん]じます</b>。,570V.opus,570S.opus,0
 571,生きる,いきる,live (one's life),verb,They're all doing the best they can to live their life.,皆[みな] 一生懸命[いっしょうけんめい]<b> 生[い]きて</b>いる。,571V.opus,571S.opus,2
 572,動かす,うごかす,move (something),verb,I moved the furniture in the room.,部屋[へや]の 家具[かぐ]を<b> 動[うご]かしました</b>。,572V.opus,572S.opus,3
 573,壊れる,こわれる,"break, break down",verb,The company computer broke down.,会社[かいしゃ]のパソコンが<b> 壊[こわ]れた</b>。,573V.opus,573S.opus,3
@@ -1626,7 +1626,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1625,乾かす,かわかす,dry (something),verb,I dried the wet clothes.,ぬれた 服[ふく]を<b> 乾[かわ]かした</b>。,1625V.opus,1625S.opus,3
 1626,定期券,ていきけん,commuter pass,noun,"The commuter pass was 12,000 yen.",<b> 定期[ていき] 券[けん]</b>は１ 万[まん]２ 千[せん] 円[えん]でした。,1626V.opus,1626S.opus,3
 1627,にこにこ,にこにこ,"Beaming smile (friendly, cheerful face — used in manga/anime often)",adverb,She's always smiling.,彼女[かのじょ]はいつも<b>にこにこ</b>しています。,1627V.opus,1627S.opus,1
-1628,下る,くだる,"go down, go away from",verb,A small ship is going down the river.,小[ちい]さな 船[ふね]が 川[かわ]を<b> 下[くだ]って</b>います。,1628V.opus,1628S.opus,0
+1628,下る,くだる,"to go down, to go away from",verb,A small ship is going down the river.,小[ちい]さな 船[ふね]が 川[かわ]を<b> 下[くだ]って</b>います。,1628V.opus,1628S.opus,0
 1629,ウール,うーる,wool (katakana; fabric; material in clothing),noun,This wool sweater is warm.,この<b>ウール</b>のセーターは 暖[あたた]かい。,1629V.opus,1629S.opus,1
 1630,コーラ,こーら,"cola, coke",noun,My older brother likes cola.,私[わたし]の 兄[あに]は<b>コーラ</b>が 好[す]きだ。,1630V.opus,1630S.opus,1
 1631,トイレットペーパー,といれっとぺーぱー,toilet paper,noun,I changed the toilet paper.,<b>トイレットペーパー</b>を 交換[こうかん]しました。,1631V.opus,1631S.opus,6
