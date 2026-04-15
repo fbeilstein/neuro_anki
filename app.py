@@ -227,6 +227,13 @@ def save_card():
             updates[key] = value
             
     manager.db.update_card(card_id, updates)
+
+    # Sync edits into the STM drum (in-memory copy)
+    for item in manager.stm.drum:
+        if item['card']['id'] == card_id:
+            item['card'].update(updates)
+            break
+
     next_url = request.form.get('next_url', url_for('study'))
     return redirect(next_url)
     
