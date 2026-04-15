@@ -569,14 +569,14 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 568,茶碗,ちゃわん,rice bowl,noun,I put some rice into the rice bowl.,<b> 茶碗[ちゃわん]</b>にご 飯[はん]をよそいました。,568V.opus,568S.opus,0
 569,決める,きめる,"decide, agree upon",verb,I've decided to go back to my country.,帰国[きこく]することに<b> 決[き]めました</b>。,569V.opus,569S.opus,0
 570,感じる,かんじる,"to feel, to sense",verb,I feel a pain in my knee.,膝[ひざ]に 痛[いた]みを<b>感[かん]じます</b>。,570V.opus,570S.opus,0
-571,生きる,いきる,live (one's life),verb,They're all doing the best they can to live their life.,皆[みな] 一生懸命[いっしょうけんめい]<b> 生[い]きて</b>いる。,571V.opus,571S.opus,2
+571,生きる,いきる,to live (one's life),verb,They're all doing the best they can to live their life.,皆[みな] 一生懸命[いっしょうけんめい]<b> 生[い]きて</b>いる。,571V.opus,571S.opus,2
 572,動かす,うごかす,move (something),verb,I moved the furniture in the room.,部屋[へや]の 家具[かぐ]を<b> 動[うご]かしました</b>。,572V.opus,572S.opus,3
 573,壊れる,こわれる,"break, break down",verb,The company computer broke down.,会社[かいしゃ]のパソコンが<b> 壊[こわ]れた</b>。,573V.opus,573S.opus,3
 574,復習,ふくしゅう,review,verbal noun,Did you review yesterday's lesson?,昨日[きのう]の<b> 復習[ふくしゅう]</b>をしましたか。,574V.opus,574S.opus,0
 575,眉,まゆ,eyebrow,noun,He has thick eyebrows.,彼[かれ]は<b> 眉[まゆ]</b>が 濃[こ]いね。,575V.opus,575S.opus,1
 576,客,きゃく,"visitor, customer (without お)",noun,That shop has a lot of young customers.,その 店[みせ]は 若[わか]い<b> 客[きゃく]</b>が 多[おお]いです。,576V.opus,576S.opus,0
 577,机,つくえ,desk,noun,They bought me a new desk.,新[あたら]しい<b> 机[つくえ]</b>を 買[か]ってもらいました。,577V.opus,577S.opus,0
-578,風呂,ふろ,bath,noun,My father's taking a bath right now.,父[ちち]は 今[いま]お<b> 風呂[ふろ]</b>に 入[はい]っています。,578V.opus,578S.opus,2
+578,風呂,ふろ,bath (no お),noun,My father's taking a bath right now.,父[ちち]は 今[いま]お<b> 風呂[ふろ]</b>に 入[はい]っています。,578V.opus,578S.opus,2
 579,湯,ゆ,hot water,noun,The bath is filled with hot water.,お 風呂[ふろ]のお<b> 湯[ゆ]</b>が 一杯[いっぱい]です。,579V.opus,579S.opus,1
 580,ぬるい,ぬるい,"tepid, lukewarm",adjective,The bath was lukewarm.,風呂[ふろ]が<b>ぬるかった</b>。,580V.opus,580S.opus,2
 581,風邪薬,かぜぐすり,cold medicine,noun,Take this cold medicine.,この<b> 風邪[かぜ] 薬[ぐすり]</b>を 飲[の]みなさい。,581V.opus,581S.opus,3
@@ -593,7 +593,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 592,雲,くも,cloud,noun,It's cloudy today.,今日[きょう]は<b> 雲[くも]</b>が 多[おお]い。,592V.opus,592S.opus,1
 593,空,そら,sky,noun,I like to take photographs of the sky.,<b> 空[そら]</b>の 写真[しゃしん]を 撮[と]るのが 好[す]きです。,593V.opus,593S.opus,1
 594,人気,にんき,popularity,noun,That band is very popular.,このバンドはとても<b> 人気[にんき]</b>があるよ。,594V.opus,594S.opus,0
-595,兄さん,にいさん,older brother (honorific wthout お),noun,"Congratulations, big brother.",<b> 兄[にい]さん</b>、おめでとう。,595V.opus,595S.opus,1
+595,兄さん,にいさん,older brother (honorific but without お),noun,"Congratulations, big brother.",<b> 兄[にい]さん</b>、おめでとう。,595V.opus,595S.opus,1
 596,姉さん,ねえさん,older sister (honorific without お),noun,I'm sorry sis.,<b> 姉[ねえ]さん</b>、ごめんね。,596V.opus,596S.opus,1
 597,平成,へいせい,Heisei era,noun,She was born in Heisei Year 3 (1991).,彼女[かのじょ]は<b> 平成[へいせい]</b>３ 年[ねん] 生[う]まれです。,597V.opus,597S.opus,0
 598,毎月,まいつき,every month,noun,I save money every month.,私[わたし]は<b> 毎月[まいつき]</b> 貯金[ちょきん]をしています。,598V.opus,598S.opus,0
@@ -618,7 +618,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 617,残す,のこす,"leave, leave undone",verb,She left a message.,彼女[かのじょ]はメッセージを<b> 残[のこ]しました</b>。,617V.opus,617S.opus,2
 618,ごちそうする,ごちそうする,"to treat someone to a meal. Polite and humble way to say ""to treat someone"" (more respectful, neutral).",verb,I'll treat you to dinner tonight.,今日[きょう]の 夕食[ゆうしょく]は 私[わたし]が<b>ご 馳走[ちそう]します</b>。,618V.opus,618S.opus,-1
 619,合う,あう,"to fit, to match",verb,These shoes fit me.,この 靴[くつ]は 私[わたし]の 足[あし]に<b> 合[あ]って</b>いる。,619V.opus,619S.opus,1
-620,当たる,あたる,"hit, strike (naturally, by chance), win. A ball hits you, lottery win, ""sunlight hits""",verb,The ball hit him on the head.,ボールが 彼[かれ]の 頭[あたま]に<b> 当[あ]たった</b>。,620V.opus,620S.opus,0
+620,当たる,あたる,"to hit, to strike (naturally, by chance), to win. A ball hits you, lottery win, ""sunlight hits""",verb,The ball hit him on the head.,ボールが 彼[かれ]の 頭[あたま]に<b> 当[あ]たった</b>。,620V.opus,620S.opus,0
 621,集まる,あつまる,"gather, be collected",verb,There are a lot of people gathering in front of the station.,駅前[えきまえ]に 人[ひと]が<b> 集[あつ]まって</b>います。,621V.opus,621S.opus,3
 622,場所,ばしょ,"place, space, site",noun,Please tell me where the office is.,会社[かいしゃ]の<b> 場所[ばしょ]</b>を 教[おし]えてください。,622V.opus,622S.opus,0
 623,海,うみ,"sea, ocean",noun,The sea is vast and wide.,<b> 海[うみ]</b>は 広[ひろ]くて 大[おお]きい。,623V.opus,623S.opus,1
@@ -1781,7 +1781,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1780,先輩,せんぱい,"senior, superior",noun,Japanese people value the relationship between seniors and juniors.,日本人[にっぽんじん]は<b> 先輩[せんぱい]</b>、 後輩[こうはい]の 関係[かんけい]をとても 大切[たいせつ]に 考[かんが]えます。,1780V.opus,1780S.opus,0
 1781,眺める,ながめる,"look out, gaze",verb,The cat is at the window looking outside.,猫[ねこ]が 窓[まど]から 外[そと]を<b> 眺[なが]めて</b>いるよ。,1781V.opus,1781S.opus,3
 1782,書類,しょるい,"documents, papers",noun,I made ten copies of the document.,<b> 書類[しょるい]</b>を１０ 枚[まい]コピーしました。,1782V.opus,1782S.opus,0
-1783,年月,ねんげつ,"years, period of time",noun,The temple was built over a long period of time.,そのお 寺[てら]は 長[なが]い<b> 年月[ねんげつ]</b>をかけて 建[た]てられた。,1783V.opus,1783S.opus,1
+1783,年月,ねんげつ,"many years, period of time",noun,The temple was built over a long period of time.,そのお 寺[てら]は 長[なが]い<b> 年月[ねんげつ]</b>をかけて 建[た]てられた。,1783V.opus,1783S.opus,1
 1784,燃やす,もやす,burn (something),verb,I burned some old letters.,古[ふる]い 手紙[てがみ]を<b> 燃[も]やした</b>んだ。,1784V.opus,1784S.opus,0
 1785,線路,せんろ,"railway track, line",noun,A kitten strayed onto the railway track.,子猫[こねこ]が<b> 線路[せんろ]</b>に 迷[まよ]い 込[こ]んだぞ。,1785V.opus,1785S.opus,1
 1786,水着,みずぎ,"bathing suit, swimsuit",noun,I changed into a swimsuit.,<b> 水着[みずぎ]</b>に 着替[きが]えました。,1786V.opus,1786S.opus,0
@@ -9566,3 +9566,4 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 19618,待ち兼ねる,まちかねる,wait impatiently,,I cannot wait for an answer from him.,彼[かれ]からの 返事[へんじ]を<b> 待ち兼[まちか]ねて</b>います,jw08733a.opus,js08733a.opus,0
 19619,突っ掛ける,つっかける,"to slip on, slip into",,He always slips on sandals.,彼[かれ]はいつもサンダルを<b> 突[つ]っ 掛[か]けて</b>いる,jw05887a.opus,js05887a.opus,4
 19624,なら,なら,if; if so,,"That's okay, if you say so.",あなたがそういう<b>なら</b>、それでいい,,js09475a.opus,1
+19625,古書,こしょ,"antiquarian book, old book with some age or historic value",NOUN,He collects antiquarian books.,彼[かれ]は<b>古書[こしょ]</b>を集[あつ]めている。,pronunciation_ja_古書.mp3,,
