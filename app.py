@@ -258,7 +258,8 @@ def create_card():
 def delete_card():
     card_id = int(request.form['card_id'])
     manager.delete_card(card_id)
-    return redirect(url_for('study'))
+    next_url = request.form.get('next')
+    return redirect(next_url or url_for('study'))
 
 
 # ---- SEARCH ---

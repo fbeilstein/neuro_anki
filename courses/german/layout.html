@@ -95,16 +95,16 @@ margin-bottom: 15px;
 
 {% block question_area %}
 <div class="pos-tag">{{ card['POS'] }}</div>
-<h1>{{ card['English_Translation'] | safe }}</h1>
-<div class="sentence">{{ card['English_Sentence'] | safe }}</div>
+<h1>{{ card['EN'] | safe }}</h1>
+<div class="sentence">{{ card['EN_sentence'] | safe }}</div>
 {% endblock %}
 
 {% block answer_area %}
 <div class="de-full">{{ card['DE_full'] }}</div>
 <div class="de-label">compressed</div>
 <div class="de-short">{{ card['DE'] }}</div>
-<div class="sentence" style="margin-top:15px;">{{ card['German_Sentence'] | safe }}</div>
-<div class="sentence" style="margin-top:5px;">{{ card['English_Sentence'] | safe }}</div>
+<div class="sentence" style="margin-top:15px;">{{ card['DE_sentence'] | safe }}</div>
+<div class="sentence" style="margin-top:5px;">{{ card['EN_sentence'] | safe }}</div>
 
 {% if card['media'] %}
 <audio id="audio-player" src="/media/{{ card['media'] }}"></audio>
