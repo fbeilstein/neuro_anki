@@ -74,7 +74,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 73,数,かず,"number (quantity, amount). ""The number of people"", general count",noun,We don't have enough glasses.,グラスの<b> 数[かず]</b>が 足[た]りません。,73V.opus,73S.opus,1.0
 74,近い,ちかい,"near, close",adjective,The station is near here.,駅[えき]はここから<b> 近[ちか]い</b>です。,74V.opus,74S.opus,2.0
 75,そこ,そこ,there (like book is there),pronoun,Please sit there.,<b>そこ</b>に 座[すわ]ってください。,75V.opus,75S.opus,0.0
-76,走る,はしる,run,verb,Every night he runs three kilometers.,彼[かれ]は 毎晩[まいばん]３キロ<b> 走[はし]って</b>います。,76V.opus,76S.opus,2.0
+76,走る,はしる,to run,verb,Every night he runs three kilometers.,彼[かれ]は 毎晩[まいばん]３キロ<b> 走[はし]って</b>います。,76V.opus,76S.opus,2.0
 77,入れる,いれる,put in,verb,He put the notebook in his bag.,彼[かれ]はかばんに 手帳[てちょう]を<b> 入[い]れた</b>。,77V.opus,77S.opus,0.0
 78,教える,おしえる,"teach, tell",verb,He teaches mathematics.,彼[かれ]は 数学[すうがく]を<b> 教[おし]えて</b>います。,78V.opus,78S.opus,0.0
 79,歩く,あるく,"to walk, to go on foot",verb,Let's walk to the station.,駅[えき]まで<b> 歩[ある]きましょう</b>。,79V.opus,79S.opus,2.0
@@ -112,7 +112,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 111,勉強,べんきょう,"the studying (general, daily use)",verbal noun,I'm studying Japanese.,私[わたし]は 日本語[にほんご]を<b> 勉強[べんきょう]</b>しています。,111V.opus,111S.opus,0.0
 112,できる,できる,"can do, be good at",verb,She can speak Italian.,彼女[かのじょ]はイタリア 語[ご]が<b>できます</b>。,112V.opus,112S.opus,0.0
 113,短い,みじかい,"short, brief",adjective,His legs are short.,彼[かれ]は 足[あし]が<b> 短[みじか]い</b>。,113V.opus,113S.opus,3.0
-114,落ちる,おちる,"fall, come down (general). Apple, coin, person falling",verb,Even monkeys fall from trees.,猿[さる]も 木[き]から<b> 落[お]ちる</b>。,114V.opus,114S.opus,2.0
+114,落ちる,おちる,"fall, come down (general, from higher to lower elevation)",verb,Even monkeys fall from trees.,猿[さる]も 木[き]から<b>落[お]ちる</b>。,114V.opus,114S.opus,2.0
 115,息子,むすこ,son,noun,My son's a college freshman.,うちの<b> 息子[むすこ]</b>は 大学[だいがく]１ 年生[ねんせい]です。,115V.opus,115S.opus,0.0
 116,白い,しろい,"white, blank",adjective,His teeth are white.,彼[かれ]は 歯[は]が<b> 白[しろ]い</b>。,116V.opus,116S.opus,2.0
 117,飛行機,ひこうき,airplane,noun,My son likes toy airplanes.,息子[むすこ]は<b> 飛行機[ひこうき]</b>のおもちゃが 好[す]きです。,117V.opus,117S.opus,2.0
@@ -317,7 +317,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 316,三つ,みっつ,three (things),noun,I bought three glasses.,コップを<b> 三[みっ]つ</b> 買[か]いました。,316V.opus,316S.opus,3.0
 317,八日,ようか,"eight days, eighth of the month",noun,I will go to England on the eighth.,<b> 八日[ようか]</b>からイギリスに 行[い]きます。,317V.opus,317S.opus,0.0
 318,高校生,こうこうせい,high school student,noun,My little brother's a high school student.,私[わたし]の 弟[おとうと]は<b> 高校生[こうこうせい]</b>です。,318V.opus,318S.opus,3.0
-319,上手,じょうず,"good, skilled",adjectival noun,My little sister can sing well.,妹[いもうと]は 歌[うた]が<b> 上手[じょうず]</b>です。,319V.opus,319S.opus,3.0
+319,上手,じょうず,"good, skilled (objective technical skill)",adjectival noun,My little sister can sing well.,妹[いもうと]は 歌[うた]が<b> 上手[じょうず]</b>です。,319V.opus,319S.opus,3.0
 320,強い,つよい,strong,adjective,There's a strong wind today.,今日[きょう]は 風[かぜ]が<b> 強[つよ]い</b>。,320V.opus,320S.opus,2.0
 321,七,なな,seven (Japanese origin),noun,There are seven bananas.,バナナが<b> 七[なな]</b> 本[ほん]あります。,321V.opus,321S.opus,1.0
 322,二十日,はつか,"20 days, 20th of the month",noun,The 20th of next month is my little brother's birthday.,来月[らいげつ]の<b> 二十日[はつか]</b>は 弟[おとうと]の 誕生日[たんじょうび]です。,322V.opus,322S.opus,0.0
@@ -329,7 +329,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 328,いい,いい,good (informal/spoken form),adjective,She's a good friend of mine.,彼女[かのじょ]は<b>いい</b> 友達[ともだち]です。,328V.opus,328S.opus,1.0
 329,上,うえ,"up, above",noun,Look up.,<b> 上[うえ]</b>を 向[む]いて。,329V.opus,329S.opus,0.0
 330,駅,えき,train station,noun,Where's the station?,<b> 駅[えき]</b>はどこですか。,330V.opus,330S.opus,1.0
-331,美味しい,おいしい,tasty,adjective,This cake is yummy.,このケーキは<b> 美味[おい]しい</b>ね。,331V.opus,331S.opus,0.0
+331,美味しい,おいしい,tasty (not うまい),adjective,This cake is yummy.,このケーキは<b> 美味[おい]しい</b>ね。,331V.opus,331S.opus,0.0
 332,昨日,きのう,yesterday (colloquial),noun,I met my friend yesterday.,<b> 昨日[きのう]</b>、 友達[ともだち]に 会[あ]った。,332V.opus,332S.opus,2.0
 333,綺麗,きれい,"pretty, clean (kanji)",adjectival noun,She's very pretty.,彼女[かのじょ]はとても<b> 綺麗[きれい]</b>だ。,333V.opus,333S.opus,1.0
 334,五,ご,five,noun,Five of us went on a trip.,<b> 五[ご]</b> 人[にん]で 旅行[りょこう]に 行[い]きました。,334V.opus,334S.opus,1.0
@@ -531,7 +531,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 530,下手,へた,not good at,adjectival noun,I'm a terrible singer.,私[わたし]は 歌[うた]が<b> 下手[へた]</b>だ。,530V.opus,530S.opus,2.0
 531,厳しい,きびしい,"strict, severe",adjective,My boss is very strict.,私[わたし]の 上司[じょうし]はとても<b> 厳[きび]しい</b>。,531V.opus,531S.opus,3.0
 532,一人で,ひとりで,"by oneself, alone",adverb,I'm going to see a movie alone today.,今日[きょう]は<b> 一人[ひとり]で</b> 映画[えいが]を 見[み]ます。,532V.opus,532S.opus,-1.0
-533,答え,こたえ,"answer, solution",noun,He doesn't know the answer to the problem.,彼[かれ]はその 問題[もんだい]の<b> 答[こた]え</b>が 分[わ]からない。,533V.opus,533S.opus,2.0
+533,答え,こたえ,"answer, solution (act of solving the problem)",noun,He doesn't know the answer to the problem.,彼[かれ]はその 問題[もんだい]の<b> 答[こた]え</b>が 分[わ]からない。,533V.opus,533S.opus,2.0
 534,この頃,このごろ,"these days, recently",noun,These days I often get stiff shoulders.,<b>この 頃[ごろ]</b>、よく 肩[かた]が 凝[こ]る。,534V.opus,534S.opus,0.0
 535,残念,ざんねん,"regretful, disappointing",adjectival noun,The result of the game was disappointing.,その 試合[しあい]は<b> 残念[ざんねん]</b>な 結果[けっか]になった。,535V.opus,535S.opus,3.0
 536,仕舞う,しまう,"put away, put in",verb,She put the important documents in her desk.,彼女[かのじょ]は 大切[たいせつ]な 書類[しょるい]を 机[つくえ]に<b> 仕舞[しま]った</b>。,536V.opus,536S.opus,0.0
@@ -619,7 +619,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 618,ごちそうする,ごちそうする,"to treat someone to a meal. Polite and humble way to say ""to treat someone"" (more respectful, neutral).",verb,I'll treat you to dinner tonight.,今日[きょう]の 夕食[ゆうしょく]は 私[わたし]が<b>ご 馳走[ちそう]します</b>。,618V.opus,618S.opus,-1.0
 619,合う,あう,"to fit, to match",verb,These shoes fit me.,この 靴[くつ]は 私[わたし]の 足[あし]に<b> 合[あ]って</b>いる。,619V.opus,619S.opus,1.0
 620,当たる,あたる,"to hit, to strike (naturally, by chance), to win. A ball hits you, lottery win, ""sunlight hits""",verb,The ball hit him on the head.,ボールが 彼[かれ]の 頭[あたま]に<b> 当[あ]たった</b>。,620V.opus,620S.opus,0.0
-621,集まる,あつまる,"gather, be collected",verb,There are a lot of people gathering in front of the station.,駅前[えきまえ]に 人[ひと]が<b> 集[あつ]まって</b>います。,621V.opus,621S.opus,3.0
+621,集まる,あつまる,"to be gathered, to be collected",verb,There are a lot of people gathering in front of the station.,駅前[えきまえ]に 人[ひと]が<b> 集[あつ]まって</b>います。,621V.opus,621S.opus,3.0
 622,場所,ばしょ,"place, space, site",noun,Please tell me where the office is.,会社[かいしゃ]の<b> 場所[ばしょ]</b>を 教[おし]えてください。,622V.opus,622S.opus,0.0
 623,海,うみ,"sea, ocean",noun,The sea is vast and wide.,<b> 海[うみ]</b>は 広[ひろ]くて 大[おお]きい。,623V.opus,623S.opus,1.0
 624,少年,しょうねん,boy (between 7 and 18 years old),noun,The boys are playing soccer.,<b> 少年[しょうねん]</b>たちがサッカーをしている。,624V.opus,624S.opus,0.0
@@ -652,7 +652,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 651,なぜ,なぜ,why (formal),interrogative,Why didn't you come?,<b>なぜ</b> 来[こ]なかったの？,651V.opus,651S.opus,1.0
 652,並ぶ,ならぶ,"line up, be parallel",verb,Please line up here.,ここに<b> 並[なら]んで</b>ください。,652V.opus,652S.opus,0.0
 653,運ぶ,はこぶ,"carry, transport",verb,Please carry the chair to the second floor.,いすを２ 階[かい]に<b> 運[はこ]んで</b>ください。,653V.opus,653S.opus,0.0
-654,直す,なおす,"repair, fix",verb,I mended it.,私[わたし]がそれを<b> 直[なお]しました</b>。,654V.opus,654S.opus,2.0
+654,直す,なおす,"to repair, to fix",verb,I mended it.,私[わたし]がそれを<b> 直[なお]しました</b>。,654V.opus,654S.opus,2.0
 655,反対,はんたい,"oppose, object",verbal noun,I'm against it.,私[わたし]は<b> 反対[はんたい]</b>です。,655V.opus,655S.opus,0.0
 656,場合,ばあい,"situation, case",noun,Please ask me if you don't understand.,分[わ]からない<b> 場合[ばあい]</b>は 私[わたし]に 聞[き]いてください。,656V.opus,656S.opus,0.0
 657,詳しい,くわしい,"detailed, complete",adjective,Please explain it in greater detail.,もっと<b> 詳[くわ]しく</b> 説明[せつめい]してください。,657V.opus,657S.opus,3.0
@@ -726,7 +726,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 725,アパート,あぱーと,"apartment, flat",noun,He lives in an apartment.,彼[かれ]は<b>アパート</b>に 住[す]んでいます。,725V.opus,725S.opus,2.0
 726,ホテル,ほてる,hotel,noun,I've just arrived at the hotel.,今[いま]<b>ホテル</b>に 着[つ]きました。,726V.opus,726S.opus,1.0
 727,パソコン,ぱそこん,personal computer,noun,He has two personal computers.,彼[かれ]は<b>パソコン</b>を２ 台[だい] 持[も]っています。,727V.opus,727S.opus,0.0
-728,うまい,うまい,good at,adjective,He's good at baseball.,彼[かれ]は 野球[やきゅう]が<b>うまい</b>。,728V.opus,728S.opus,2.0
+728,うまい,うまい,good at (perceived smoothness of execution),adjective,He's good at baseball.,彼[かれ]は 野球[やきゅう]が<b>うまい</b>。,728V.opus,728S.opus,2.0
 729,明るい,あかるい,"bright, cheerful",adjective,She has a cheerful personality.,彼女[かのじょ]は<b> 明[あか]るい</b> 性格[せいかく]です。,729V.opus,729S.opus,0.0
 730,急ぐ,いそぐ,"hurry, do quickly",verb,We hurried to the station.,私[わたし]たちは 駅[えき]へ<b> 急[いそ]ぎました</b>。,730V.opus,730S.opus,2.0
 731,歌,うた,song,noun,I didn't know that song.,私[わたし]はその<b> 歌[うた]</b>を 知[し]らなかった。,731V.opus,731S.opus,2.0
@@ -745,7 +745,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 744,宿題,しゅくだい,homework,noun,Can you help me with my homework?,<b> 宿題[しゅくだい]</b>、 手伝[てつだ]ってくれない？,744V.opus,744S.opus,0.0
 745,鍵,かぎ,"key, lock",noun,Please lock the door when you leave.,出[で]かけるときは<b> 鍵[かぎ]</b>を 掛[か]けてください。,745V.opus,745S.opus,2.0
 746,傘,かさ,"umbrella, parasol",noun,I left my umbrella on the train.,電車[でんしゃ]に<b> 傘[かさ]</b>を 忘[わす]れた。,746V.opus,746S.opus,1.0
-747,乗り換える,のりかえる,"change, transfer",verb,I'm transferring to the subway at the next station.,次[つぎ]の 駅[えき]で 地下鉄[ちかてつ]に<b> 乗[の]り 換[か]えます</b>。,747V.opus,747S.opus,4.0
+747,乗り換える,のりかえる,"to change, to transfer",verb,I'm transferring to the subway at the next station.,次[つぎ]の 駅[えき]で 地下鉄[ちかてつ]に<b> 乗[の]り 換[か]えます</b>。,747V.opus,747S.opus,4.0
 748,向かう,むかう,"face, head toward",verb,I'm heading for the office right now.,今[いま]、 会社[かいしゃ]に<b> 向[む]かって</b>います。,748V.opus,748S.opus,0.0
 749,本屋,ほんや,bookstore (colloquial),noun,There's a bookstore in front of the station.,駅前[えきまえ]に<b> 本屋[ほんや]</b>があります。,749V.opus,749S.opus,1.0
 750,お茶,おちゃ,tea (polite),noun,Shall I make tea?,<b>お 茶[ちゃ]</b>を 入[い]れましょうか。,750V.opus,750S.opus,0.0
@@ -786,20 +786,20 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 785,見方,みかた,"view, perspective",noun,My view of him has changed.,彼[かれ]に 対[たい]する<b> 見方[みかた]</b>が 変[か]わりました。,785V.opus,785S.opus,2.0
 786,鳥,とり,"bird, poultry",noun,There's a beautiful bird there.,あそこにきれいな<b> 鳥[とり]</b>がいます。,786V.opus,786S.opus,0.0
 787,犬,いぬ,dog,noun,This dog is very clever.,この<b> 犬[いぬ]</b>はとても 賢[かしこ]い。,787V.opus,787S.opus,2.0
-788,返事,へんじ,"answer, reply",verbal noun,I sent a reply to the letter.,手紙[てがみ]の<b> 返事[へんじ]</b>を 出[だ]しました。,788V.opus,788S.opus,3.0
+788,返事,へんじ,"answer, reply (act of acknowledgment)",verbal noun,I sent a reply to the letter.,手紙[てがみ]の<b> 返事[へんじ]</b>を 出[だ]しました。,788V.opus,788S.opus,3.0
 789,また,また,"again, also, or",adverb,I'll come again tomorrow.,明日[あした]、<b>また</b> 来[き]ます。,789V.opus,789S.opus,0.0
 790,年間,ねんかん,period of one year,noun,"This place gets 50,000 visitors a year.",<b> 年間[ねんかん]</b>５ 万[まん] 人[にん]がここを 訪[おとず]れます。,790V.opus,790S.opus,0.0
 791,青,あお,"blue, green",noun,My favorite color is blue.,私[わたし]の 好[す]きな 色[いろ]は<b> 青[あお]</b>です。,791V.opus,791S.opus,1.0
 792,赤,あか,the red,noun,The traffic light changed to red.,信号[しんごう]が<b> 赤[あか]</b>に 変[か]わりました。,792V.opus,792S.opus,1.0
 793,信号,しんごう,"signal, traffic light",noun,The traffic light turned green.,<b> 信号[しんごう]</b>が 青[あお]になった。,793V.opus,793S.opus,0.0
 794,円,えん,circle,noun,Draw a big circle there.,そこに 大[おお]きな<b> 円[えん]</b>を 描[か]いて。,794V.opus,794S.opus,1.0
-795,非常に,ひじょうに,"very, extremely",adverb,This is very important.,これは<b> 非常[ひじょう]に</b> 重要[じゅうよう]です。,795V.opus,795S.opus,0.0
+795,非常に,ひじょうに,"very, extremely (objective situation)",adverb,This is very important.,これは<b> 非常[ひじょう]に</b> 重要[じゅうよう]です。,795V.opus,795S.opus,0.0
 796,複雑,ふくざつ,"complicated, intricate",adjectival noun,This program is very complicated.,このプログラムはとても<b> 複雑[ふくざつ]</b>です。,796V.opus,796S.opus,0.0
 797,平和,へいわ,"peace, harmony",adjectival noun,This country is at peace.,この 国[くに]は<b> 平和[へいわ]</b>です。,797V.opus,797S.opus,0.0
 798,回る,まわる,"turn round, go around",verb,The moon spins around the earth.,月[つき]は 地球[ちきゅう]のまわりを<b> 回[まわ]って</b>います。,798V.opus,798S.opus,0.0
 799,若者,わかもの,"young person, youth",noun,Young people these days don't read books.,最近[さいきん]の<b> 若者[わかもの]</b>は 本[ほん]を 読[よ]まない。,799V.opus,799S.opus,0.0
 800,雪,ゆき,"snow, snowfall",noun,It snowed on Christmas Day.,クリスマスに<b> 雪[ゆき]</b>が 降[ふ]りました。,800V.opus,800S.opus,2.0
-801,うまい,うまい,"delicious, tasty",adjective,I found a good sushi restaurant.,<b>うまい</b> 寿司[すし] 屋[や]を 見[み]つけたよ。,801V.opus,801S.opus,2.0
+801,うまい,うまい,"delicious, tasty (not 美味しい)",adjective,I found a good sushi restaurant.,<b>うまい</b> 寿司[すし] 屋[や]を 見[み]つけたよ。,801V.opus,801S.opus,2.0
 802,思い出す,おもいだす,"recollect, recall",verb,I just remembered something important I need to take care of.,大切[たいせつ]な 用事[ようじ]を<b> 思[おも]い 出[だ]しました</b>。,802V.opus,802S.opus,4.0
 803,聞こえる,きこえる,"hear, be heard",verb,I can hear the sound of TV from the next room.,隣[となり]の 部屋[へや]からテレビの 音[おと]が<b> 聞[き]こえる</b>。,803V.opus,803S.opus,0.0
 804,借りる,かりる,borrow,verb,I borrowed a video from him.,彼[かれ]にビデオを<b> 借[か]りました</b>。,804V.opus,804S.opus,0.0
@@ -807,7 +807,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 806,受け取る,うけとる,"receive, get",verb,I got an email from him.,彼[かれ]からメールを<b> 受[う]け 取[と]りました</b>。,806V.opus,806S.opus,0.0
 807,捨てる,すてる,"discard, abandon",verb,Please throw away the garbage.,ゴミを<b> 捨[す]てて</b>ください。,807V.opus,807S.opus,0.0
 808,一緒,いっしょ,together; casual and widely used in conversation.,verbal noun,Do you want to eat together?,<b> 一緒[いっしょ]</b>に 食事[しょくじ]しようか。,808V.opus,808S.opus,0.0
-809,遊び,あそび,"play, amusement",noun,We play a lot of games at New Year's.,お 正月[しょうがつ]にはいろいろな<b> 遊[あそ]び</b>をします。,809V.opus,809S.opus,0.0
+809,遊び,あそび,"the play, the amusement",noun,We play a lot of games at New Year's.,お 正月[しょうがつ]にはいろいろな<b> 遊[あそ]び</b>をします。,809V.opus,809S.opus,0.0
 810,移す,うつす,"move, transfer",verb,I moved the desk near the window.,机[つくえ]を 窓[まど]の 傍[そば]に<b> 移[うつ]しました</b>。,810V.opus,810S.opus,2.0
 811,大きさ,おおきさ,"size, dimension",noun,I'd like an envelope of this size.,この<b> 大[おお]きさ</b>の 封筒[ふうとう]が 欲[ほ]しいのですが。,811V.opus,811S.opus,0.0
 812,考え,かんがえ,"thought, idea",noun,That's a good idea.,それは 良[い]い<b> 考[かんが]え</b>です。,812V.opus,812S.opus,3.0
@@ -832,7 +832,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 831,健康,けんこう,healthy,adjectival noun,I'm living a healthy lifestyle.,私[わたし]は<b> 健康[けんこう]</b>な 生活[せいかつ]を 送[おく]っています。,831V.opus,831S.opus,0.0
 832,ゴルフ,ごるふ,golf,noun,My older brother started playing golf.,兄[あに]は<b>ゴルフ</b>を 始[はじ]めました。,832V.opus,832S.opus,1.0
 833,コース,こーす,"course, route",noun,I'm taking a Japanese course.,私[わたし]は 日本語[にほんご]<b>コース</b>を 取[と]っています。,833V.opus,833S.opus,1.0
-834,頼む,たのむ,"order, ask for, request",verb,I ordered a hamburger.,私[わたし]はハンバーガーを<b> 頼[たの]みました</b>。,834V.opus,834S.opus,2.0
+834,頼む,たのむ,"to order, to ask for, to request",verb,I ordered a hamburger.,私[わたし]はハンバーガーを<b> 頼[たの]みました</b>。,834V.opus,834S.opus,2.0
 835,困る,こまる,"be in trouble, not know what to do",verb,I lost my cell phone and don't know what to do.,ケータイをなくして<b> 困[こま]って</b>います。,835V.opus,835S.opus,2.0
 836,ずっと,ずっと,"all the time, all through",adverb,My father spends his days off watching TV all the time.,父[ちち]は 休[やす]みの 日[ひ]は<b>ずっと</b>テレビを 見[み]ている。,836V.opus,836S.opus,0.0
 837,例えば,たとえば,for example,adverb,"You can use this software to study Japanese, for example.",<b> 例[たと]えば</b>、このソフトで 日本語[にほんご]を 勉強[べんきょう]することができます。,837V.opus,837S.opus,2.0
@@ -841,7 +841,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 840,紹介,しょうかい,introduction,verbal noun,I introduced my girlfriend to my parents.,両親[りょうしん]に 彼女[かのじょ]を<b> 紹介[しょうかい]</b>した。,840V.opus,840S.opus,0.0
 841,小学校,しょうがっこう,elementary school,noun,There's an elementary school near my house.,家[いえ]の 近[ちか]くに<b> 小学校[しょうがっこう]</b>があります。,841V.opus,841S.opus,3.0
 842,公園,こうえん,"park, public garden",noun,There's a small pond in the park.,<b> 公園[こうえん]</b>に 小[ちい]さな 池[いけ]があります。,842V.opus,842S.opus,0.0
-843,中学,ちゅうがく,junior high school (6-9 класи),noun,My son goes to junior high.,息子[むすこ]は<b> 中学[ちゅうがく]</b>に 通[かよ]っています。,843V.opus,843S.opus,1.0
+843,中学,ちゅうがく,"junior high school (2 symbols, 6-9 класи)",noun,My son goes to junior high.,息子[むすこ]は<b> 中学[ちゅうがく]</b>に 通[かよ]っています。,843V.opus,843S.opus,1.0
 844,成績,せいせき,"results, grade",noun,His grades went up.,<b> 成績[せいせき]</b>が 上[あ]がりました。,844V.opus,844S.opus,0.0
 845,教科書,きょうかしょ,"textbook, schoolbook",noun,I forgot my Japanese textbook.,日本語[にほんご]の<b> 教科書[きょうかしょ]</b>を 忘[わす]れた。,845V.opus,845S.opus,3.0
 846,席,せき,"seat, one's place",noun,Is this seat taken?,この<b> 席[せき]</b>、 空[あ]いてますか。,846V.opus,846S.opus,1.0
@@ -856,7 +856,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 855,壁,かべ,"wall, partition",noun,There's a painting on the wall.,<b> 壁[かべ]</b>に 絵[え]が 掛[か]かっている。,855V.opus,855S.opus,0.0
 856,信じる,しんじる,"to believe, to trust",verb,He believes in Jesus Christ.,彼[かれ]はキリストを<b> 信[しん]じて</b>いる。,856V.opus,856S.opus,3.0
 857,育てる,そだてる,"bring up, raise",verb,She raised three children.,彼女[かのじょ]は 三[さん] 人[にん]の 子[こ]を<b> 育[そだ]てました</b>。,857V.opus,857S.opus,3.0
-858,倒れる,たおれる,fall over,verb,A tree fell down in the gale.,強風[きょうふう]で 木[き]が<b> 倒[たお]れた</b>。,858V.opus,858S.opus,3.0
+858,倒れる,たおれる,"to fall, to fall over (vertical object collapses to horizontal)",verb,A tree fell down in the gale.,強風[きょうふう]で 木[き]が<b> 倒[たお]れた</b>。,858V.opus,858S.opus,3.0
 859,落とす,おとす,To drop (the action of letting something fall),verb,I lost my purse on the way.,途中[とちゅう]で 財布[さいふ]を<b> 落[お]としました</b>。,859V.opus,859S.opus,2.0
 860,代わる,かわる,"substitute, be substituted for",verb,I attended the conference in place of my boss.,上司[じょうし]に<b> 代[か]わって</b> 会議[かいぎ]に 出[で]た。,860V.opus,860S.opus,0.0
 861,タクシー,たくしー,taxi,noun,Please call a taxi.,<b>タクシー</b>を 呼[よ]んでください。,861V.opus,861S.opus,1.0
@@ -873,7 +873,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 872,訪ねる,たずねる,"visit (a person), call on (a person). Usually used when visiting someone. Formal or polite context.",verb,He visited his friend in New York.,彼[かれ]はニューヨークの 友達[ともだち]を<b> 訪[たず]ねた</b>。,872V.opus,872S.opus,3.0
 873,打つ,うつ,"hit, strike (on purpose). Hit a ball, type, shoot",verb,I fell down and hit my knee.,転[ころ]んでひざを<b> 打[う]ちました</b>。,873V.opus,873S.opus,1.0
 874,相談,そうだん,"consultation, advice",verbal noun,I'd like to get your advice on something.,<b> 相談[そうだん]</b>したいことがあります。,874V.opus,874S.opus,0.0
-875,玄関,げんかん,"entrance, door",noun,I decorated the entrance with flowers.,<b> 玄関[げんかん]</b>に 花[はな]を 飾[かざ]りました。,875V.opus,875S.opus,1.0
+875,玄関,げんかん,"the entrance, the door (architectural entryway or foyer)",noun,I decorated the entrance with flowers.,<b> 玄関[げんかん]</b>に 花[はな]を 飾[かざ]りました。,875V.opus,875S.opus,1.0
 876,兄弟,きょうだい,sibling,noun,He is one of the three siblings.,彼[かれ]は３ 人[にん]<b> 兄弟[きょうだい]</b>です。,876V.opus,876S.opus,1.0
 877,長男,ちょうなん,eldest son,noun,His oldest son is eight years old.,彼[かれ]の<b> 長男[ちょうなん]</b>は８ 才[さい]です。,877V.opus,877S.opus,1.0
 878,高さ,たかさ,height,noun,"The height of Mt. Fuji is 3,776m.",富士山[ふじさん]の<b> 高[たか]さ</b>は３，７７６メートルです。,878V.opus,878S.opus,1.0
@@ -1096,7 +1096,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1095,沈む,しずむ,sink,verb,The boat sank in the river.,ボートが 川[かわ]に<b> 沈[しず]んだ</b>。,1095V.opus,1095S.opus,0.0
 1096,組み立てる,くみたてる,"set up, put together",verb,I'll build and set up the bookshelf on Sunday.,日曜日[にちようび]に 本棚[ほんだな]を<b> 組[く]み 立[た]てます</b>。,1096V.opus,1096S.opus,4.0
 1097,恐ろしい,おそろしい,"terrible, awful",adjective,I had a terrible dream last night.,昨夜[ゆうべ]<b> 恐[おそ]ろしい</b> 夢[ゆめ]を 見[み]た。,1097V.opus,1097S.opus,4.0
-1098,外人,がいじん,"foreigner, alien",noun,There are few foreigners in this town.,この 町[まち]には<b> 外人[がいじん]</b>が 少[すく]ない。,1098V.opus,1098S.opus,0.0
+1098,外人,がいじん,"foreigner, alien (2 symbols)",noun,There are few foreigners in this town.,この 町[まち]には<b> 外人[がいじん]</b>が 少[すく]ない。,1098V.opus,1098S.opus,0.0
 1099,牛,うし,"cattle, cow",noun,The cow is eating grass.,<b> 牛[うし]</b>が 草[くさ]を 食[た]べています。,1099V.opus,1099S.opus,0.0
 1100,食堂,しょくどう,"cafeteria, restaurant (kanji)",noun,The university cafeteria is cheap.,大学[だいがく]の<b> 食堂[しょくどう]</b>は 安[やす]い。,1100V.opus,1100S.opus,0.0
 1101,毎年,まいねん,every year (formal),noun,My salary goes up every year.,<b> 毎年[まいねん]</b> 給料[きゅうりょう]が 上[あ]がる。,1101V.opus,1101S.opus,0.0
@@ -1267,7 +1267,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1266,切符,きっぷ,ticket (kanji),noun,I bought a ticket to Tokyo.,東京[とうきょう]までの<b> 切符[きっぷ]</b>を 買[か]った。,1266V.opus,1266S.opus,0.0
 1267,ゴム,ごむ,"elastic, rubber",noun,The elastic has gone loose.,<b>ゴム</b>が 伸[の]びてしまった。,1267V.opus,1267S.opus,1.0
 1268,少々,しょうしょう,"a little, a bit",adverb,Please put in a little salt.,塩[しお]を<b> 少々[しょうしょう]</b> 入[い]れてください。,1268V.opus,1268S.opus,1.0
-1269,随分,ずいぶん,"extremely, considerably",adverb,You finished really early.,<b> 随分[ずいぶん]</b> 早[はや]く 終[お]わったね。,1269V.opus,1269S.opus,1.0
+1269,随分,ずいぶん,"extremely, considerably (subjective surprise)",adverb,You finished really early.,<b> 随分[ずいぶん]</b> 早[はや]く 終[お]わったね。,1269V.opus,1269S.opus,1.0
 1270,引っ張る,ひっぱる,"pull, drag",verb,My daughter tugged on my hand.,娘[むすめ]が 私[わたし]の 手[て]を<b> 引[ひ]っ 張[ぱ]った</b>。,1270V.opus,1270S.opus,3.0
 1271,焼ける,やける,"burn, cook",verb,The meat is cooked.,肉[にく]が<b> 焼[や]けました</b>。,1271V.opus,1271S.opus,0.0
 1272,鉛筆,えんぴつ,pencil,noun,Can I borrow a pencil?,<b> 鉛筆[えんぴつ]</b>を 貸[か]してください。,1272V.opus,1272S.opus,0.0
