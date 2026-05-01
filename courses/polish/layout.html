@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+/* --- Polish Course Overrides --- */
+
+/* Card content */
+.pl-full { color: var(--success); font-size: 2rem; font-weight: bold; margin-bottom: 4px; }
+.pl-short { color: #888; font-size: 1.1rem; margin-bottom: 15px; }
+.pl-label { color: #555; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+.sentence { font-style: italic; color: #aaa; line-height: 1.4; }
+.sentence b { color: var(--success); font-weight: bold; }
+.pos-tag {
+    display: inline-block;
+    background: #333;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #4a90e2;
+    margin-bottom: 15px;
+}
+{% endblock %}
+
+{% block question_area %}
+<div class="pos-tag">{{ card['POS'] }}</div>
+<h1>{{ card['EN'] | safe }}</h1>
+<div class="sentence">{{ card['EN_sentence'] | safe }}</div>
+{% endblock %}
+
+{% block answer_area %}
+<div class="pl-full">{{ card['PL_full'] }}</div>
+<div class="pl-label">compressed</div>
+<div class="pl-short">{{ card['PL'] }}</div>
+<div class="sentence" style="margin-top:15px;">{{ card['PL_sentence'] | safe }}</div>
+
+{% if card['media'] %}
+<audio id="audio-player" src="/media/{{ card['media'] }}"></audio>
+{% endif %}
+
+<div id="logic-config" style="display:none;" data-primary="{{ card['PL'] }}"
+    data-valid='{{ [card["PL"], card["PL_full"]] | tojson }}'>
+</div>
+{% endblock %}
