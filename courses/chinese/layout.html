@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+/* --- Chinese Course Overrides --- */
+.main-stage { position: relative; }
+
+/* Symmetric spacing for flashcard */
+.main-stage { padding-left: 20px !important; padding-right: 20px !important; }
+
+/* Card content */
+.ch-full { color: var(--success); font-size: 2.8rem; font-weight: bold; margin-bottom: 4px; }
+.ch-short { color: #888; font-size: 1.1rem; margin-bottom: 15px; }
+.ch-label { color: #555; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+.sentence { font-style: italic; color: #aaa; line-height: 1.4; }
+.sentence b { color: var(--success); font-weight: bold; }
+.pos-tag {
+    display: inline-block;
+    background: #333;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #4a90e2;
+    margin-bottom: 15px;
+}
+{% endblock %}
+
+{% block question_area %}
+<div class="pos-tag">{{ card['POS'] }}</div>
+<h1>{{ card['EN'] | safe }}</h1>
+<div class="sentence">{{ card['EN_Sentence'] | safe }}</div>
+{% endblock %}
+
+{% block answer_area %}
+<div class="ch-full">{{ card['CH'] }}</div>
+<div class="ch-short">{{ card['Pinyin'] }}</div>
+<div class="ch-label">Traditional</div>
+<div class="ch-short">{{ card['CH_traditional'] }}</div>
+<div class="sentence" style="margin-top:15px;">{{ card['CH_Sentence'] | safe }}</div>
+<div class="sentence" style="margin-top:5px;">{{ card['EN_Sentence'] | safe }}</div>
+
+{% if card['media'] %}
+<audio id="audio-player" src="/media/{{ card['media'] }}"></audio>
+{% endif %}
+
+<div id="logic-config" style="display:none;" data-primary="{{ card['Pinyin'] }}"
+    data-valid='{{ [card["CH"], card["Pinyin"]] | tojson }}'>
+</div>
+{% endblock %}
