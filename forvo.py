@@ -6,6 +6,7 @@ Extracted from anki_forvo_dl addon, stripped of Anki/Qt dependencies.
 import base64
 import os
 import re
+import unicodedata
 import urllib.parse
 import cloudscraper
 from dataclasses import dataclass, field
@@ -188,7 +189,8 @@ def download_pronunciation(pron: ForvoPronunciation, dest_dir: str) -> str:
     scraper = _get_scraper()
 
     ext = ".ogg" if pron.is_ogg else ".mp3"
-    safe_word = pron.word.replace("/", "-").replace("\\", "-")
+    safe_word = unicodedata.normalize('NFC', pron.word)
+    safe_word = safe_word.replace("/", "-").replace("\\", "-")
     for ch in '<>:"|?*':
         safe_word = safe_word.replace(ch, "_")
 

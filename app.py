@@ -1,5 +1,6 @@
 import os
 import json
+import unicodedata
 import jinja2
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, session, jsonify
 
@@ -173,7 +174,7 @@ def forvo_download():
     card_id_str = request.form.get('card_id', '')
     url = request.form['url']
     is_ogg = request.form.get('is_ogg') == 'true'
-    word = request.form['word']
+    word = unicodedata.normalize('NFC', request.form['word'])
     lang = request.form.get('lang', '').strip()
     
     try:

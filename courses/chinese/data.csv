@@ -1,28 +1,28 @@
 id,CH,CH_traditional,Pinyin,POS,EN,CH_Sentence,EN_Sentence,media
-1,一,一,yī,num,one,桌子上有<b>一</b>本书。,There is <b>one</b> book on the table.,
-2,在,在,zài,prep,"at, in, on",我<b>在</b>北京住了三年。,I lived <b>in</b> Beijing for three years.,
-3,有,有,yǒu,verb,"have, possess, there is",我<b>有</b>一个好主意。,I <b>have</b> a good idea.,
-4,个,個,gè,measure,general measure word,我买了一<b>个</b>苹果。,I bought <b>one</b> apple.,
-5,我,我,wǒ,pron,"I, me",<b>我</b>是学生。,<b>I</b> am a student.,
-6,不,不,bù,adv,"not, no",他<b>不</b>喜欢喝咖啡。,He does <b>not</b> like drinking coffee.,
-7,这,這,zhè,pron,this,<b>这</b>是我的书。,<b>This</b> is my book.,
-8,了,了,le,particle,completion/change marker,他喝<b>了</b>一杯茶。,He <b>drank</b> a cup of tea.,
-9,他,他,tā,pron,"he, him",<b>他</b>去上学了。,<b>He</b> went to school.,
-10,也,也,yě,adv,"also, too",我<b>也</b>要去。,I want to go <b>too</b>.,
-11,就,就,jiù,adv,"then, right away, just",我下课<b>就</b>回家。,I go home <b>right after</b> class.,
-12,人,人,rén,noun,"person, people",商店里有很多<b>人</b>。,There are many <b>people</b> in the store.,
-13,都,都,dōu,adv,"all, both",我们<b>都</b>准备好了。,We are <b>all</b> ready.,
-14,说,說,shuō,verb,"speak, say, talk",请再说一<b>说</b>。,Please <b>say</b> it again.,
-15,而,而,ér,conj,"and, but, yet",他聪明<b>而</b>努力。,He is smart <b>and</b> hardworking.,
-16,我们,我們,wǒmen,pron,"we, us",<b>我们</b>一起去吧。,Let <b>us</b> go together.,
-17,你,你,nǐ,pron,you,<b>你</b>好吗？,How are <b>you</b>?,
-18,了,了,le,particle,completion/change marker,他喝<b>了</b>一杯茶。,He <b>drank</b> a cup of tea.,
-19,要,要,yào,verb,"want, will, must",我<b>要</b>买这个。,I <b>want</b> to buy this.,
-20,会,會,huì,verb,"can, will, know how",他<b>会</b>说中文。,He <b>can</b> speak Chinese.,
-21,对,對,duì,measure,measure word for pairs or couples,公园里有一<b>对</b>情侣在散步。,There is a <b>couple</b> walking in the park.,
-22,及,及,jí,conj,"and, as well as",此项政策涉及学生<b>及</b>家长。,This policy affects students <b>and</b> parents.,
-23,和,和,hé,conj,"and, with",我<b>和</b>他是好朋友。,He <b>and</b> I are good friends.,
-24,与,與,yǔ,conj,"and, with",理想<b>与</b>现实。,Ideal <b>and</b> reality.,
+1,一,一,yī,num,one,桌子上有<b>一</b>本书。,There is <b>one</b> book on the table.,pronunciation_zh_一.mp3
+2,在,在,zài,prep,"at, in, on",我<b>在</b>北京住了三年。,I lived <b>in</b> Beijing for three years.,pronunciation_zh_在.mp3
+3,有,有,yǒu,verb,"have, possess, there is",我<b>有</b>一个好主意。,I <b>have</b> a good idea.,pronunciation_zh_有.mp3
+4,个,個,gè,measure,general measure word,我买了一<b>个</b>苹果。,I bought <b>one</b> apple.,pronunciation_zh_个.mp3
+5,我,我,wǒ,pron,"I, me",<b>我</b>是学生。,<b>I</b> am a student.,pronunciation_zh_我.mp3
+6,不,不,bù,adv,"not, no",他<b>不</b>喜欢喝咖啡。,He does <b>not</b> like drinking coffee.,pronunciation_zh_不.mp3
+7,这,這,zhè,pron,this,<b>这</b>是我的书。,<b>This</b> is my book.,pronunciation_zh_这.mp3
+8,了,了,le,particle,completion/change marker,他喝<b>了</b>一杯茶。,He <b>drank</b> a cup of tea.,pronunciation_zh_了.mp3
+9,他,他,tā,pron,"he, him",<b>他</b>去上学了。,<b>He</b> went to school.,pronunciation_zh_他.mp3
+10,也,也,yě,adv,"also, too",我<b>也</b>要去。,I want to go <b>too</b>.,pronunciation_zh_也.mp3
+11,就,就,jiù,adv,"then, right away, just",我下课<b>就</b>回家。,I go home <b>right after</b> class.,pronunciation_zh_就.mp3
+12,人,人,rén,noun,"person, people",商店里有很多<b>人</b>。,There are many <b>people</b> in the store.,pronunciation_zh_人.mp3
+13,都,都,dōu,adv,"all, both",我们<b>都</b>准备好了。,We are <b>all</b> ready.,pronunciation_zh_都.mp3
+14,说,說,shuō,verb,"speak, say, talk",请再说一<b>说</b>。,Please <b>say</b> it again.,pronunciation_zh_说.mp3
+15,而,而,ér,conj,"and, but, yet",他聪明<b>而</b>努力。,He is smart <b>and</b> hardworking.,pronunciation_zh_而.mp3
+16,我们,我們,wǒmen,pron,"we, us",<b>我们</b>一起去吧。,Let <b>us</b> go together.,pronunciation_zh_我们.mp3
+17,你,你,nǐ,pron,you,<b>你</b>好吗？,How are <b>you</b>?,pronunciation_zh_你.mp3
+18,了,了,le,particle,completion/change marker,他喝<b>了</b>一杯茶。,He <b>drank</b> a cup of tea.,pronunciation_zh_了.mp3
+19,要,要,yào,verb,"want, will, must",我<b>要</b>买这个。,I <b>want</b> to buy this.,pronunciation_zh_要.mp3
+20,会,會,huì,verb,"can, will, know how",他<b>会</b>说中文。,He <b>can</b> speak Chinese.,pronunciation_zh_会.mp3
+21,对,對,duì,measure,measure word for pairs or couples,公园里有一<b>对</b>情侣在散步。,There is a <b>couple</b> walking in the park.,pronunciation_zh_对.mp3
+22,及,及,jí,conj,"and, as well as",此项政策涉及学生<b>及</b>家长。,This policy affects students <b>and</b> parents.,pronunciation_zh_及.mp3
+23,和,和,hé,conj,"and, with (neutral / standard)",我<b>和</b>他是好朋友。,He <b>and</b> I are good friends.,pronunciation_zh_和.mp3
+24,与,與,yǔ,conj,"and, with (formal / literary)",理想<b>与</b>现实。,Ideal <b>and</b> reality.,pronunciation_zh_与.mp3
 25,以,以,yǐ,conj,"in order to, so as to",努力学习<b>以</b>通过考试。,Study hard <b>in order to</b> pass the exam.,
 26,很,很,hěn,adv,"very, quite",今天天气<b>很</b>热。,Today's weather is <b>very</b> hot.,
 27,种,種,zhòng,verb,"plant, grow, sow",他在花园里<b>种</b>了很多花。,He <b>planted</b> many flowers in the garden.,
@@ -128,7 +128,7 @@ id,CH,CH_traditional,Pinyin,POS,EN,CH_Sentence,EN_Sentence,media
 127,国家,國家,guójiā,noun,"country, nation",每个<b>国家</b>都有自己的文化。,Every <b>country</b> has its own culture.,
 128,许多,許多,xǔduō,adj,"many, a lot of",我有<b>许多</b>话想对你说。,I have <b>many</b> things to tell you.,
 129,生活,生活,shēnghuó,noun,"life, live",这里的<b>生活</b>节奏非常快。,The pace of <b>life</b> here is very fast.,
-130,跟,跟,gēn,conj,"and, with",我<b>跟</b>他一起去超市。,I went to the supermarket <b>with</b> him.,
+130,跟,跟,gēn,conj,"and, with (informal / colloquial)",我<b>跟</b>他一起去超市。,I went to the supermarket <b>with</b> him.,pronunciation_zh_跟.mp3
 131,已经,已經,yǐjīng,adv,already,他<b>已经</b>离开了。,He has <b>already</b> left.,
 132,大学,大學,dàxué,noun,"university, college",她明年就要上<b>大学</b>了。,She will go to <b>university</b> next year.,
 133,研究,研究,yánjiù,verb,"research, study",我们需要进一步<b>研究</b>这个问题。,We need to <b>study</b> this issue further.,

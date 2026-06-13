@@ -8,9 +8,18 @@
 .main-stage { padding-left: 20px !important; padding-right: 20px !important; }
 
 /* Card content */
-.ch-full { color: var(--success); font-size: 2.8rem; font-weight: bold; margin-bottom: 4px; }
-.ch-short { color: #888; font-size: 1.1rem; margin-bottom: 15px; }
-.ch-label { color: #555; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+.ch-pair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 6px;
+}
+.ch-pair-item { text-align: center; }
+.ch-char { color: var(--success); font-size: 2.6rem; font-weight: bold; }
+.ch-label { color: #555; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.ch-sep { width: 1px; height: 48px; background: #444; flex-shrink: 0; }
+.ch-pinyin { color: #888; font-size: 1.1rem; margin-bottom: 15px; }
 .sentence { font-style: italic; color: #aaa; line-height: 1.4; }
 .sentence b { color: var(--success); font-weight: bold; }
 .pos-tag {
@@ -31,10 +40,20 @@
 {% endblock %}
 
 {% block answer_area %}
-<div class="ch-full">{{ card['CH'] }}</div>
-<div class="ch-short">{{ card['Pinyin'] }}</div>
-<div class="ch-label">Traditional</div>
-<div class="ch-short">{{ card['CH_traditional'] }}</div>
+<div class="ch-pair">
+    <div class="ch-pair-item">
+        <div class="ch-char">{{ card['CH'] }}</div>
+        <div class="ch-label">Simplified</div>
+    </div>
+    {% if card['CH_traditional'] and card['CH_traditional'] != card['CH'] %}
+    <div class="ch-sep"></div>
+    <div class="ch-pair-item">
+        <div class="ch-char">{{ card['CH_traditional'] }}</div>
+        <div class="ch-label">Traditional</div>
+    </div>
+    {% endif %}
+</div>
+<div class="ch-pinyin">{{ card['Pinyin'] }}</div>
 <div class="sentence" style="margin-top:15px;">{{ card['CH_Sentence'] | safe }}</div>
 <div class="sentence" style="margin-top:5px;">{{ card['EN_Sentence'] | safe }}</div>
 
