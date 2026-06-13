@@ -183,7 +183,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 182,木,き,"tree, wood",noun,A tree fell down in the typhoon.,台風[たいふう]で<b> 木[き]</b>が 倒[たお]れた。,182V.opus,182S.opus,1.0
 183,開ける,あける,"open, unlock (doors, windows, etc.)",verb,Please open the window.,窓[まど]を<b> 開[あ]けて</b>ください。,183V.opus,183S.opus,0.0
 184,閉める,しめる,"to shut, to close (doors, windows, etc.)",verb,Can you fully close the door?,ちゃんとドアを<b> 閉[し]めて</b>よ。,184V.opus,184S.opus,2.0
-185,続く,つづく,"continue, follow",verb,Construction will continue until March.,工事[こうじ]は３ 月[がつ]まで<b> 続[つづ]きます</b>。,185V.opus,185S.opus,0.0
+185,続く,つづく,"continue, follow (on its own, no active agent, が)",verb,Construction will continue until March.,工事[こうじ]は３ 月[がつ]まで<b> 続[つづ]きます</b>。,185V.opus,185S.opus,0.0
 186,お医者さん,おいしゃさん,doctor (honorific),noun,I went to the doctor because I had a fever.,熱[ねつ]があるので<b>お 医者[いしゃ]さん</b>に 行[い]った。,186V.opus,186S.opus,0.0
 187,円,えん,Japanese yen,noun,The curry and rice is 700 yen.,カレーライスは７００<b> 円[えん]</b>です。,187V.opus,187S.opus,1.0
 188,ここ,ここ,here (like book is here),pronoun,There's a book here.,<b>ここ</b>に 本[ほん]があります。,188V.opus,188S.opus,0.0
@@ -417,7 +417,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 416,選ぶ,えらぶ,"choose, elect",verb,It's difficult to choose a good house.,良[よ]い 家[いえ]を<b> 選[えら]ぶ</b>のは 難[むずか]しい。,416V.opus,416S.opus,2.0
 417,生活,せいかつ,"the life, the living",verbal noun,Life in Japan is fun.,日本[にほん]での<b> 生活[せいかつ]</b>は 楽[たの]しいです。,417V.opus,417S.opus,0.0
 418,進める,すすめる,"go ahead, proceed",verb,Let's hurry and move on with the class.,早[はや]く 授業[じゅぎょう]を<b> 進[すす]めましょう</b>。,418V.opus,418S.opus,0.0
-419,続ける,つづける,"continue, keep up",verb,Please keep working.,仕事[しごと]を<b> 続[つづ]けて</b>ください。,419V.opus,419S.opus,0.0
+419,続ける,つづける,"continue, keep up (active agent prolongs, を)",verb,Please keep working.,仕事[しごと]を<b> 続[つづ]けて</b>ください。,419V.opus,419S.opus,0.0
 420,ほとんど,ほとんど,"almost, hardly",adverb,I have little money.,お 金[かね]が<b>ほとんど</b>ありません。,420V.opus,420S.opus,2.0
 421,会社,かいしゃ,"company, corporation",noun,He's working at a small business firm.,彼[かれ]は 小[ちい]さな<b> 会社[かいしゃ]</b>に 勤[つと]めています。,421V.opus,421S.opus,0.0
 422,家,いえ,"house, dwelling",noun,This is my house.,ここが 私[わたし]の<b> 家[いえ]</b>です。,422V.opus,422S.opus,2.0
@@ -808,7 +808,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 807,捨てる,すてる,"discard, abandon",verb,Please throw away the garbage.,ゴミを<b> 捨[す]てて</b>ください。,807V.opus,807S.opus,0.0
 808,一緒,いっしょ,together; casual and widely used in conversation.,verbal noun,Do you want to eat together?,<b> 一緒[いっしょ]</b>に 食事[しょくじ]しようか。,808V.opus,808S.opus,0.0
 809,遊び,あそび,"the play, the amusement",noun,We play a lot of games at New Year's.,お 正月[しょうがつ]にはいろいろな<b> 遊[あそ]び</b>をします。,809V.opus,809S.opus,0.0
-810,移す,うつす,"to relocate, to move, to transfer (something)",verb,I moved the desk near the window.,机[つくえ]を 窓[まど]の 傍[そば]に<b> 移[うつ]しました</b>。,810V.opus,810S.opus,2.0
+810,移す,うつす,"to move, to transfer, to relocate (any object)",verb,I moved the desk near the window.,机[つくえ]を 窓[まど]の 傍[そば]に<b> 移[うつ]しました</b>。,810V.opus,810S.opus,2.0
 811,大きさ,おおきさ,"size, dimension",noun,I'd like an envelope of this size.,この<b> 大[おお]きさ</b>の 封筒[ふうとう]が 欲[ほ]しいのですが。,811V.opus,811S.opus,0.0
 812,考え,かんがえ,"thought, idea",noun,That's a good idea.,それは 良[い]い<b> 考[かんが]え</b>です。,812V.opus,812S.opus,3.0
 813,空港,くうこう,airport (for public transportation),noun,I went to the airport by shuttle bus.,<b> 空港[くうこう]</b>までリムジンバスで 行[い]った。,813V.opus,813S.opus,0.0
@@ -1125,7 +1125,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1124,泣く,なく,"cry, weep",verb,My little sister cries easily.,妹[いもうと]はすぐに<b> 泣[な]く</b>。,1124V.opus,1124S.opus,0.0
 1125,レストラン,れすとらん,Restaurant (katakana; Western-style sit-down eatery),noun,I ate Indian food at the restaurant.,<b>レストラン</b>でインド 料理[りょうり]を 食[た]べました。,1125V.opus,1125S.opus,1.0
 1126,メモ,めも,"memo, note",noun,Please take notes.,<b>メモ</b>を 取[と]ってください。,1126V.opus,1126S.opus,1.0
-1127,予約,よやく,"reservation, appointment",verbal noun,I made a reservation at the restaurant.,レストランを<b> 予約[よやく]</b>しました。,1127V.opus,1127S.opus,0.0
+1127,予約,よやく,"reservation, appointment (a future slot/resource)",verbal noun,I made a reservation at the restaurant.,レストランを<b> 予約[よやく]</b>しました。,1127V.opus,1127S.opus,0.0
 1128,番号,ばんごう,"number (identifier number). Room number, phone number",noun,Please call this number.,この<b> 番号[ばんごう]</b>に 電話[でんわ]してください。,1128V.opus,1128S.opus,3.0
 1129,注文,ちゅうもん,"order (placing an order, especially in shops/restaurants)",verbal noun,I ordered pizza at the restaurant.,レストランでピザを<b> 注文[ちゅうもん]</b>しました。,1129V.opus,1129S.opus,0.0
 1130,パン,ぱん,bread,noun,I always eat bread for breakfast.,朝[あさ]ご 飯[はん]にはいつも<b>パン</b>を 食[た]べる。,1130V.opus,1130S.opus,1.0
@@ -1155,7 +1155,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1154,踏む,ふむ,"step on, tread on",verb,The driver stepped on the brake.,運転[うんてん] 手[しゅ]がブレーキを<b> 踏[ふ]んだ</b>。,1154V.opus,1154S.opus,0.0
 1155,別々,べつべつ,separately,adjectival noun,Let's get separate checks.,<b> 別々[べつべつ]</b>に 払[はら]いましょう。,1155V.opus,1155S.opus,0.0
 1156,ボール,ぼーる,ball,noun,He threw the ball.,彼[かれ]は<b>ボール</b>を 投[な]げた。,1156V.opus,1156S.opus,0.0
-1157,握る,にぎる,"grasp, grip, hold",verb,The girl held her mother's hand.,少女[しょうじょ]は 母親[ははおや]の 手[て]を<b> 握[にぎ]った</b>。,1157V.opus,1157S.opus,0.0
+1157,握る,にぎる,"to grasp, to grip, to hold",verb,The girl held her mother's hand.,少女[しょうじょ]は 母親[ははおや]の 手[て]を<b> 握[にぎ]った</b>。,1157V.opus,1157S.opus,0.0
 1158,真っ赤,まっか,deep red,adjectival noun,His face was all red.,彼[かれ]の 顔[かお]は<b> 真[ま]っ 赤[か]</b>でした。,1158V.opus,1158S.opus,3.0
 1159,拾う,ひろう,pick up,verb,I picked up a wallet on the street.,道[みち]で 財布[さいふ]を<b> 拾[ひろ]った</b>。,1159V.opus,1159S.opus,0.0
 1160,回す,まわす,"turn, rotate (something)",verb,"Turn the screw to the left, and it will come off.",ねじは 左[ひだり]に<b> 回[まわ]す</b>と 外[はず]れます。,1160V.opus,1160S.opus,0.0
@@ -1167,7 +1167,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1166,割る,わる,"divide, split",verb,I dropped the plate and broke it.,皿[さら]を 落[お]として<b> 割[わ]った</b>。,1166V.opus,1166S.opus,0.0
 1167,部分,ぶぶん,"part, section",noun,There's no problem with this part.,この<b> 部分[ぶぶん]</b>は 問題[もんだい]ないです。,1167V.opus,1167S.opus,1.0
 1168,拭く,ふく,"wipe, dry",verb,I wiped myself with a towel.,タオルで 体[からだ]を<b> 拭[ふ]きました</b>。,1168V.opus,1168S.opus,0.0
-1169,招く,まねく,invite,verb,I invited my parents for a meal.,両親[りょうしん]を 食事[しょくじ]に<b> 招[まね]いた</b>。,1169V.opus,1169S.opus,2.0
+1169,招く,まねく,to invite,verb,I invited my parents for a meal.,両親[りょうしん]を 食事[しょくじ]に<b> 招[まね]いた</b>。,1169V.opus,1169S.opus,2.0
 1170,急,きゅう,"urgent, steep",adjectival noun,I went up the steep hill.,<b> 急[きゅう]</b>な 坂道[さかみち]を 上[のぼ]った。,1170V.opus,1170S.opus,0.0
 1171,汚れる,よごれる,become dirty,verb,Your clothes will get dirty if you don't wear an apron.,エプロンをしないと 服[ふく]が<b> 汚[よご]れます</b>。,1171V.opus,1171S.opus,0.0
 1172,渡る,わたる,"cross, go across",verb,We walked over the bridge.,私[わたし]たちは 歩[ある]いて 橋[はし]を<b> 渡[わた]った</b>。,1172V.opus,1172S.opus,0.0
@@ -1178,7 +1178,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1177,旅館,りょかん,Japanese inn,noun,I stayed at an inn in Kyoto.,京都[きょうと]では<b> 旅館[りょかん]</b>に 泊[と]まりました。,1177V.opus,1177S.opus,0.0
 1178,博物館,はくぶつかん,museum,noun,I went to the car museum yesterday.,昨日[きのう]、 車[くるま]の<b> 博物館[はくぶつかん]</b>に 行[い]った。,1178V.opus,1178S.opus,4.0
 1179,ホーム,ほーむ,"platform (katakana, abbreviated form, casual speech)",noun,The train will arrive on this platform soon.,もうすぐこの<b>ホーム</b>に 電車[でんしゃ]が 来[き]ます。,1179V.opus,1179S.opus,1.0
-1180,引っ越す,ひっこす,"move, relocate",verb,I'll move to Osaka next month.,来月[らいげつ]、 大阪[おおさか]に<b> 引[ひ]っ 越[こ]します</b>。,1180V.opus,1180S.opus,3.0
+1180,引っ越す,ひっこす,"change residence, move, relocate",verb,I'll move to Osaka next month.,来月[らいげつ]、 大阪[おおさか]に<b> 引[ひ]っ 越[こ]します</b>。,1180V.opus,1180S.opus,3.0
 1181,荷物,にもつ,"baggage, load",noun,He brought a large suitcase.,彼[かれ]は 大[おお]きな<b> 荷物[にもつ]</b>を 持[も]ってきた。,1181V.opus,1181S.opus,1.0
 1182,家賃,やちん,rent,noun,"The rent here is 120,000 yen.",ここの<b> 家賃[やちん]</b>は１２ 万[まん] 円[えん]です。,1182V.opus,1182S.opus,1.0
 1183,計画,けいかく,"plan, project (kanji)",verbal noun,He planned a journey alone.,彼[かれ]は 一人[ひとり] 旅[たび]の<b> 計画[けいかく]</b>を 立[た]てた。,1183V.opus,1183S.opus,0.0
@@ -1187,7 +1187,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1186,ベッド,べっど,bed (katakana) (western-style raised bed),noun,He's sleeping in the bed.,彼[かれ]は<b>ベッド</b>で 寝[ね]ています。,1186V.opus,1186S.opus,1.0
 1187,ソファー,そふぁー,"sofa, couch",noun,This sofa is comfortable.,この<b>ソファー</b>は 気持[きも]ちがいい。,1187V.opus,1187S.opus,1.0
 1188,屋根,やね,roof,noun,There's a crow on the roof.,<b> 屋根[やね]</b>にカラスが 止[と]まっています。,1188V.opus,1188S.opus,1.0
-1189,祭り,まつり,festival,noun,She loves festivals.,彼女[かのじょ]は<b> 祭[まつ]り</b>が 大好[だいす]きです。,1189V.opus,1189S.opus,0.0
+1189,祭り,まつり,the festival (without お),noun,She loves festivals.,彼女[かのじょ]は<b> 祭[まつ]り</b>が 大好[だいす]きです。,1189V.opus,1189S.opus,0.0
 1190,離婚,りこん,divorce,verbal noun,My friend got divorced.,友人[ゆうじん]が<b> 離婚[りこん]</b>しました。,1190V.opus,1190S.opus,0.0
 1191,葉,は,leaf (botanical/formal term),noun,This is a cherry tree leaf.,これは 桜[さくら]の<b> 葉[は]</b>です。,1191V.opus,1191S.opus,0.0
 1192,ボート,ぼーと,"light boat, small craft (katakana)",noun,I got on the boat at the pond.,池[いけ]で<b>ボート</b>に 乗[の]りました。,1192V.opus,1192S.opus,1.0
@@ -1195,7 +1195,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1194,巻く,まく,"roll up, wrap",verb,He had a towel tied around his head.,彼[かれ]は 頭[あたま]にタオルを<b> 巻[ま]いて</b>いた。,1194V.opus,1194S.opus,0.0
 1195,プラスチック,ぷらすちっく,plastic,noun,This cup is plastic.,このカップは<b>プラスチック</b>です。,1195V.opus,1195S.opus,4.0
 1196,訪れる,おとずれる,"visit (a place), to arrive. More commonly used for places or abstract things like seasons.",verb,I visited Kyoto this summer.,私[わたし]は 夏[なつ]に 京都[きょうと]を<b> 訪[おとず]れました</b>。,1196V.opus,1196S.opus,4.0
-1197,破る,やぶる,"tear, breach",verb,He broke his promise.,彼[かれ]は 約束[やくそく]を<b> 破[やぶ]った</b>。,1197V.opus,1197S.opus,2.0
+1197,破る,やぶる,"to tear, to breach",verb,He broke his promise.,彼[かれ]は 約束[やくそく]を<b> 破[やぶ]った</b>。,1197V.opus,1197S.opus,2.0
 1198,関係,かんけい,"relation, relationship",verbal noun,He has nothing to do with that incident.,彼[かれ]はその 事件[じけん]に<b> 関係[かんけい]</b>がない。,1198V.opus,1198S.opus,0.0
 1199,録音,ろくおん,(sound) recording,verbal noun,I've already recorded that radio show.,そのラジオ 番組[ばんぐみ]はもう<b> 録音[ろくおん]</b>しました。,1199V.opus,1199S.opus,0.0
 1200,不幸,ふこう,"unhappiness, misfortune",adjectival noun,A misfortune befell her family.,彼女[かのじょ]の 家族[かぞく]に<b> 不幸[ふこう]</b>があった。,1200V.opus,1200S.opus,2.0
@@ -1211,7 +1211,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1210,草,くさ,"grass, weed",noun,Weeds are growing in the garden.,庭[にわ]に<b> 草[くさ]</b>が 生[は]えている。,1210V.opus,1210S.opus,2.0
 1211,敬語,けいご,polite speech,noun,Use polite language to customers.,お 客様[きゃくさま]には<b> 敬語[けいご]</b>を 使[つか]いなさい。,1211V.opus,1211S.opus,0.0
 1212,欠席,けっせき,"absence (from school, a gathering, etc.)",verbal noun,I'll be absent today because I have a cold.,風邪[かぜ]のため 今日[きょう]は<b> 欠席[けっせき]</b>します。,1212V.opus,1212S.opus,0.0
-1213,スイッチ,すいっち,switch,noun,He switched on his car radio.,彼[かれ]はカーラジオの<b>スイッチ</b>を 入[い]れた。,1213V.opus,1213S.opus,0.0
+1213,スイッチ,すいっち,the switch (katakana),noun,He switched on his car radio.,彼[かれ]はカーラジオの<b>スイッチ</b>を 入[い]れた。,1213V.opus,1213S.opus,0.0
 1214,掃除,そうじ,"cleaning (general everyday cleaning, e.g., housework)",verbal noun,I cleaned my room on the weekend.,週末[しゅうまつ]は 部屋[へや]の<b> 掃除[そうじ]</b>をしました。,1214V.opus,1214S.opus,0.0
 1215,畳,たたみ,straw mat,noun,That hotel has tatami rooms.,そのホテルには<b> 畳[たたみ]</b>の 部屋[へや]がある。,1215V.opus,1215S.opus,0.0
 1216,速さ,はやさ,speed (kanji),noun,How fast is the bullet train?,新幹線[しんかんせん]の<b> 速[はや]さ</b>はどれくらいですか。,1216V.opus,1216S.opus,1.0
@@ -1954,7 +1954,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 1953,広がる,ひろがる,"spread, expand, stretch physical object (cloud, fire, infection)",verb,My world expanded after studying abroad.,留学[りゅうがく]してから 私[わたし]の 世界[せかい]が<b> 広[ひろ]がった</b>。,1953V.opus,1953S.opus,0.0
 1954,事実,じじつ,"fact, truth",noun,Is it all true?,それは 全[すべ]て<b> 事実[じじつ]</b>ですか。,1954V.opus,1954S.opus,1.0
 1955,決定,けってい,Decision (official or general choice),verbal noun,An important decision was made at the meeting.,会議[かいぎ]で 重要[じゅうよう]な<b> 決定[けってい]</b>がありました。,1955V.opus,1955S.opus,0.0
-1956,住宅,じゅうたく,"housing, residence",noun,This is a quiet residential area.,ここは 静[しず]かな<b> 住宅[じゅうたく]</b> 地[ち]だ。,1956V.opus,1956S.opus,0.0
+1956,住宅,じゅうたく,"housing, residence (business, real estate)",noun,This is a quiet residential area.,ここは 静[しず]かな<b> 住宅[じゅうたく]</b> 地[ち]だ。,1956V.opus,1956S.opus,0.0
 1957,代表,だいひょう,representative,verbal noun,He's the class representative.,彼[かれ]がクラスの<b> 代表[だいひょう]</b>だ。,1957V.opus,1957S.opus,0.0
 1958,命令,めいれい,"order, command",verbal noun,She did not obey the orders.,彼女[かのじょ]は<b> 命令[めいれい]</b>に 従[したが]わなかった。,1958V.opus,1958S.opus,0.0
 1959,立場,たちば,"standpoint, position",noun,She doesn't understand her position.,彼女[かのじょ]は 自分[じぶん]の<b> 立場[たちば]</b>を 分[わ]かっていない。,1959V.opus,1959S.opus,3.0
@@ -3507,7 +3507,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 3506,演劇,えんげき,Theatrical performance (general term for performing drama),noun,She's studying drama.,彼女[かのじょ]は<b> 演劇[えんげき]</b>を 学[まな]んでいます。,3506V.opus,3506S.opus,0.0
 3507,人種,じんしゅ,race,noun,There are many different racial groups in this country.,この 国[くに]にはさまざまな<b> 人種[じんしゅ]</b>がいます。,3507V.opus,3507S.opus,0.0
 3508,有料,ゆうりょう,"fee-charging, paid",noun,This is a paid toilet.,このトイレは<b> 有料[ゆうりょう]</b>です。,3508V.opus,3508S.opus,0.0
-3509,住まい,すまい,"dwelling, residence",noun,My residence is in Tokyo.,私[わたし]の<b> 住[す]まい</b>は 東京[とうきょう]にあります。,3509V.opus,3509S.opus,1.0
+3509,住まい,すまい,"lifestyle, dwelling, residence (experience of living)",noun,My residence is in Tokyo.,私[わたし]の<b> 住[す]まい</b>は 東京[とうきょう]にあります。,3509V.opus,3509S.opus,1.0
 3510,急速,きゅうそく,"rapid, swift",adjectival noun,That country is going through rapid economic development.,あの 国[くに]の 経済[けいざい]は<b> 急速[きゅうそく]</b>に 発展[はってん]しているのね。,3510V.opus,3510S.opus,0.0
 3511,輸送,ゆそう,"transport, ship",verbal noun,We'll transport these goods by truck.,この 商品[しょうひん]はトラックで<b> 輸送[ゆそう]</b>します。,3511V.opus,3511S.opus,0.0
 3512,高等,こうとう,"advanced, high-grade",adjectival noun,Humans are said to be advanced creatures.,人間[にんげん]は<b> 高等[こうとう]</b>な 生物[せいぶつ]と 言[い]われている。,3512V.opus,3512S.opus,0.0
@@ -6188,7 +6188,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 16122,若干,じゃっかん,a little; somewhat,,We still have a little time to spare.,まだ<b> 若干[じゃっかん]</b> 時間[じかん]の 余裕[よゆう]があります,jw03918a.opus,js03918a.opus,0.0
 16123,独自,どくじ,original; personal,,That company does business by a unique method.,あの 会社[かいしゃ]は<b> 独自[どくじ]</b>の 方法[ほうほう]で 商売[しょうばい]をしている,jw06381a.opus,js06381a.opus,1.0
 16124,分布,ぶんぷ,Distribution (geographical or statistical spread),,They investigated the distribution of Japanese monkeys.,日本猿[にほんざる]の<b> 分布[ぶんぷ]</b>を 調[しら]べた,jw08265a.opus,js08265a.opus,0.0
-16125,居住,きょじゅう,residence,,He has been residing in France for many years.,彼[かれ]は 長年[ながねん]フランスに<b> 居住[きょじゅう]</b>している,jw02299a.opus,js02299a.opus,0.0
+16125,居住,きょじゅう,"residence (formal, administrative, and legal term about state of residing)",verbal noun,He has been residing in France for many years.,彼[かれ]は 長年[ながねん]フランスに<b> 居住[きょじゅう]</b>している,jw02299a.opus,js02299a.opus,0.0
 16126,魂,たましい,soul; spirit,,His spirit will live on for eternity.,彼[かれ]の<b> 魂[たましい]</b>は 永遠[えいえん]に 生[い]き 続[つづ]けるでしょう,jw05450a.opus,js05450a.opus,1.0
 16127,西部,せいぶ,the West; western part,,Please look at the weather forecast for the western part of the prefecture.,県[けん]<b> 西部[せいぶ]</b>の 天気[てんき] 予報[よほう]を 見[み]てください,jw04747a.opus,js04747a.opus,1.0
 16129,近日,きんじつ,shortly; soon,,The new item will be put on the market shortly.,新[しん] 商品[しょうひん]が<b> 近日[きんじつ]</b> 発売[はつばい]になります,jw02367a.opus,js02367a.opus,1.0
@@ -6942,7 +6942,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 16957,官僚,かんりょう,bureaucrat; bureaucracy; government official,,"Once again, a scandal involving a bureaucrat came to light.",<b>官僚[かんりょう]</b>の 不祥事[ふしょうじ]がまた 発覚[はっかく]した,jw01974a.opus,js01974a.opus,0.0
 16958,電流,でんりゅう,electric current,,There is a strong electric current flowing through this machine.,この 機械[きかい]には 強[つよ]い<b> 電流[でんりゅう]</b>が 流[なが]れています,jw06188a.opus,js06188a.opus,0.0
 16959,定形,ていけい,fixed form,,This envelope is a standard size.,この 封筒[ふうとう]は<b> 定形[ていけい]</b>サイズです,jw05997a.opus,js05997a.opus,0.0
-16960,住居,じゅうきょ,dwelling; house,,Traditional Japanese dwellings are wooden.,日本[にほん]の 伝統[でんとう] 的[てき]な<b> 住居[じゅうきょ]</b>は 木造[もくぞう]です,jw03960a.opus,js03960a.opus,1.0
+16960,住居,じゅうきょ,"dwelling; house (formal, legal term for the physical structure)",noun,Traditional Japanese dwellings are wooden.,日本[にほん]の 伝統[でんとう] 的[てき]な<b> 住居[じゅうきょ]</b>は 木造[もくぞう]です,jw03960a.opus,js03960a.opus,1.0
 16961,鉱業,こうぎょう,mining,,This town was made prosperous by mining.,ここは<b> 鉱業[こうぎょう]</b>で 栄[さか]えた 町[まち]です,jw02888a.opus,js02888a.opus,1.0
 16962,返還,へんかん,return; restoration,,"After the war, this land was returned by the United States.",この 土地[とち]は 戦後[せんご]アメリカから<b> 返還[へんかん]</b>された,jw08348a.opus,js08348a.opus,0.0
 16964,不振,ふしん,dullness; slump,,That company's business is in a slump recently.,あの 会社[かいしゃ]は 最近[さいきん] 営業[えいぎょう]<b> 不振[ふしん]</b>だ,jw08067a.opus,js08067a.opus,0.0
@@ -7630,7 +7630,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 17660,左翼,さよく,left field; left wing,,The left opposes the bill.,<b>左翼[さよく]</b>はその 法案[ほうあん]に 反対[はんたい]している,jw03497a.opus,js03497a.opus,1.0
 17661,心掛け,こころがけ,attention; attitude,,It is right to give up your seat to elderly people.,お 年寄[としよ]りに 席[せき]を 譲[ゆず]るのは 良[よ]い<b> 心掛[こころが]け</b>です,jw03094a.opus,js03094a.opus,0.0
 17662,機体,きたい,fuselage; machine,,Abnormalities were found in the body of the airplane.,飛行機[ひこうき]の<b> 機体[きたい]</b>に 異常[いじょう]が 見[み]つかった,jw02093a.opus,js02093a.opus,0.0
-17663,官邸,かんてい,official residence,,The journalists gathered in front of the official residence.,<b>官邸[かんてい]</b>の 前[まえ]に 記者[きしゃ]が 集[あつ]まりました,jw01949a.opus,js01949a.opus,0.0
+17663,官邸,かんてい,official residence provided by the government,noun,The journalists gathered in front of the official residence.,<b>官邸[かんてい]</b>の 前[まえ]に 記者[きしゃ]が 集[あつ]まりました,jw01949a.opus,js01949a.opus,0.0
 17664,王女,おうじょ,Royal princess,,The princess looks just like the king.,<b>王女[おうじょ]</b>は 国王[こくおう]にそっくりだ,jw00945a.opus,js00945a.opus,1.0
 17665,婿,むこ,bridegroom; son-in-law,,He was adopted into his wife's family.,彼[かれ]は<b> 婿[むこ]</b>に 入[はい]った,jw09061a.opus,js09061a.opus,1.0
 17667,動脈,どうみゃく,artery,,A large artery goes through the neck.,首[くび]には 太[ふと]い<b> 動脈[どうみゃく]</b>が 通[とお]っています,jw06316a.opus,js06316a.opus,0.0
@@ -8238,7 +8238,7 @@ id,JP,JP_reading,EN,part_of_speech,EN_sentence,JP_sentence,media,JP_sentence_med
 18279,佇む,たたずむ,to stand (still) a while,,She paused on the beach.,彼女[かのじょ]は 浜辺[はまべ]に<b>たたずんだ,jw05357a.opus,js05357a.opus,3.0
 18280,執念,しゅうねん,tenacity of purpose; vindictiveness,,He is obsessed with the competition.,彼[かれ]の 勝負[しょうぶ]にかける<b> 執念[しゅうねん]</b>はすごい,jw04010a.opus,js04010a.opus,1.0
 18281,日に日に,ひにひに,day by day; every day,,Our daughter is getting bigger day by day.,娘[むすめ]は<b> 日に日[ひにひ]に</b> 大[おお]きくなっています,jw07803a.opus,js07803a.opus,1.0
-18282,在留,ざいりゅう,residence; stay,,Finally I was given a residency permit.,やっと<b> 在留[ざいりゅう]</b> 許可[きょか]が 下[お]りました,jw03345a.opus,js03345a.opus,0.0
+18282,在留,ざいりゅう,"residence, stay of an immigrant (legal permission to remain in a country)",verbal noun,Finally I was given a residency permit.,やっと<b> 在留[ざいりゅう]</b> 許可[きょか]が 下[お]りました,jw03345a.opus,js03345a.opus,0.0
 18283,清々しい,すがすがしい,refreshing,,This is a refreshing time of year.,<b>すがすがしい</b> 季節[きせつ]になりました,jw04525a.opus,js04525a.opus,5.0
 18284,検閲,けんえつ,censorship; inspection,,The letters that come here are inspected.,ここに 来[く]る 手紙[てがみ]は<b> 検閲[けんえつ]</b>されます,jw02741a.opus,js02741a.opus,0.0
 18285,円安,えんやす,depreciation of the yen,,Export is expanding due to the weak yen.,<b>円[えん] 安[やす]</b>で 輸出[ゆしゅつ]が 伸[の]びています,jw00918a.opus,js00918a.opus,0.0
